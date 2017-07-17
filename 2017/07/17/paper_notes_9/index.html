@@ -90,20 +90,21 @@
 
 
 
-<meta name="description" content="原文链接 Abstract多模态融合可以提高疾病诊断效果。多模态融合的一个挑战是数据不全，例如有一些样本有sMRI数据，却没有PET数据，有一些反之。在这个工作中，提出了一种深度学习框架CNN来估计多模态影像数据。网络的输入和输出是两种模态的数据。模型可以使用大量参数来获取输入模态和输出模态之间的关系。在ADNI数据集上测试 MRI 和 PET 的结果显著超过之前的算法。">
+<meta name="description" content="Abstracttips:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文笔记系列之二： Deep Learning Based Imaging Data Completion for Improved Brain Disease Diagnosis（MICCAI，2014）">
-<meta property="og:url" content="https://wizardyan.github.io/2017/07/17/paper_notes_2/index.html">
+<meta property="og:title" content="论文笔记系列之九：Classification of Schizophrenia Versus Normal Subjects Using Deep Learning（Proceedings of the Tenth Indian Conference on Computer Vision，2016）">
+<meta property="og:url" content="https://wizardyan.github.io/2017/07/17/paper_notes_9/index.html">
 <meta property="og:site_name" content="Wizard&#39;s blog">
-<meta property="og:description" content="原文链接 Abstract多模态融合可以提高疾病诊断效果。多模态融合的一个挑战是数据不全，例如有一些样本有sMRI数据，却没有PET数据，有一些反之。在这个工作中，提出了一种深度学习框架CNN来估计多模态影像数据。网络的输入和输出是两种模态的数据。模型可以使用大量参数来获取输入模态和输出模态之间的关系。在ADNI数据集上测试 MRI 和 PET 的结果显著超过之前的算法。">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/ZgHXOQkelohQVVNYtvYpWfopiXqXM0eb32GVIhJIKrY!/b/dCABAAAAAAAA&bo=zAIOAgAAAAADB.A!&rf=viewer_4">
-<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/r8h4dgM7vu04cJfzlFfXXR0JQS*eX1X0G.qUu*9mpi8!/b/dB8BAAAAAAAA&bo=gAKOAgAAAAADByw!&rf=viewer_4">
-<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/ltsZNfqX*SyoOfz*yKzW2Y3VGGwGsqG1L30wSD9gbyc!/b/dB8BAAAAAAAA&bo=1QITAgAAAAADB.Q!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-07-17T07:01:05.141Z">
+<meta property="og:description" content="Abstracttips:">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V10faeBQ4OFBLZ/AQ.EmPfWmp1l80fDro73By7cYGamMbm3Jaej19HYN7M!/b/dLIAAAAAAAAA&bo=*wFdAQAAAAADB4A!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/ZdRC9RGPW.ZXE*PX1LxneUFNauRBrPsqg3ruFgdyMC8!/b/dB8BAAAAAAAA&bo=EQTsAQAAAAADB9o!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/bPVKhzdxir9jLxyxNb7deAKACW2GzNT0*vRzMqOM*DU!/b/dCABAAAAAAAA&bo=LQIhAgAAAAADBy4!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/cjfWv7FyT0LTVrbDezAfngZ07BG4GqL2X2okEjkWlnY!/b/dPgAAAAAAAAA&bo=CgKZAQAAAAADB7I!&rf=viewer_4">
+<meta property="og:updated_time" content="2017-07-17T07:01:05.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文笔记系列之二： Deep Learning Based Imaging Data Completion for Improved Brain Disease Diagnosis（MICCAI，2014）">
-<meta name="twitter:description" content="原文链接 Abstract多模态融合可以提高疾病诊断效果。多模态融合的一个挑战是数据不全，例如有一些样本有sMRI数据，却没有PET数据，有一些反之。在这个工作中，提出了一种深度学习框架CNN来估计多模态影像数据。网络的输入和输出是两种模态的数据。模型可以使用大量参数来获取输入模态和输出模态之间的关系。在ADNI数据集上测试 MRI 和 PET 的结果显著超过之前的算法。">
-<meta name="twitter:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/ZgHXOQkelohQVVNYtvYpWfopiXqXM0eb32GVIhJIKrY!/b/dCABAAAAAAAA&bo=zAIOAgAAAAADB.A!&rf=viewer_4">
+<meta name="twitter:title" content="论文笔记系列之九：Classification of Schizophrenia Versus Normal Subjects Using Deep Learning（Proceedings of the Tenth Indian Conference on Computer Vision，2016）">
+<meta name="twitter:description" content="Abstracttips:">
+<meta name="twitter:image" content="http://a2.qpic.cn/psb?/V10faeBQ4OFBLZ/AQ.EmPfWmp1l80fDro73By7cYGamMbm3Jaej19HYN7M!/b/dLIAAAAAAAAA&bo=*wFdAQAAAAADB4A!&rf=viewer_4">
 
 
 
@@ -131,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="https://wizardyan.github.io/2017/07/17/paper_notes_2/"/>
+  <link rel="canonical" href="https://wizardyan.github.io/2017/07/17/paper_notes_9/"/>
 
 
 
@@ -140,7 +141,7 @@
 
 
 
-  <title> 论文笔记系列之二： Deep Learning Based Imaging Data Completion for Improved Brain Disease Diagnosis（MICCAI，2014） | Wizard's blog </title>
+  <title> 论文笔记系列之九：Classification of Schizophrenia Versus Normal Subjects Using Deep Learning（Proceedings of the Tenth Indian Conference on Computer Vision，2016） | Wizard's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -292,7 +293,7 @@ tpwidget("show");</script>
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/07/17/paper_notes_2/">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/07/17/paper_notes_9/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Wizard">
@@ -316,7 +317,7 @@ tpwidget("show");</script>
             
             
               
-                论文笔记系列之二： Deep Learning Based Imaging Data Completion for Improved Brain Disease Diagnosis（MICCAI，2014）
+                论文笔记系列之九：Classification of Schizophrenia Versus Normal Subjects Using Deep Learning（Proceedings of the Tenth Indian Conference on Computer Vision，2016）
               
             
           </h1>
@@ -331,7 +332,7 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T16:02:39+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T16:03:02+08:00">
                 2017-07-17
               </time>
             
@@ -372,8 +373,8 @@ tpwidget("show");</script>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/17/paper_notes_2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/17/paper_notes_2/" itemprop="commentCount"></span>
+                <a href="/2017/07/17/paper_notes_9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/17/paper_notes_9/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -399,17 +400,40 @@ tpwidget("show");</script>
       
 
       
-        <p><a href="http://link.springer.com/chapter/10.1007/978-3-319-10443-0_39" target="_blank" rel="external">原文链接</a></p>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>多模态融合可以提高疾病诊断效果。多模态融合的一个挑战是数据不全，例如有一些样本有sMRI数据，却没有PET数据，有一些反之。在这个工作中，提出了一种深度学习框架CNN来估计多模态影像数据。网络的输入和输出是两种模态的数据。模型可以使用大量参数来获取输入模态和输出模态之间的关系。在ADNI数据集上测试 MRI 和 PET 的结果显著超过之前的算法。<br><a id="more"></a></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>在这个工作中，提出了一个3D CNN模型来补全多模态数据。利用MRI数据来预测缺失的PET数据。</p>
-<h2 id="Material-and-Methods"><a href="#Material-and-Methods" class="headerlink" title="Material and Methods"></a>Material and Methods</h2><h4 id="Data-Preprocessing"><a href="#Data-Preprocessing" class="headerlink" title="Data Preprocessing"></a>Data Preprocessing</h4><p>标准流程，然后下采样至 64 64 64</p>
-<h4 id="3D-CNN"><a href="#3D-CNN" class="headerlink" title="3D CNN"></a>3D CNN</h4><p>这里简单介绍了3D卷积的流程</p>
-<h4 id="3D-CNN-for-Image-Data-Completion"><a href="#3D-CNN-for-Image-Data-Completion" class="headerlink" title="3D CNN for Image Data Completion"></a>3D CNN for Image Data Completion</h4><p>在本文中，output_patch_size 被设成 3 3 3<br>从每个MRI数据中随机选取了大量（约50,000）的 3D patch，获取对应的PET image patch<br>filter_size: 7 7 7<br><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/ZgHXOQkelohQVVNYtvYpWfopiXqXM0eb32GVIhJIKrY!/b/dCABAAAAAAAA&amp;bo=zAIOAgAAAAADB.A!&amp;rf=viewer_4" alt="3D-CNN结构"><br>总共用了37761个参数。<br>在这个工作中，用了 CNS 工具包来实现CNN结构，学习率固定为0.01</p>
-<h2 id="Results-and-Discussion"><a href="#Results-and-Discussion" class="headerlink" title="Results and Discussion"></a>Results and Discussion</h2><h4 id="Experimental-Setup"><a href="#Experimental-Setup" class="headerlink" title="Experimental Setup"></a>Experimental Setup</h4><p>我们把我们的方法同两种传统的方法 KNN 和 Zero methods 作了对比。 本实验首先通过三种方法补全了 PET 数据，然后基于重构的数据测试分类效果。<br>试验中，随机抽取2/3的样本训练分类器，1/3的样本测试数据。</p>
-<p>由于样本不平均，所以使用了ROC曲线（AUC）来评估不同方法的表现</p>
-<h4 id="Evaluation-on-Subjects-with-Both-MRI-and-PET"><a href="#Evaluation-on-Subjects-with-Both-MRI-and-PET" class="headerlink" title="Evaluation on Subjects with Both MRI and PET"></a>Evaluation on Subjects with Both MRI and PET</h4><p>我们首先检验预测得到的PET是否与真实的相似，总共有398个样本，这些样本同时具有MRI和PET数据，随机抽取1/2用来预测，剩下的用作测试，然后比较真实的结果和预测结果的差异性，如下图<br><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/r8h4dgM7vu04cJfzlFfXXR0JQS*eX1X0G.qUu*9mpi8!/b/dB8BAAAAAAAA&amp;bo=gAKOAgAAAAADByw!&amp;rf=viewer_4" alt=""><br>根据表格一，发现 3D-CNN 预测得到的结果完胜 KNN 和 Zero<br><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/ltsZNfqX*SyoOfz*yKzW2Y3VGGwGsqG1L30wSD9gbyc!/b/dB8BAAAAAAAA&amp;bo=1QITAgAAAAADB.Q!&amp;rf=viewer_4" alt=""></p>
-<h4 id="Evaluation-on-All-Subjects"><a href="#Evaluation-on-All-Subjects" class="headerlink" title="Evaluation on All Subjects"></a>Evaluation on All Subjects</h4><p>在830个样本上进行测试，其中398个样本同时有MRI和PET图像，432个仅有MRI图像，使用398个样本训练模型，然后预测432个样本的PET图像。根据表格二，发现多模态的方法效果更好。</p>
-<h2 id="Conclusion-and-Future-Work"><a href="#Conclusion-and-Future-Work" class="headerlink" title="Conclusion and Future Work"></a>Conclusion and Future Work</h2><p>一句话，CNN预测的效果超过传统方法，建议使用其他的深度学习方法来看看是不是也有同样的效果。</p>
+        <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>tips:<br><a id="more"></a></p>
+<ul>
+<li>fMRI  stacked autoencoder(SAD)</li>
+<li>Basic Method:A separate 4-hidden layer autoencoder is trained in an <strong>unsupervised</strong> manner for feature extraction corresponding to every brain region. Then, <strong>SVM classifier </strong></li>
+<li>In order to design a robust classifier, used <strong>covariance based approach</strong></li>
+<li>Dataset: 1000</li>
+<li>Method: 10 fold CV</li>
+<li>Result: accuracy:92%, better than existing methods</li>
+</ul>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>There is no standard automated fMRI tool in hospitals that can be used for disease diagnosis.<br><strong> Cobre dataset</strong> Schizophrenia and normal subjects</p>
+<p>In <a href="http://www.sciencedirect.com/science/article/pii/S1053811915003985" target="_blank" rel="external">12</a> , DNN with mutiple hidden layers along with sparsity constraint is used to classify subjects.<br>limitition: Mean time series (all voxels in a whole region may not be active at any time), Pearson Correlation (neglect the effect of other regions).</p>
+<p>In <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3759000/" target="_blank" rel="external">1</a>, ICA +various graph theoretic measures. 65% accuracy</p>
+<p>In this paper,</p>
+<ol>
+<li>propose covariance based approach to filter out inactive GM form the fMRI dataset before the data is fed to the first stage of the classifier</li>
+<li>2-stage classifier: first stage, autoencoder(4 hidden layers) trained on every brain region(116 regions), output is 8-length feature vectors for each region. Second stage, SVM classifier.</li>
+<li>Instead of using the mean time series of all voxels, we have used  complete time series of all active voxels as input to SAEs.</li>
+</ol>
+<h1 id="2-Background"><a href="#2-Background" class="headerlink" title="2. Background"></a>2. Background</h1><p>Autoencoder: The goal of <strong>autoencoder</strong> is to find representative features from the input data such that the data can be reconstructed from this feature vector.<br>SVM:</p>
+<h1 id="3-Data-description-and-pre-processing"><a href="#3-Data-description-and-pre-processing" class="headerlink" title="3. Data description and pre-processing"></a>3. Data description and pre-processing</h1><p><a href="http://cobre.mrn.org/" target="_blank" rel="external">COBRE dataset</a><br>74 HC + 72 SZ<br>voxel size : 3<em>3</em>4</p>
+<p>proprocess: SPM8 , discard first 5 volumes ….<br>Result in 53<em>63&amp;52(3mm isotropic voxels)<br>Further, smooth: FWHM=8mm<br><em>* only use GM, masked out WM and CSF</em></em></p>
+<h1 id="4-Proposed-work"><a href="#4-Proposed-work" class="headerlink" title="4. Proposed work"></a>4. Proposed work</h1><p>Pre-state: filter out inactive or noisy GM voxels<br>Stage1: auto encoder for every region<br>Stage2: SVM</p>
+<p><img src="http://a2.qpic.cn/psb?/V10faeBQ4OFBLZ/AQ.EmPfWmp1l80fDro73By7cYGamMbm3Jaej19HYN7M!/b/dLIAAAAAAAAA&amp;bo=*wFdAQAAAAADB4A!&amp;rf=viewer_4" alt="捕获26"></p>
+<p><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/ZdRC9RGPW.ZXE*PX1LxneUFNauRBrPsqg3ruFgdyMC8!/b/dB8BAAAAAAAA&amp;bo=EQTsAQAAAAADB9o!&amp;rf=viewer_4" alt="捕获29"></p>
+<h2 id="4-1-Pre-stage"><a href="#4-1-Pre-stage" class="headerlink" title="4.1 Pre-stage"></a>4.1 Pre-stage</h2><p>$$<br>K_y[l]= \dfrac{E[(y[n]-\mu[n])(y[n-l]-\mu[n-l])]}{\sigma_y^2}<br>$$</p>
+<p><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/bPVKhzdxir9jLxyxNb7deAKACW2GzNT0*vRzMqOM*DU!/b/dCABAAAAAAAA&amp;bo=LQIhAgAAAAADBy4!&amp;rf=viewer_4" alt="捕获27"></p>
+<p>Compute the area under the curve wxhibited by $ K_y[l] $ , $l= [-35,35] $. If the area over 2, the voxel is noisy.</p>
+<h2 id="4-2-Stage-1-Learning-features-via-autoencoder"><a href="#4-2-Stage-1-Learning-features-via-autoencoder" class="headerlink" title="4.2 Stage-1: Learning features via autoencoder"></a>4.2 Stage-1: Learning features via autoencoder</h2><p><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/cjfWv7FyT0LTVrbDezAfngZ07BG4GqL2X2okEjkWlnY!/b/dPgAAAAAAAAA&amp;bo=CgKZAQAAAAADB7I!&amp;rf=viewer_4" alt="捕获28"></p>
+<p>Train: 10 HC + 10 SZ<br>Test: 30HC + 30 SZ</p>
+<p>Augment the train dataset:Random choose 50% ,30 times —&gt; 300 HC + 300 SZ</p>
+<h2 id="4-3-Stage-2-SVM-Classifier"><a href="#4-3-Stage-2-SVM-Classifier" class="headerlink" title="4.3 Stage-2: SVM Classifier"></a>4.3 Stage-2: SVM Classifier</h2><p>i-th region: N active voxels, output 8 length feature vector.</p>
+<p>$ M<em>{Voxels <em> samples}</em> M</em>{samples <em> features}=M_{Voxels </em> features} $</p>
+<p>Calculate <strong> Mean </strong> and  <strong> Std</strong> of every feature</p>
+<h1 id="6-Conclusion"><a href="#6-Conclusion" class="headerlink" title="6. Conclusion"></a>6. Conclusion</h1><p>92%， Better than the exsisting methods</p>
 
       
     </div>
@@ -440,8 +464,8 @@ tpwidget("show");</script>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/17/paper_notes_1/" rel="next" title="论文笔记系列之一：层次特征表示和多模态融合（深度学习）诊断阿尔茨海默症和轻度认知障碍（NeuroImage，2014）">
-                <i class="fa fa-chevron-left"></i> 论文笔记系列之一：层次特征表示和多模态融合（深度学习）诊断阿尔茨海默症和轻度认知障碍（NeuroImage，2014）
+              <a href="/2017/07/17/paper_notes_8/" rel="next" title="论文笔记系列之八：Single subject prediction of brain disorders in neuroimaging__Promises and pitfalls（NeuroImage，2017）">
+                <i class="fa fa-chevron-left"></i> 论文笔记系列之八：Single subject prediction of brain disorders in neuroimaging__Promises and pitfalls（NeuroImage，2017）
               </a>
             
           </div>
@@ -450,8 +474,8 @@ tpwidget("show");</script>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/17/paper_notes_4/" rel="prev" title="论文笔记系列之四： 3D Deep Learning for Multi-modal Imaging-Guided Survival Time Prediction of Brain Tumor Patients（MICCAI,2016）">
-                论文笔记系列之四： 3D Deep Learning for Multi-modal Imaging-Guided Survival Time Prediction of Brain Tumor Patients（MICCAI,2016） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/17/paper_notes_10/" rel="prev" title="论文笔记系列之十：Dermatologist-level classification of skin cancer with deep neural networks（Nature，2017）">
+                论文笔记系列之十：Dermatologist-level classification of skin cancer with deep neural networks（Nature，2017） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -478,8 +502,8 @@ tpwidget("show");</script>
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/07/17/paper_notes_2/"
-           data-title="论文笔记系列之二： Deep Learning Based Imaging Data Completion for Improved Brain Disease Diagnosis（MICCAI，2014）" data-url="https://wizardyan.github.io/2017/07/17/paper_notes_2/">
+      <div class="ds-thread" data-thread-key="2017/07/17/paper_notes_9/"
+           data-title="论文笔记系列之九：Classification of Schizophrenia Versus Normal Subjects Using Deep Learning（Proceedings of the Tenth Indian Conference on Computer Vision，2016）" data-url="https://wizardyan.github.io/2017/07/17/paper_notes_9/">
       </div>
     
   </div>
@@ -590,7 +614,7 @@ tpwidget("show");</script>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Material-and-Methods"><span class="nav-number">3.</span> <span class="nav-text">Material and Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Preprocessing"><span class="nav-number">3.0.1.</span> <span class="nav-text">Data Preprocessing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3D-CNN"><span class="nav-number">3.0.2.</span> <span class="nav-text">3D CNN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3D-CNN-for-Image-Data-Completion"><span class="nav-number">3.0.3.</span> <span class="nav-text">3D CNN for Image Data Completion</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Results-and-Discussion"><span class="nav-number">4.</span> <span class="nav-text">Results and Discussion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Experimental-Setup"><span class="nav-number">4.0.1.</span> <span class="nav-text">Experimental Setup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluation-on-Subjects-with-Both-MRI-and-PET"><span class="nav-number">4.0.2.</span> <span class="nav-text">Evaluation on Subjects with Both MRI and PET</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluation-on-All-Subjects"><span class="nav-number">4.0.3.</span> <span class="nav-text">Evaluation on All Subjects</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion-and-Future-Work"><span class="nav-number">5.</span> <span class="nav-text">Conclusion and Future Work</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Background"><span class="nav-number">3.</span> <span class="nav-text">2. Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Data-description-and-pre-processing"><span class="nav-number">4.</span> <span class="nav-text">3. Data description and pre-processing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Proposed-work"><span class="nav-number">5.</span> <span class="nav-text">4. Proposed work</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-Pre-stage"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 Pre-stage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-Stage-1-Learning-features-via-autoencoder"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 Stage-1: Learning features via autoencoder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-Stage-2-SVM-Classifier"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 Stage-2: SVM Classifier</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-Conclusion"><span class="nav-number">6.</span> <span class="nav-text">6. Conclusion</span></a></li></ol></div>
             
 
           </div>
