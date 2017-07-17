@@ -96,7 +96,7 @@
 <meta property="og:url" content="https://wizardyan.github.io/2017/07/17/paper_notes_11/index.html">
 <meta property="og:site_name" content="Wizard&#39;s blog">
 <meta property="og:description" content="原文链接 Abstract功能连接模式 配合 SVM 被广泛用于分类任务。DNN 具有提取更高阶信息的能力。 这项研究的任务就是从静息态的功能连接中对SZ和HC进行分类。使用稀疏控制的DNN模型达到较好的效果将分类错误率降低到了14.2%">
-<meta property="og:updated_time" content="2017-07-17T08:17:15.649Z">
+<meta property="og:updated_time" content="2017-07-17T08:17:51.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文笔记系列之十一：Deep Neural network with weight sparsity control and pretraining extracts hierarchical features and enhances classification performance Evidence from whole brain resting-state functional connectivity patterns of schizophrenia（Neuroimage，2016）">
 <meta name="twitter:description" content="原文链接 Abstract功能连接模式 配合 SVM 被广泛用于分类任务。DNN 具有提取更高阶信息的能力。 这项研究的任务就是从静息态的功能连接中对SZ和HC进行分类。使用稀疏控制的DNN模型达到较好的效果将分类错误率降低到了14.2%">
@@ -327,7 +327,7 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T16:17:15+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T16:17:51+08:00">
                 2017-07-17
               </time>
             
@@ -401,7 +401,8 @@ tpwidget("show");</script>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>静态功能连接被广泛应用于精神疾病的区分；<br>机器学习被成功应用于检测功能连接模式；<br>近来，使用稀疏控制被广泛应用；<br>DNN在许多领域有了突出的效果。</p>
 <p>DNN一般被用于小于1000维的数据，但是我们的全脑功能连接的数据超过5000维，所以需要加入稀疏控制和合适的初始化方法。<br>我们定义了一个比率（非零率=非零的个数/所有的权重），然后精确地控制非零率来提高分类的性能。</p>
 <p>总体说来，这篇文章就是说用了预训练和稀疏控制会有更好的效果。然后用实验证实。</p>
-<h2 id="Materials-and-Methods"><a href="#Materials-and-Methods" class="headerlink" title="Materials and Methods"></a>Materials and Methods</h2><h3 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h3><h3 id="Data-description"><a href="#Data-description" class="headerlink" title="Data description"></a>Data description</h3><p>Cobre数据。</p>
+<h2 id="Materials-and-Methods"><a href="#Materials-and-Methods" class="headerlink" title="Materials and Methods"></a>Materials and Methods</h2><h3 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h3><p>【1】</p>
+<h3 id="Data-description"><a href="#Data-description" class="headerlink" title="Data description"></a>Data description</h3><p>Cobre数据。</p>
 <h3 id="FC-分析"><a href="#FC-分析" class="headerlink" title="FC 分析"></a>FC 分析</h3><h3 id="DNN-training-with-sparsity-control-of-weights"><a href="#DNN-training-with-sparsity-control-of-weights" class="headerlink" title="DNN training with sparsity control of weights"></a>DNN training with sparsity control of weights</h3><p>公式一、弹性网络+最小均方差<br>公式二、W的更新<br>L1正则控制W的离散度，L2正则控制W的过拟合。<br>在训练中，使用了带有动量的权重更新策略。</p>
 <h3 id="Proposed-scheme-for-sparsity-control-of-DNN-weights"><a href="#Proposed-scheme-for-sparsity-control-of-DNN-weights" class="headerlink" title="Proposed scheme for sparsity control of DNN weights"></a>Proposed scheme for sparsity control of DNN weights</h3><p>公式四、提出了一种控制W的非零率的方案；</p>
 <h3 id="Pretraining-of-DNN-weights-for-initialization"><a href="#Pretraining-of-DNN-weights-for-initialization" class="headerlink" title="Pretraining of DNN weights for initialization"></a>Pretraining of DNN weights for initialization</h3><p>自动编码器<br>使用自动编码器层级预训练网络</p>
