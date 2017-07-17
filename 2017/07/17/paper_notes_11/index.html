@@ -90,24 +90,16 @@
 
 
 
-<meta name="description" content="原文链接 tsne 简介t-SNE 是van der Maaten 和 Hinton于2008年提出，（等有时间把这篇文章剖析一下）之后被迅速应用于机器学习领域。它在将高维数据映射到低维上具有很强的能力。">
+<meta name="description" content="原文链接 Abstract功能连接模式 配合 SVM 被广泛用于分类任务。DNN 具有提取更高阶信息的能力。 这项研究的任务就是从静息态的功能连接中对SZ和HC进行分类。使用稀疏控制的DNN模型达到较好的效果将分类错误率降低到了14.2%">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to Use t-SNE Effectively">
-<meta property="og:url" content="https://wizardyan.github.io/2017/07/17/tsne_notes/index.html">
+<meta property="og:title" content="论文笔记系列之十一：Deep Neural network with weight sparsity control and pretraining extracts hierarchical features and enhances classification performance Evidence from whole brain resting-state functional connectivity patterns of schizophrenia（Neuroimage，2016）">
+<meta property="og:url" content="https://wizardyan.github.io/2017/07/17/paper_notes_11/index.html">
 <meta property="og:site_name" content="Wizard&#39;s blog">
-<meta property="og:description" content="原文链接 tsne 简介t-SNE 是van der Maaten 和 Hinton于2008年提出，（等有时间把这篇文章剖析一下）之后被迅速应用于机器学习领域。它在将高维数据映射到低维上具有很强的能力。">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/Sm*IkWwe.TAshU4PjRUirHeQut4tOtqH32Bs*jKvEms!/b/dCABAAAAAAAA&bo=awU.AQAAAAADB3M!&rf=viewer_4">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/41M6KMzI9.9QPh22wID31X0ZZYEFHx*AOJ2RR1WYTVo!/b/dCABAAAAAAAA&bo=bAUsAQAAAAADB2Y!&rf=viewer_4">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/qjPWJ97wAeoJCJhRAARHC8Hw*sg3fSvVz7NYDNbC9bE!/b/dCABAAAAAAAA&bo=ZAUdAQAAAAADB18!&rf=viewer_4">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/yhYsh7c9DXwSDDRGGkYTFP9pz7yCAGnCoAJKWxaWze8!/b/dCABAAAAAAAA&bo=hwUyAQAAAAADB5M!&rf=viewer_4">
-<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/ZBWyk6HKWzOOPqz1P1v.Lt9FlbWbg8qSzEUFIO1WADo!/b/dB8BAAAAAAAA&bo=fAU*AQAAAAADB2U!&rf=viewer_4">
-<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/2m6u4*ZOlFSEClORUTH05mjvtSzAp7brwPfbAxIVXVw!/b/dB8BAAAAAAAA&bo=bQUiAQAAAAADAG4!&rf=viewer_4">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/In0Oev7ZKXJ9Ncmdty2DBPOM.gmMbCNdi.vLNFt*vOU!/b/dCABAAAAAAAA&bo=aAUmAQAAAAADB2g!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-07-17T07:01:05.061Z">
+<meta property="og:description" content="原文链接 Abstract功能连接模式 配合 SVM 被广泛用于分类任务。DNN 具有提取更高阶信息的能力。 这项研究的任务就是从静息态的功能连接中对SZ和HC进行分类。使用稀疏控制的DNN模型达到较好的效果将分类错误率降低到了14.2%">
+<meta property="og:updated_time" content="2017-07-17T08:17:15.649Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="How to Use t-SNE Effectively">
-<meta name="twitter:description" content="原文链接 tsne 简介t-SNE 是van der Maaten 和 Hinton于2008年提出，（等有时间把这篇文章剖析一下）之后被迅速应用于机器学习领域。它在将高维数据映射到低维上具有很强的能力。">
-<meta name="twitter:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/Sm*IkWwe.TAshU4PjRUirHeQut4tOtqH32Bs*jKvEms!/b/dCABAAAAAAAA&bo=awU.AQAAAAADB3M!&rf=viewer_4">
+<meta name="twitter:title" content="论文笔记系列之十一：Deep Neural network with weight sparsity control and pretraining extracts hierarchical features and enhances classification performance Evidence from whole brain resting-state functional connectivity patterns of schizophrenia（Neuroimage，2016）">
+<meta name="twitter:description" content="原文链接 Abstract功能连接模式 配合 SVM 被广泛用于分类任务。DNN 具有提取更高阶信息的能力。 这项研究的任务就是从静息态的功能连接中对SZ和HC进行分类。使用稀疏控制的DNN模型达到较好的效果将分类错误率降低到了14.2%">
 
 
 
@@ -135,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="https://wizardyan.github.io/2017/07/17/tsne_notes/"/>
+  <link rel="canonical" href="https://wizardyan.github.io/2017/07/17/paper_notes_11/"/>
 
 
 
@@ -144,7 +136,7 @@
 
 
 
-  <title> How to Use t-SNE Effectively | Wizard's blog </title>
+  <title> 论文笔记系列之十一：Deep Neural network with weight sparsity control and pretraining extracts hierarchical features and enhances classification performance Evidence from whole brain resting-state functional connectivity patterns of schizophrenia（Neuroimage，2016） | Wizard's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -296,7 +288,7 @@ tpwidget("show");</script>
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/07/17/tsne_notes/">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/07/17/paper_notes_11/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Wizard">
@@ -320,7 +312,7 @@ tpwidget("show");</script>
             
             
               
-                How to Use t-SNE Effectively
+                论文笔记系列之十一：Deep Neural network with weight sparsity control and pretraining extracts hierarchical features and enhances classification performance Evidence from whole brain resting-state functional connectivity patterns of schizophrenia（Neuroimage，2016）
               
             
           </h1>
@@ -335,7 +327,7 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T16:07:45+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T16:17:15+08:00">
                 2017-07-17
               </time>
             
@@ -358,8 +350,8 @@ tpwidget("show");</script>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/methods/" itemprop="url" rel="index">
-                    <span itemprop="name">methods</span>
+                  <a href="/categories/papers/" itemprop="url" rel="index">
+                    <span itemprop="name">papers</span>
                   </a>
                 </span>
 
@@ -376,8 +368,8 @@ tpwidget("show");</script>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/17/tsne_notes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/17/tsne_notes/" itemprop="commentCount"></span>
+                <a href="/2017/07/17/paper_notes_11/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/17/paper_notes_11/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -403,23 +395,26 @@ tpwidget("show");</script>
       
 
       
-        <p><a href="http://distill.pub/2016/misread-tsne/" target="_blank" rel="external">原文链接</a></p>
-<h2 id="tsne-简介"><a href="#tsne-简介" class="headerlink" title="tsne 简介"></a>tsne 简介</h2><p>t-SNE 是<a href="http://159.226.251.229/videoplayer/vandermaaten08a.pdf?ich_u_r_i=9a81ad877bebd689eae184c8eb7be557&amp;ich_s_t_a_r_t=0&amp;ich_e_n_d=0&amp;ich_k_e_y=1745028902750363482439&amp;ich_t_y_p_e=1&amp;ich_d_i_s_k_i_d=7&amp;ich_u_n_i_t=1" target="_blank" rel="external">van der Maaten 和 Hinton</a>于2008年提出，（等有时间把这篇文章剖析一下）之后被迅速应用于机器学习领域。它在将高维数据映射到低维上具有很强的能力。<br><a id="more"></a></p>
-<p>下面我们简要说明一些例子，说明哪些是 t-SNE 可以做到的，哪些是t-SNE不能做到的。</p>
-<p>t-SNE中有一个参数的调节需要特别注意： perplexity。 这是在权衡数据的局部性质和整体性质。原文中说：“SNE对于perplexity具有很强的鲁棒性，一般来说 perplexity的值在5-50之间都不会有太大的影响”，事实上，这个影响还是比较大的，这就意味着想要绘制一个合适的tsne二维图需要多次分析perplexity参数。</p>
-<h2 id="1-Those-hyperparameters-really-matter"><a href="#1-Those-hyperparameters-really-matter" class="headerlink" title="1. Those hyperparameters really matter"></a>1. Those hyperparameters really matter</h2><ul>
-<li>关于perplexity，不同值有不同的效果，这个参数对于结果的影响其实是很大的。一般来说，区间 2-50 可以试一试，超过50比较难得到一个好的结果。</li>
-<li>关于step，没有确定的迭代次数可以参考，不同的数据集需要不同的迭代次数使它收敛到不同的数值。</li>
-</ul>
-<p><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/Sm*IkWwe.TAshU4PjRUirHeQut4tOtqH32Bs*jKvEms!/b/dCABAAAAAAAA&amp;bo=awU.AQAAAAADB3M!&amp;rf=viewer_4" alt=""><br>对于迭代次数，一般来说需要的是达到一个稳定的收敛值，在这个教程中，一般采用5000次</p>
-<h2 id="2-Cluster-sizes-in-a-t-SNE-plot-mean-nothing"><a href="#2-Cluster-sizes-in-a-t-SNE-plot-mean-nothing" class="headerlink" title="2. Cluster sizes in a t-SNE plot mean nothing"></a>2. Cluster sizes in a t-SNE plot mean nothing</h2><p>对于两个类别具有不同的标准差或者不同size（这里所说的size是指tSNE处理后生成聚类图的size,而不是number of points）的情形，tSNE 可以自动地将原先紧密的数据点变稀疏，把原来系数的数据集变紧密。<br><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/41M6KMzI9.9QPh22wID31X0ZZYEFHx*AOJ2RR1WYTVo!/b/dCABAAAAAAAA&amp;bo=bAUsAQAAAAADB2Y!&amp;rf=viewer_4" alt=""></p>
-<h2 id="3-Disatances-between-clusters-might-not-mean-anything"><a href="#3-Disatances-between-clusters-might-not-mean-anything" class="headerlink" title="3. Disatances between clusters might not mean anything"></a>3. Disatances between clusters might not mean anything</h2><p>不同类别间的距离并不能说明什么。</p>
-<p><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/qjPWJ97wAeoJCJhRAARHC8Hw*sg3fSvVz7NYDNbC9bE!/b/dCABAAAAAAAA&amp;bo=ZAUdAQAAAAADB18!&amp;rf=viewer_4" alt=""></p>
-<h2 id="4-Random-noise-doesn’t-always-look-random"><a href="#4-Random-noise-doesn’t-always-look-random" class="headerlink" title="4. Random noise doesn’t always look random"></a>4. Random noise doesn’t always look random</h2><p>随机噪声并不总是随机的。一个典型的陷阱是你认为看到的模式其实只是一些随机噪声。<br><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/yhYsh7c9DXwSDDRGGkYTFP9pz7yCAGnCoAJKWxaWze8!/b/dCABAAAAAAAA&amp;bo=hwUyAQAAAAADB5M!&amp;rf=viewer_4" alt=""></p>
-<h2 id="5-You-can-see-some-shapes-sometimes"><a href="#5-You-can-see-some-shapes-sometimes" class="headerlink" title="5. You can see some shapes, sometimes"></a>5. You can see some shapes, sometimes</h2><p><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/ZBWyk6HKWzOOPqz1P1v.Lt9FlbWbg8qSzEUFIO1WADo!/b/dB8BAAAAAAAA&amp;bo=fAU*AQAAAAADB2U!&amp;rf=viewer_4" alt=""><br><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/2m6u4*ZOlFSEClORUTH05mjvtSzAp7brwPfbAxIVXVw!/b/dB8BAAAAAAAA&amp;bo=bQUiAQAAAAADAG4!&amp;rf=viewer_4" alt=""></p>
-<h2 id="6-For-topology-you-may-need-more-than-on-plot"><a href="#6-For-topology-you-may-need-more-than-on-plot" class="headerlink" title="6. For topology, you may need more than on plot"></a>6. For topology, you may need more than on plot</h2><p>下图中是高斯分布，只是黄色的点比蓝色点的离散度高了50倍，这时候需要用多个图来刻画tSNE的分布结果。这个例子中，复杂度是30的效果最好。<br><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/In0Oev7ZKXJ9Ncmdty2DBPOM.gmMbCNdi.vLNFt*vOU!/b/dCABAAAAAAAA&amp;bo=aAUmAQAAAAADB2g!&amp;rf=viewer_4" alt=""></p>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>t-SNE在使用上非常灵活，也正是这种灵活性使得它的解释变得困难。通过这个教程的学习，可以建立一种直觉，来调节参数以获得更好的结果。</p>
-
+        <p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4644699/" target="_blank" rel="external">原文链接</a></p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>功能连接模式 配合 SVM 被广泛用于分类任务。<br>DNN 具有提取更高阶信息的能力。 这项研究的任务就是从静息态的功能连接中对SZ和HC进行分类。<br>使用稀疏控制的DNN模型达到较好的效果<br>将分类错误率降低到了14.2%</p>
+<a id="more"></a>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>静态功能连接被广泛应用于精神疾病的区分；<br>机器学习被成功应用于检测功能连接模式；<br>近来，使用稀疏控制被广泛应用；<br>DNN在许多领域有了突出的效果。</p>
+<p>DNN一般被用于小于1000维的数据，但是我们的全脑功能连接的数据超过5000维，所以需要加入稀疏控制和合适的初始化方法。<br>我们定义了一个比率（非零率=非零的个数/所有的权重），然后精确地控制非零率来提高分类的性能。</p>
+<p>总体说来，这篇文章就是说用了预训练和稀疏控制会有更好的效果。然后用实验证实。</p>
+<h2 id="Materials-and-Methods"><a href="#Materials-and-Methods" class="headerlink" title="Materials and Methods"></a>Materials and Methods</h2><h3 id="overview"><a href="#overview" class="headerlink" title="overview"></a>overview</h3><h3 id="Data-description"><a href="#Data-description" class="headerlink" title="Data description"></a>Data description</h3><p>Cobre数据。</p>
+<h3 id="FC-分析"><a href="#FC-分析" class="headerlink" title="FC 分析"></a>FC 分析</h3><h3 id="DNN-training-with-sparsity-control-of-weights"><a href="#DNN-training-with-sparsity-control-of-weights" class="headerlink" title="DNN training with sparsity control of weights"></a>DNN training with sparsity control of weights</h3><p>公式一、弹性网络+最小均方差<br>公式二、W的更新<br>L1正则控制W的离散度，L2正则控制W的过拟合。<br>在训练中，使用了带有动量的权重更新策略。</p>
+<h3 id="Proposed-scheme-for-sparsity-control-of-DNN-weights"><a href="#Proposed-scheme-for-sparsity-control-of-DNN-weights" class="headerlink" title="Proposed scheme for sparsity control of DNN weights"></a>Proposed scheme for sparsity control of DNN weights</h3><p>公式四、提出了一种控制W的非零率的方案；</p>
+<h3 id="Pretraining-of-DNN-weights-for-initialization"><a href="#Pretraining-of-DNN-weights-for-initialization" class="headerlink" title="Pretraining of DNN weights for initialization"></a>Pretraining of DNN weights for initialization</h3><p>自动编码器<br>使用自动编码器层级预训练网络</p>
+<h3 id="Classification-test"><a href="#Classification-test" class="headerlink" title="Classification test"></a>Classification test</h3><p>使用交叉验证评估分类结果<br>分别使用三种方法：</p>
+<ol>
+<li>预训练的</li>
+<li>稀疏</li>
+<li>？？？</li>
+</ol>
+<h3 id="SVM-based-classification"><a href="#SVM-based-classification" class="headerlink" title="SVM-based classification"></a>SVM-based classification</h3><p>为了同DNN作比较，训练了SVM分类器</p>
+<h3 id="Learned-features-from-the-trained-DNN-and-its-qualitative-interpretation-via-visualization"><a href="#Learned-features-from-the-trained-DNN-and-its-qualitative-interpretation-via-visualization" class="headerlink" title="Learned features from the trained DNN and its qualitative interpretation via visualization"></a>Learned features from the trained DNN and its qualitative interpretation via visualization</h3><h3 id="Quantitative-interpretation-of-learned-features-from-trained-DNN-via-spatial-correlation-and-Fisher’s-scores"><a href="#Quantitative-interpretation-of-learned-features-from-trained-DNN-via-spatial-correlation-and-Fisher’s-scores" class="headerlink" title="Quantitative interpretation of learned features from trained DNN via spatial correlation and Fisher’s scores"></a>Quantitative interpretation of learned features from trained DNN via spatial correlation and Fisher’s scores</h3><h3 id="Performance-evaluation-for-several-parameter-sets"><a href="#Performance-evaluation-for-several-parameter-sets" class="headerlink" title="Performance evaluation for several parameter sets"></a>Performance evaluation for several parameter sets</h3><p>评估不同的L1，L2的影响</p>
+<h3 id="Potential-bias-on-classification-performance-due-to-head-motion"><a href="#Potential-bias-on-classification-performance-due-to-head-motion" class="headerlink" title="Potential bias on classification performance due to head motion"></a>Potential bias on classification performance due to head motion</h3><p>去除头动因素的影响，因为SZ比正常被试有着更多的头动。</p>
+<h3 id="Classification-test-employing-FC-patterns-of-functionally-parcellated-regions-from-group-ICA"><a href="#Classification-test-employing-FC-patterns-of-functionally-parcellated-regions-from-group-ICA" class="headerlink" title="Classification test employing FC patterns of functionally parcellated regions from group ICA"></a>Classification test employing FC patterns of functionally parcellated regions from group ICA</h3><h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><h3 id="Group-level-FC-patterns"><a href="#Group-level-FC-patterns" class="headerlink" title="Group-level FC patterns"></a>Group-level FC patterns</h3><h3 id="Classification-performance-depending-on-weight-sparsity-levels"><a href="#Classification-performance-depending-on-weight-sparsity-levels" class="headerlink" title="Classification performance depending on weight sparsity levels"></a>Classification performance depending on weight sparsity levels</h3>
       
     </div>
 
@@ -449,8 +444,8 @@ tpwidget("show");</script>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/17/python commands/" rel="next" title="Python commands（to be continued）">
-                <i class="fa fa-chevron-left"></i> Python commands（to be continued）
+              <a href="/2017/07/17/pandas commands/" rel="next" title="Pandas commands">
+                <i class="fa fa-chevron-left"></i> Pandas commands
               </a>
             
           </div>
@@ -458,10 +453,6 @@ tpwidget("show");</script>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/17/introduce my self/" rel="prev" title="Introduce Myself">
-                Introduce Myself <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -487,8 +478,8 @@ tpwidget("show");</script>
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/07/17/tsne_notes/"
-           data-title="How to Use t-SNE Effectively" data-url="https://wizardyan.github.io/2017/07/17/tsne_notes/">
+      <div class="ds-thread" data-thread-key="2017/07/17/paper_notes_11/"
+           data-title="论文笔记系列之十一：Deep Neural network with weight sparsity control and pretraining extracts hierarchical features and enhances classification performance Evidence from whole brain resting-state functional connectivity patterns of schizophrenia（Neuroimage，2016）" data-url="https://wizardyan.github.io/2017/07/17/paper_notes_11/">
       </div>
     
   </div>
@@ -599,7 +590,7 @@ tpwidget("show");</script>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tsne-简介"><span class="nav-number">1.</span> <span class="nav-text">tsne 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Those-hyperparameters-really-matter"><span class="nav-number">2.</span> <span class="nav-text">1. Those hyperparameters really matter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Cluster-sizes-in-a-t-SNE-plot-mean-nothing"><span class="nav-number">3.</span> <span class="nav-text">2. Cluster sizes in a t-SNE plot mean nothing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Disatances-between-clusters-might-not-mean-anything"><span class="nav-number">4.</span> <span class="nav-text">3. Disatances between clusters might not mean anything</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Random-noise-doesn’t-always-look-random"><span class="nav-number">5.</span> <span class="nav-text">4. Random noise doesn’t always look random</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-You-can-see-some-shapes-sometimes"><span class="nav-number">6.</span> <span class="nav-text">5. You can see some shapes, sometimes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-For-topology-you-may-need-more-than-on-plot"><span class="nav-number">7.</span> <span class="nav-text">6. For topology, you may need more than on plot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">8.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Materials-and-Methods"><span class="nav-number">3.</span> <span class="nav-text">Materials and Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#overview"><span class="nav-number">3.1.</span> <span class="nav-text">overview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-description"><span class="nav-number">3.2.</span> <span class="nav-text">Data description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FC-分析"><span class="nav-number">3.3.</span> <span class="nav-text">FC 分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNN-training-with-sparsity-control-of-weights"><span class="nav-number">3.4.</span> <span class="nav-text">DNN training with sparsity control of weights</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proposed-scheme-for-sparsity-control-of-DNN-weights"><span class="nav-number">3.5.</span> <span class="nav-text">Proposed scheme for sparsity control of DNN weights</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pretraining-of-DNN-weights-for-initialization"><span class="nav-number">3.6.</span> <span class="nav-text">Pretraining of DNN weights for initialization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classification-test"><span class="nav-number">3.7.</span> <span class="nav-text">Classification test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM-based-classification"><span class="nav-number">3.8.</span> <span class="nav-text">SVM-based classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learned-features-from-the-trained-DNN-and-its-qualitative-interpretation-via-visualization"><span class="nav-number">3.9.</span> <span class="nav-text">Learned features from the trained DNN and its qualitative interpretation via visualization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quantitative-interpretation-of-learned-features-from-trained-DNN-via-spatial-correlation-and-Fisher’s-scores"><span class="nav-number">3.10.</span> <span class="nav-text">Quantitative interpretation of learned features from trained DNN via spatial correlation and Fisher’s scores</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Performance-evaluation-for-several-parameter-sets"><span class="nav-number">3.11.</span> <span class="nav-text">Performance evaluation for several parameter sets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Potential-bias-on-classification-performance-due-to-head-motion"><span class="nav-number">3.12.</span> <span class="nav-text">Potential bias on classification performance due to head motion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classification-test-employing-FC-patterns-of-functionally-parcellated-regions-from-group-ICA"><span class="nav-number">3.13.</span> <span class="nav-text">Classification test employing FC patterns of functionally parcellated regions from group ICA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Results"><span class="nav-number">4.</span> <span class="nav-text">Results</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Group-level-FC-patterns"><span class="nav-number">4.1.</span> <span class="nav-text">Group-level FC patterns</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Classification-performance-depending-on-weight-sparsity-levels"><span class="nav-number">4.2.</span> <span class="nav-text">Classification performance depending on weight sparsity levels</span></a></li></ol></li></ol></div>
             
 
           </div>
