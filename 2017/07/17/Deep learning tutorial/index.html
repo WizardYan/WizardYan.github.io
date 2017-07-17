@@ -1,0 +1,775 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="第一部分：什么是深度学习？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep learning （to be continued）">
+<meta property="og:url" content="https://wizardyan.github.io/2017/07/17/Deep learning tutorial/index.html">
+<meta property="og:site_name" content="Wizard&#39;s blog">
+<meta property="og:description" content="第一部分：什么是深度学习？">
+<meta property="og:image" content="http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl=http://mmbiz.qpic.cn/mmbiz_jpg/YriaiaJPb26VOy9FNpZh2J7k8LokmchxlDBYsibicskkDOPtKuVEffmib3PiatVUUicf8hQVb4HmOmc7PCKS9tQEWrPjA/640?">
+<meta property="og:updated_time" content="2017-07-17T07:01:05.097Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deep learning （to be continued）">
+<meta name="twitter:description" content="第一部分：什么是深度学习？">
+<meta name="twitter:image" content="http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl=http://mmbiz.qpic.cn/mmbiz_jpg/YriaiaJPb26VOy9FNpZh2J7k8LokmchxlDBYsibicskkDOPtKuVEffmib3PiatVUUicf8hQVb4HmOmc7PCKS9tQEWrPjA/640?">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wizardyan.github.io/2017/07/17/Deep learning tutorial/"/>
+
+
+
+
+
+
+
+
+  <title> Deep learning （to be continued） | Wizard's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wizard's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+ 
+
+ <script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=Tt6rcnE9JUuUJ30_0KCkENydggMcSLIlCT3S2pPdRnQ"></script>
+ 
+</nav>
+
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.thinkpage.cn/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WX4EQ2XJD7V2",
+    "geolocation": "enabled",
+    "position": "bottom-left",
+    "margin": "10px 10px",
+    "language": "en",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U06025FF08",
+    "hash": "76dcee1694904eac76275d6dbe6a764b"
+});
+tpwidget("show");</script>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/07/17/Deep learning tutorial/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Wizard">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Wizard's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Wizard's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Deep learning （to be continued）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T15:35:12+08:00">
+                2017-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/methods/" itemprop="url" rel="index">
+                    <span itemprop="name">methods</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/17/Deep learning tutorial/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/17/Deep learning tutorial/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第一部分：什么是深度学习？"><a href="#第一部分：什么是深度学习？" class="headerlink" title="第一部分：什么是深度学习？"></a>第一部分：什么是深度学习？</h2><a id="more"></a>
+<p>深度学习是机器学习的分支。所以要想理解深度学习，我们必须先谈谈机器学习的本质。机器学习是一门人工智能的科学，该领域的主要研究对象是人工智能，特别是如何在经验学习中改善具体算法的性能以下是机器学习经常被引用的定义：</p>
+<pre><code>A computer program is said to learn from experience E with respect to 
+some class of tasks T and performance measure P, if its performance at
+tasks in T, as measured by P, improves with experience E.
+</code></pre><p>举个简单的例子，我们想设计一个可以自动识别车牌号（任务 T）的机器，希望它能够尽可能准确地识别车牌（检验标准 P），接下来我们就用已经标记好的车牌号来训练这个机器以提高其性能，这个过程中我们认为机器从数据中学到了知识（经验 E）。</p>
+<p>机器学习已广泛应用于数据挖掘、计算机视觉、自然语言处理、生物特征识别、搜索引擎、医学诊断、检测信用卡欺诈、证券市场分析、DNA序列测序、语音和手写识别、战略游戏和机器人等领域。</p>
+<p>机器学习发展了几十年，但是依然存在一些问题没有得到良好的解决，尤其是特征表达方面。为什么特征表达很关键呢？这里举一个例子来说明：假设有房间里有一些家具，我们想要用计算机把它识别出来，那么我们就需要告诉机器什么样的才是桌子。如果我们定义“四根脚，一个板”的是桌子，那么计算机就会自动寻找满足这个特征的物品。这里的“四根腿，一个板”就是桌子的一个特征表达。传统的机器学习算法大多是基于规则手工设计特征。所以难度大且识别准确率低，因为我们知道“三条腿”的也可能是桌子，但如果没有告诉机器这个特征，它就不会识别出三条腿的桌子。</p>
+<p>讲到这里，我们就可以引出深度学习了。深度学习可以让机器根据样本来自动学习特征的分层表达。因此大大提高了模型的学习能力。</p>
+<p><img src="http://read.html5.qq.com/image?src=forum&amp;q=5&amp;r=0&amp;imgflag=7&amp;imageUrl=http://mmbiz.qpic.cn/mmbiz_jpg/YriaiaJPb26VOy9FNpZh2J7k8LokmchxlDBYsibicskkDOPtKuVEffmib3PiatVUUicf8hQVb4HmOmc7PCKS9tQEWrPjA/640?" alt="深度学习的推动者"></p>
+<h2 id="第二部分：为什么要学习深度学习？"><a href="#第二部分：为什么要学习深度学习？" class="headerlink" title="第二部分：为什么要学习深度学习？"></a>第二部分：为什么要学习深度学习？</h2><h2 id="第三部分：怎么学习深度学习？"><a href="#第三部分：怎么学习深度学习？" class="headerlink" title="第三部分：怎么学习深度学习？"></a>第三部分：怎么学习深度学习？</h2><p>由于深度学习大火，所以网上的开源代码，视频教程简直是数不胜数。这里我还是强烈推荐一个湖南帅哥<a href="http://morvanzhou.github.io/" target="_blank" rel="external">莫凡的python教程</a>（这里要强调一下，我之前还以为是台湾小哥，交流中才发现原来是湖南人，被浓重的台湾口音误导了，囧，壮哉我中华。等我学会了怎么开通留言功能就赶紧添加留言板，这样有人发现我的问题就可以直接留言纠正我啦。）。这个教程是我觉得可操作性非常强的视频。大家有兴趣的话可以看一下。程序都是用python写的，如果不熟悉python的话可以先强化一下python基础知识。这个在系列视频教程中也有课程。<br>介绍一下我是怎么从一个不懂python的小白一步步搭建自己的深度学习框架的，希望能有所启发。<br><a href="https://morvanzhou.github.io/tutorials/python-basic/basic/" target="_blank" rel="external">python基础</a>—-&gt;<a href="https://morvanzhou.github.io/tutorials/machine-learning/keras/" target="_blank" rel="external">Keras</a>—-&gt;<a href="https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/" target="_blank" rel="external">Tensorflow</a></p>
+<p>今天注册了一个 <a href="https://www.quora.com/" target="_blank" rel="external">Quara</a> 号，简直是发现了新天地。这个网站相当于国内的知乎，强烈推荐大家注册一下。我在这里看到了深度学习的先驱 Yann Lecun的关于<a href="https://www.quora.com/What%E2%80%99s-your-advice-for-undergraduate-student-who-aspires-to-be-a-research-scientist-in-deep-learning-or-related-field-one-day" target="_blank" rel="external">“一个本科生怎样学好深度学习”</a>的问答，是在是太精彩。粘到这个博客里，不时读一下，顺便找了雷锋网上找了一份翻译文本，仅供参考。</p>
+<p>(0) take all the continuous math and physics class you can possibly take. If you have the choice between “iOS programming” and “quantum mechanics”, take “quantum mechanics”. In any case, take Calc I, Calc II, Calc III, Linear Algebra, Probability and Statistics, and as many physics courses as you can. But make sure you learn to program.<br>首先，尽你所能，把所有具有连续性的数学和物理课都上一遍。如果必须要在“iOS 编程”和“量子力学”之间选一门，一定要选后者。在任何情况下，都要上微积分（I）、 微积分（II）, 微积分（III）、线性代数、概率论和统计学，另外尽可能多的去听物理学的课程。同时，还是要确保学习编程。<br>为什么物理学这么重要？因为物理学发明了很多数学方法，来给真实世界建模。比如，贝叶斯推理（BayesIan inference）在本质上与统计力学（Statistical Mechanics）是相同的，反向传播算法（ Backpropagation）可以看作是经典力学里拉格朗日算符（Lagrangian）的一种简单应用。图模型里的前向算法（ Forward Algorithm）是一种广泛应用于量子力学的路径积分（Path Integral）。物理，能够教你如何使用傅里叶变换（“海森伯不确定原理”的基石）、最大熵原理、配分函数、蒙特卡洛法、热处理、波尔兹曼分布、动力系统、混沌等等。<br>(1) Take an AI-related problem you are passionate about.<br>选一个你感兴趣的与 AI 有关的问题。<br>(2) think about it on your own<br>然后独立对这个问题进行思考。<br>(3) once you have formed your own idea of it, start reading the literature on the problem<br>一旦你形成了自己的想法，就开始阅读围绕这个问题的相关文献。<br>(4) you will find that (a) your ideas were probably a bit naive but (b) your view of the problem is slightly different from what was done before.<br>你将会发现（a）你之前的想法有点幼稚，但是（b）你对该问题的看法开始有点不一样了。<br>(5) Find a professor in your school that can help you make your ideas concrete. It might be difficult. Professors are busy and don’t have much time for undergrads. The ones with the most free time are the very junior, the very senior, and the ones who are not very active in research.<br>在你就读的学校里，找到一个教授，他可以帮你把想法具体化。这或许有点困难，因为教授们都很忙，没有多少时间来指导本科生。有很多空余时间的教授往往很年轻，而那些年纪比较大的教授，又往往不再活跃在研究圈子里。<br>(6) If you don’ find a professor with spare time, hook up with a postdoc or PhD student in his/her lab.<br>如果你找到一个合适的教授，但他没有空余时间指导你，那么你可以转而去“勾搭”他/她实验室里的博士后或博士生。<br>(7) ask the professor if you can attend his/her lab meetings and seminars or sit in his/her class.<br>问问这个教授，是否可以让你去参加他/她实验室里的会议和研讨，或者只是在他们开会的时候旁听也行。<br>(8) Before you graduate, try to write a paper about your research or release a piece of open source code.<br>在你本科毕业之前，尝试着写一篇关于你研究工作的论文，或者在网上公布一些开源代码。<br>(9) Now apply to PhD programs. Forget about the “ranking” of the school for now. Find a reputable professor who works on topics that you are interested in. Pick a person whose papers you like or admire.<br>现在，你可以去申请  PhD 项目了。不要去管所谓的学校“排名”，一定要找你感兴趣领域里有声誉的教授，他论文你很喜欢或钦佩。<br>(10) Apply to several PhD programs in the schools of the above-mentioned professors and mention in your letter that you’d like to work with that professor but would be open to work with others.<br>你可以同时申请几个学校的 PhD 项目，当然选择的时候参考上条标准。在申请信里，你要提到你很希望跟这个教授一起工作，但是也愿意与其他教授一起。<br>(11) ask your undergrad professor to write a recommendation letter for you. It’s maximally efficient if your undergrad professor is known by your favorite PhD advisor.<br>问一问你的本科教授，请他帮你写一封推荐信。如果你的本科教授与你所申请的 PhD 项目教授认识，那么将是非常有利的。<br>(12) if you don’t get accepted in one of your favorite PhD programs, get a job at Facebook or Google and try to get a gig as an engineer assisting research scientists at FAIR or Google Brain.<br>如果你没有录取到自己心仪的 PhD 项目，可以到Facebook或谷歌工作，并且尝试去FAIR 或Google Brain 实验室做一个工程师，来协助实验室里科学家的工作。<br>(13) publish a papers with the research scientists in question. Then re-apply to PhD programs and ask the FAIR or Google scientists you work with to write a recommendation letter for you.<br>发表与公司实验室里课题有关的论文，然后重新申请 PhD 项目，并且让 FAIR 或 Google Brain 实验室里的科学家帮你写推荐信。</p>
+<h2 id="我对人工智能的一些理解（纯属个人观点）"><a href="#我对人工智能的一些理解（纯属个人观点）" class="headerlink" title="我对人工智能的一些理解（纯属个人观点）"></a>我对人工智能的一些理解（纯属个人观点）</h2><p>人工智能现在发展到什么程度呢？这个是大家都比较关心的问题。<br>我们来举个例子：假设我想训练一只狗让它学着开玩具车，玩具车上有四个按键–前后左右。那么我们应该可以通过给予奖惩的方式让狗学会沿着固定的路线去开驾驶。比如狗摁对了按键，就给它食物，摁错了就给予惩罚。最终，狗会沿着一条我们指定的路线去驾驶。<br>那么问题来了，我们可以说这只狗学会了驾驶车吗？<br>显然不能。因为狗只会沿着固定的路线去驾驶，我们训练出来的只是一种非条件反射。当狗面对其它环境时，便不能做出合理的判断。这有点类似于现阶段的人工智能。现阶段的人工智能主要的训练方法是最小化损失函数，最小化损失函数类似于训练狗时给它食物。用这种方法训练出来的智能体最多能达到非条件反射的效果，当面对不同的环境或者分类任务时，就不能做出正确的决断。这与人脑的差距非常大。<br>另外，我们对于智能中的“直觉”，“意识”，“”情感“等还不能透彻地理解。这些是研究智能不可回避的问题。<br>现在人工智能行业炒作的成分也比较大。说机器（alpha go等）具有了意识还为时过早，不可否认深度学习在解决人工智能问题（尤其是识别）中取得了很好的效果。但在推理等问题中表现并不是很好。而恰恰是推理能力与逻辑分析能力是人类的专长，这才是真正的智能所应该具有的。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/17/AI_Brain_continue_learning/" rel="next" title="人工智能模拟大脑实现连续学习">
+                <i class="fa fa-chevron-left"></i> 人工智能模拟大脑实现连续学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/17/AUC/" rel="prev" title="ROC：To evaluate classifier output quality">
+                ROC：To evaluate classifier output quality <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/07/17/Deep learning tutorial/"
+           data-title="Deep learning （to be continued）" data-url="https://wizardyan.github.io/2017/07/17/Deep learning tutorial/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4"
+               alt="Wizard" />
+          <p class="site-author-name" itemprop="name">Wizard</p>
+          <p class="site-description motion-element" itemprop="description">May it be when darkness falls,    <br> Your heart will be true</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://bing.com/" title="Bing" target="_blank">Bing</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.sogou.com/" title="Sogou" target="_blank">Sogou</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一部分：什么是深度学习？"><span class="nav-number">1.</span> <span class="nav-text">第一部分：什么是深度学习？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二部分：为什么要学习深度学习？"><span class="nav-number">2.</span> <span class="nav-text">第二部分：为什么要学习深度学习？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三部分：怎么学习深度学习？"><span class="nav-number">3.</span> <span class="nav-text">第三部分：怎么学习深度学习？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我对人工智能的一些理解（纯属个人观点）"><span class="nav-number">4.</span> <span class="nav-text">我对人工智能的一些理解（纯属个人观点）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wizard</span>
+</div>
+
+
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wizardyan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
