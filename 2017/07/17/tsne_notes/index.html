@@ -90,16 +90,24 @@
 
 
 
-<meta name="description" content="科学之所以能够跨越国家民族的界限，得到最广泛的认同，是因为它的理论是通过调查研究得到的，有严密的逻辑和数据支撑，因而比任何揣摩和主观臆断具有更强的可解释性。科学能够被人尊重的很重要的原因是它能够进行自我修正甚至自我否定，一个真正的科学理论应该是留有余地的，是对现有的观察和数据的最可靠的解释。像“**，就一定*”之类的说法可以作为宗教诗歌，却不适合用作科学研究，因为科学的进步应该是在自我否定的过程中">
+<meta name="description" content="原文链接 tsne 简介t-SNE 是van der Maaten 和 Hinton于2008年提出，（等有时间把这篇文章剖析一下）之后被迅速应用于机器学习领域。它在将高维数据映射到低维上具有很强的能力。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="偶尔有感 —— 警惕成为科学上的顽固派">
-<meta property="og:url" content="https://wizardyan.github.io/2017/05/06/stay hungry stay foolish/index.html">
+<meta property="og:title" content="How to Use t-SNE Effectively">
+<meta property="og:url" content="https://wizardyan.github.io/2017/07/17/tsne_notes/index.html">
 <meta property="og:site_name" content="Wizard&#39;s blog">
-<meta property="og:description" content="科学之所以能够跨越国家民族的界限，得到最广泛的认同，是因为它的理论是通过调查研究得到的，有严密的逻辑和数据支撑，因而比任何揣摩和主观臆断具有更强的可解释性。科学能够被人尊重的很重要的原因是它能够进行自我修正甚至自我否定，一个真正的科学理论应该是留有余地的，是对现有的观察和数据的最可靠的解释。像“**，就一定*”之类的说法可以作为宗教诗歌，却不适合用作科学研究，因为科学的进步应该是在自我否定的过程中">
-<meta property="og:updated_time" content="2017-07-17T07:01:05.109Z">
+<meta property="og:description" content="原文链接 tsne 简介t-SNE 是van der Maaten 和 Hinton于2008年提出，（等有时间把这篇文章剖析一下）之后被迅速应用于机器学习领域。它在将高维数据映射到低维上具有很强的能力。">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/Sm*IkWwe.TAshU4PjRUirHeQut4tOtqH32Bs*jKvEms!/b/dCABAAAAAAAA&bo=awU.AQAAAAADB3M!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/41M6KMzI9.9QPh22wID31X0ZZYEFHx*AOJ2RR1WYTVo!/b/dCABAAAAAAAA&bo=bAUsAQAAAAADB2Y!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/qjPWJ97wAeoJCJhRAARHC8Hw*sg3fSvVz7NYDNbC9bE!/b/dCABAAAAAAAA&bo=ZAUdAQAAAAADB18!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/yhYsh7c9DXwSDDRGGkYTFP9pz7yCAGnCoAJKWxaWze8!/b/dCABAAAAAAAA&bo=hwUyAQAAAAADB5M!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/ZBWyk6HKWzOOPqz1P1v.Lt9FlbWbg8qSzEUFIO1WADo!/b/dB8BAAAAAAAA&bo=fAU*AQAAAAADB2U!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/2m6u4*ZOlFSEClORUTH05mjvtSzAp7brwPfbAxIVXVw!/b/dB8BAAAAAAAA&bo=bQUiAQAAAAADAG4!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/In0Oev7ZKXJ9Ncmdty2DBPOM.gmMbCNdi.vLNFt*vOU!/b/dCABAAAAAAAA&bo=aAUmAQAAAAADB2g!&rf=viewer_4">
+<meta property="og:updated_time" content="2017-07-17T07:01:05.061Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="偶尔有感 —— 警惕成为科学上的顽固派">
-<meta name="twitter:description" content="科学之所以能够跨越国家民族的界限，得到最广泛的认同，是因为它的理论是通过调查研究得到的，有严密的逻辑和数据支撑，因而比任何揣摩和主观臆断具有更强的可解释性。科学能够被人尊重的很重要的原因是它能够进行自我修正甚至自我否定，一个真正的科学理论应该是留有余地的，是对现有的观察和数据的最可靠的解释。像“**，就一定*”之类的说法可以作为宗教诗歌，却不适合用作科学研究，因为科学的进步应该是在自我否定的过程中">
+<meta name="twitter:title" content="How to Use t-SNE Effectively">
+<meta name="twitter:description" content="原文链接 tsne 简介t-SNE 是van der Maaten 和 Hinton于2008年提出，（等有时间把这篇文章剖析一下）之后被迅速应用于机器学习领域。它在将高维数据映射到低维上具有很强的能力。">
+<meta name="twitter:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/Sm*IkWwe.TAshU4PjRUirHeQut4tOtqH32Bs*jKvEms!/b/dCABAAAAAAAA&bo=awU.AQAAAAADB3M!&rf=viewer_4">
 
 
 
@@ -127,7 +135,7 @@
 
 
 
-  <link rel="canonical" href="https://wizardyan.github.io/2017/05/06/stay hungry stay foolish/"/>
+  <link rel="canonical" href="https://wizardyan.github.io/2017/07/17/tsne_notes/"/>
 
 
 
@@ -136,7 +144,7 @@
 
 
 
-  <title> 偶尔有感 —— 警惕成为科学上的顽固派 | Wizard's blog </title>
+  <title> How to Use t-SNE Effectively | Wizard's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -288,7 +296,7 @@ tpwidget("show");</script>
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/05/06/stay hungry stay foolish/">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/07/17/tsne_notes/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Wizard">
@@ -312,7 +320,7 @@ tpwidget("show");</script>
             
             
               
-                偶尔有感 —— 警惕成为科学上的顽固派
+                How to Use t-SNE Effectively
               
             
           </h1>
@@ -327,8 +335,8 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-06T11:47:00+08:00">
-                2017-05-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T16:07:45+08:00">
+                2017-07-17
               </time>
             
 
@@ -350,8 +358,8 @@ tpwidget("show");</script>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/philosophy/" itemprop="url" rel="index">
-                    <span itemprop="name">philosophy</span>
+                  <a href="/categories/methods/" itemprop="url" rel="index">
+                    <span itemprop="name">methods</span>
                   </a>
                 </span>
 
@@ -368,8 +376,8 @@ tpwidget("show");</script>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/06/stay hungry stay foolish/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/06/stay hungry stay foolish/" itemprop="commentCount"></span>
+                <a href="/2017/07/17/tsne_notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/17/tsne_notes/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,8 +403,22 @@ tpwidget("show");</script>
       
 
       
-        <p>科学之所以能够跨越国家民族的界限，得到最广泛的认同，是因为它的理论是通过调查研究得到的，有严密的逻辑和数据支撑，因而比任何揣摩和主观臆断具有更强的可解释性。科学能够被人尊重的很重要的原因是它能够进行自我修正甚至自我否定，一个真正的科学理论应该是留有余地的，是对现有的观察和数据的最可靠的解释。像“<strong>**</strong>，就一定<em>*</em>”之类的说法可以作为宗教诗歌，却不适合用作科学研究，因为科学的进步应该是在自我否定的过程中完成的。</p>
-<p>科学如此，科学的倡导与主要推动者——科学家是否也应该有自我否定的胸怀呢？ 我想应该是的，但是事实却很不如意。有些人甚至一不留神反而成了科学上的顽固派。有的时候，我们不得不面对这样的现实，由于假设上的错误，我们辛苦努力的结果可能是无益甚至有害的。而且这样的情况也应该不在少数。事实上，错了也就错了，推翻错误继续改进不就可以了吗，可事情貌似没有那么简单，有相当一部分科学家对自己的成果拥有超乎寻常的感情，今天提出了一个错误的结论，明天发现应该是错了，但是却投入更多的经费去维护这个所谓的成果（颇有维稳的风范）。知道这个错误的人不敢提，怕得罪人，结果让错误继续下去，直到有一天发现错误掩盖不住了，那时候经费也花得差不多了，项目也结题了，荣誉也拿到了，拍拍屁股就可以走人了。谁来承担这个损失呢？</p>
+        <p><a href="http://distill.pub/2016/misread-tsne/" target="_blank" rel="external">原文链接</a></p>
+<h2 id="tsne-简介"><a href="#tsne-简介" class="headerlink" title="tsne 简介"></a>tsne 简介</h2><p>t-SNE 是<a href="http://159.226.251.229/videoplayer/vandermaaten08a.pdf?ich_u_r_i=9a81ad877bebd689eae184c8eb7be557&amp;ich_s_t_a_r_t=0&amp;ich_e_n_d=0&amp;ich_k_e_y=1745028902750363482439&amp;ich_t_y_p_e=1&amp;ich_d_i_s_k_i_d=7&amp;ich_u_n_i_t=1" target="_blank" rel="external">van der Maaten 和 Hinton</a>于2008年提出，（等有时间把这篇文章剖析一下）之后被迅速应用于机器学习领域。它在将高维数据映射到低维上具有很强的能力。<br><a id="more"></a></p>
+<p>下面我们简要说明一些例子，说明哪些是 t-SNE 可以做到的，哪些是t-SNE不能做到的。</p>
+<p>t-SNE中有一个参数的调节需要特别注意： perplexity。 这是在权衡数据的局部性质和整体性质。原文中说：“SNE对于perplexity具有很强的鲁棒性，一般来说 perplexity的值在5-50之间都不会有太大的影响”，事实上，这个影响还是比较大的，这就意味着想要绘制一个合适的tsne二维图需要多次分析perplexity参数。</p>
+<h2 id="1-Those-hyperparameters-really-matter"><a href="#1-Those-hyperparameters-really-matter" class="headerlink" title="1. Those hyperparameters really matter"></a>1. Those hyperparameters really matter</h2><ul>
+<li>关于perplexity，不同值有不同的效果，这个参数对于结果的影响其实是很大的。一般来说，区间 2-50 可以试一试，超过50比较难得到一个好的结果。</li>
+<li>关于step，没有确定的迭代次数可以参考，不同的数据集需要不同的迭代次数使它收敛到不同的数值。</li>
+</ul>
+<p><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/Sm*IkWwe.TAshU4PjRUirHeQut4tOtqH32Bs*jKvEms!/b/dCABAAAAAAAA&amp;bo=awU.AQAAAAADB3M!&amp;rf=viewer_4" alt=""><br>对于迭代次数，一般来说需要的是达到一个稳定的收敛值，在这个教程中，一般采用5000次</p>
+<h2 id="2-Cluster-sizes-in-a-t-SNE-plot-mean-nothing"><a href="#2-Cluster-sizes-in-a-t-SNE-plot-mean-nothing" class="headerlink" title="2. Cluster sizes in a t-SNE plot mean nothing"></a>2. Cluster sizes in a t-SNE plot mean nothing</h2><p>对于两个类别具有不同的标准差或者不同size（这里所说的size是指tSNE处理后生成聚类图的size,而不是number of points）的情形，tSNE 可以自动地将原先紧密的数据点变稀疏，把原来系数的数据集变紧密。<br><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/41M6KMzI9.9QPh22wID31X0ZZYEFHx*AOJ2RR1WYTVo!/b/dCABAAAAAAAA&amp;bo=bAUsAQAAAAADB2Y!&amp;rf=viewer_4" alt=""></p>
+<h2 id="3-Disatances-between-clusters-might-not-mean-anything"><a href="#3-Disatances-between-clusters-might-not-mean-anything" class="headerlink" title="3. Disatances between clusters might not mean anything"></a>3. Disatances between clusters might not mean anything</h2><p>不同类别间的距离并不能说明什么。</p>
+<p><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/qjPWJ97wAeoJCJhRAARHC8Hw*sg3fSvVz7NYDNbC9bE!/b/dCABAAAAAAAA&amp;bo=ZAUdAQAAAAADB18!&amp;rf=viewer_4" alt=""></p>
+<h2 id="4-Random-noise-doesn’t-always-look-random"><a href="#4-Random-noise-doesn’t-always-look-random" class="headerlink" title="4. Random noise doesn’t always look random"></a>4. Random noise doesn’t always look random</h2><p>随机噪声并不总是随机的。一个典型的陷阱是你认为看到的模式其实只是一些随机噪声。<br><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/yhYsh7c9DXwSDDRGGkYTFP9pz7yCAGnCoAJKWxaWze8!/b/dCABAAAAAAAA&amp;bo=hwUyAQAAAAADB5M!&amp;rf=viewer_4" alt=""></p>
+<h2 id="5-You-can-see-some-shapes-sometimes"><a href="#5-You-can-see-some-shapes-sometimes" class="headerlink" title="5. You can see some shapes, sometimes"></a>5. You can see some shapes, sometimes</h2><p><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/ZBWyk6HKWzOOPqz1P1v.Lt9FlbWbg8qSzEUFIO1WADo!/b/dB8BAAAAAAAA&amp;bo=fAU*AQAAAAADB2U!&amp;rf=viewer_4" alt=""><br><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/2m6u4*ZOlFSEClORUTH05mjvtSzAp7brwPfbAxIVXVw!/b/dB8BAAAAAAAA&amp;bo=bQUiAQAAAAADAG4!&amp;rf=viewer_4" alt=""></p>
+<h2 id="6-For-topology-you-may-need-more-than-on-plot"><a href="#6-For-topology-you-may-need-more-than-on-plot" class="headerlink" title="6. For topology, you may need more than on plot"></a>6. For topology, you may need more than on plot</h2><p>下图中是高斯分布，只是黄色的点比蓝色点的离散度高了50倍，这时候需要用多个图来刻画tSNE的分布结果。这个例子中，复杂度是30的效果最好。<br><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/In0Oev7ZKXJ9Ncmdty2DBPOM.gmMbCNdi.vLNFt*vOU!/b/dCABAAAAAAAA&amp;bo=aAUmAQAAAAADB2g!&amp;rf=viewer_4" alt=""></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>t-SNE在使用上非常灵活，也正是这种灵活性使得它的解释变得困难。通过这个教程的学习，可以建立一种直觉，来调节参数以获得更好的结果。</p>
 
       
     </div>
@@ -427,15 +449,15 @@ tpwidget("show");</script>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/17/python commands/" rel="next" title="Python commands（to be continued）">
+                <i class="fa fa-chevron-left"></i> Python commands（to be continued）
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/11/paper_notes_13/" rel="prev" title="论文笔记系列之十三：A Survey on Deep Learning and Medical Image Analysis（arXiv，2017）">
-                论文笔记系列之十三：A Survey on Deep Learning and Medical Image Analysis（arXiv，2017） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -461,8 +483,8 @@ tpwidget("show");</script>
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/05/06/stay hungry stay foolish/"
-           data-title="偶尔有感 —— 警惕成为科学上的顽固派" data-url="https://wizardyan.github.io/2017/05/06/stay hungry stay foolish/">
+      <div class="ds-thread" data-thread-key="2017/07/17/tsne_notes/"
+           data-title="How to Use t-SNE Effectively" data-url="https://wizardyan.github.io/2017/07/17/tsne_notes/">
       </div>
     
   </div>
@@ -486,8 +508,17 @@ tpwidget("show");</script>
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4"
@@ -554,6 +585,22 @@ tpwidget("show");</script>
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tsne-简介"><span class="nav-number">1.</span> <span class="nav-text">tsne 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Those-hyperparameters-really-matter"><span class="nav-number">2.</span> <span class="nav-text">1. Those hyperparameters really matter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Cluster-sizes-in-a-t-SNE-plot-mean-nothing"><span class="nav-number">3.</span> <span class="nav-text">2. Cluster sizes in a t-SNE plot mean nothing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Disatances-between-clusters-might-not-mean-anything"><span class="nav-number">4.</span> <span class="nav-text">3. Disatances between clusters might not mean anything</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Random-noise-doesn’t-always-look-random"><span class="nav-number">5.</span> <span class="nav-text">4. Random noise doesn’t always look random</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-You-can-see-some-shapes-sometimes"><span class="nav-number">6.</span> <span class="nav-text">5. You can see some shapes, sometimes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-For-topology-you-may-need-more-than-on-plot"><span class="nav-number">7.</span> <span class="nav-text">6. For topology, you may need more than on plot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">8.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
