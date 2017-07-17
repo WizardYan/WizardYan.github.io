@@ -90,19 +90,25 @@
 
 
 
-<meta name="description" content="原文链接 Abstract次声和低频声音对于人体的健康都有危害。本实验目的是通过次声和低频噪声刺激脑皮层然后用fMRI记录大脑活动。12,36,48,500 HZ的声音被利用一个12m的管子送到耳朵里。激励和扫描仪的声压水平（Sound Pressure Level, SPL）与谱分析（spectral analysis）是借助于无金属的麦克风和光纤维管进行测量的。">
+<meta name="description" content="功能磁共振 数据预处理关于这部分，我会在之后慢慢补充。 功能连接使用BratBRANT 操作指南BRABT 操作视频 选择FC 如果需要提取ROI，那么选择 Merge/Extract ROIs，否则，直接选择ROI_Calculation（默认的模板是脑网络组图谱，包含小脑）  选择预处理过后的磁共振数据，如果只需要计算脑区与脑区的功能连接，就把”roi to whole brain corr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文笔记系列之七：Auditory cortex stimulation by low-frequency tones—An fMRI study（Brain Research，2009）">
-<meta property="og:url" content="https://wizardyan.github.io/2017/07/17/paper_notes_7/index.html">
+<meta property="og:title" content="磁共振预处理技术">
+<meta property="og:url" content="https://wizardyan.github.io/2017/03/31/MRI preprocessing/index.html">
 <meta property="og:site_name" content="Wizard&#39;s blog">
-<meta property="og:description" content="原文链接 Abstract次声和低频声音对于人体的健康都有危害。本实验目的是通过次声和低频噪声刺激脑皮层然后用fMRI记录大脑活动。12,36,48,500 HZ的声音被利用一个12m的管子送到耳朵里。激励和扫描仪的声压水平（Sound Pressure Level, SPL）与谱分析（spectral analysis）是借助于无金属的麦克风和光纤维管进行测量的。">
-<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/kvHphQ*TNvfo*FmDwi.aZhfeC9rho75rniXPS1pZ.Pk!/b/dPgAAAAAAAAA&bo=rwSAAgAAAAADBws!&rf=viewer_4">
-<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/gzmVaOLtQ7ACYCg5iZY4ud*aTAidaJ9QK*8ZGpRmm4U!/b/dB8BAAAAAAAA&bo=4gFoAgAAAAADB6s!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-07-17T07:01:05.117Z">
+<meta property="og:description" content="功能磁共振 数据预处理关于这部分，我会在之后慢慢补充。 功能连接使用BratBRANT 操作指南BRABT 操作视频 选择FC 如果需要提取ROI，那么选择 Merge/Extract ROIs，否则，直接选择ROI_Calculation（默认的模板是脑网络组图谱，包含小脑）  选择预处理过后的磁共振数据，如果只需要计算脑区与脑区的功能连接，就把”roi to whole brain corr">
+<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/1.jpg">
+<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/2.jpg">
+<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/3.jpg">
+<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/4.jpg">
+<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/5.jpg">
+<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/6.jpg">
+<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/7.jpg">
+<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/8.jpg">
+<meta property="og:updated_time" content="2017-07-17T07:01:05.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文笔记系列之七：Auditory cortex stimulation by low-frequency tones—An fMRI study（Brain Research，2009）">
-<meta name="twitter:description" content="原文链接 Abstract次声和低频声音对于人体的健康都有危害。本实验目的是通过次声和低频噪声刺激脑皮层然后用fMRI记录大脑活动。12,36,48,500 HZ的声音被利用一个12m的管子送到耳朵里。激励和扫描仪的声压水平（Sound Pressure Level, SPL）与谱分析（spectral analysis）是借助于无金属的麦克风和光纤维管进行测量的。">
-<meta name="twitter:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/kvHphQ*TNvfo*FmDwi.aZhfeC9rho75rniXPS1pZ.Pk!/b/dPgAAAAAAAAA&bo=rwSAAgAAAAADBws!&rf=viewer_4">
+<meta name="twitter:title" content="磁共振预处理技术">
+<meta name="twitter:description" content="功能磁共振 数据预处理关于这部分，我会在之后慢慢补充。 功能连接使用BratBRANT 操作指南BRABT 操作视频 选择FC 如果需要提取ROI，那么选择 Merge/Extract ROIs，否则，直接选择ROI_Calculation（默认的模板是脑网络组图谱，包含小脑）  选择预处理过后的磁共振数据，如果只需要计算脑区与脑区的功能连接，就把”roi to whole brain corr">
+<meta name="twitter:image" content="https://wizardyan.github.io/2017/03/31/pictures/1.jpg">
 
 
 
@@ -130,7 +136,7 @@
 
 
 
-  <link rel="canonical" href="https://wizardyan.github.io/2017/07/17/paper_notes_7/"/>
+  <link rel="canonical" href="https://wizardyan.github.io/2017/03/31/MRI preprocessing/"/>
 
 
 
@@ -139,7 +145,7 @@
 
 
 
-  <title> 论文笔记系列之七：Auditory cortex stimulation by low-frequency tones—An fMRI study（Brain Research，2009） | Wizard's blog </title>
+  <title> 磁共振预处理技术 | Wizard's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -291,7 +297,7 @@ tpwidget("show");</script>
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/07/17/paper_notes_7/">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/03/31/MRI preprocessing/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Wizard">
@@ -315,7 +321,7 @@ tpwidget("show");</script>
             
             
               
-                论文笔记系列之七：Auditory cortex stimulation by low-frequency tones—An fMRI study（Brain Research，2009）
+                磁共振预处理技术
               
             
           </h1>
@@ -330,8 +336,8 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T16:03:02+08:00">
-                2017-07-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-31T10:55:00+08:00">
+                2017-03-31
               </time>
             
 
@@ -353,8 +359,8 @@ tpwidget("show");</script>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/papers/" itemprop="url" rel="index">
-                    <span itemprop="name">papers</span>
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">skills</span>
                   </a>
                 </span>
 
@@ -371,8 +377,8 @@ tpwidget("show");</script>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/17/paper_notes_7/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/17/paper_notes_7/" itemprop="commentCount"></span>
+                <a href="/2017/03/31/MRI preprocessing/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/31/MRI preprocessing/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -398,21 +404,20 @@ tpwidget("show");</script>
       
 
       
-        <p><a href="https://www.ncbi.nlm.nih.gov/pubmed/19796632" target="_blank" rel="external">原文链接</a></p>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>次声和低频声音对于人体的健康都有危害。本实验目的是通过次声和低频噪声刺激脑皮层然后用fMRI记录大脑活动。12,36,48,500 HZ的声音被利用一个12m的管子送到耳朵里。激励和扫描仪的声压水平（Sound Pressure Level, SPL）与谱分析（spectral analysis）是借助于无金属的麦克风和光纤维管进行测量的。<br><a id="more"></a></p>
-<p>实验结果：SPL-dependent activation of the 颞上回（BA41 和 BA42 BA22 ）对于 12- 48- 500 HZ的激励有效果。对于正常被试，LFT/IS诱发脑激活的强度位于110db和90db之间。</p>
-<p>结论：我们的结果提供了证据表明一定强度的LTT/IS声波可以诱发听觉皮层的激活。</p>
-<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>次声和低频声音是导致一些心理疾病的诱因，但是对于次声的标准还没有确定。</p>
-<h2 id="2-Results"><a href="#2-Results" class="headerlink" title="2. Results"></a>2. Results</h2><h3 id="2-1-Brain-activation-by-tone-bursts"><a href="#2-1-Brain-activation-by-tone-bursts" class="headerlink" title="2.1 Brain activation by tone bursts"></a>2.1 Brain activation by tone bursts</h3><p>在500，48,12HZ（120-110db）强度下双侧的颞上回（STG）有明显的激活。</p>
-<h3 id="2-2-Spectral-analysis-of-acoustic-signals-and-scanner-noise"><a href="#2-2-Spectral-analysis-of-acoustic-signals-and-scanner-noise" class="headerlink" title="2.2 Spectral analysis of acoustic signals and scanner noise"></a>2.2 Spectral analysis of acoustic signals and scanner noise</h3><p><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/kvHphQ*TNvfo*FmDwi.aZhfeC9rho75rniXPS1pZ.Pk!/b/dPgAAAAAAAAA&amp;bo=rwSAAgAAAAADBws!&amp;rf=viewer_4" alt=""><br>扫描仪的噪声中心在800HZ附近，强度为80db。所有的激励应该至少超过背景噪声30db。</p>
-<h2 id="3-Discussion"><a href="#3-Discussion" class="headerlink" title="3. Discussion"></a>3. Discussion</h2><p>这个讨论的前半部分就是说明了一个问题：到目前为止，还没有人做过次声对于大脑皮层激励的研究。<br>研究发现，次声只是刺激了声学系统，对于躯体感知系统的影响并不大。<br>不同个体对于声音的感知有着很大的差异，有些人觉得某个声音是可以忍受，另外的人感觉painful。<br>12HZ的声音，在强度是120-110db时会激活皮层，在90db时不会诱发显著的声觉皮层激活。<br>在这项试验中，声音从右耳传入。</p>
-<h2 id="4-Experimental-procedures"><a href="#4-Experimental-procedures" class="headerlink" title="4. Experimental procedures"></a>4. Experimental procedures</h2><h3 id="4-1-Participants"><a href="#4-1-Participants" class="headerlink" title="4.1 Participants"></a>4.1 Participants</h3><p>17 名女性参与了实验，因为假定女性患与低频声音有关的心理障碍的可能性更大。</p>
-<h3 id="4-2-Data-acquisition"><a href="#4-2-Data-acquisition" class="headerlink" title="4.2 Data acquisition"></a>4.2 Data acquisition</h3><p>使用1.5T的MRI扫描仪，每个样本扫描25分钟，获取5个fMRI runs（block design）</p>
-<h3 id="4-3-Acoustic-stimuli-materials"><a href="#4-3-Acoustic-stimuli-materials" class="headerlink" title="4.3 Acoustic stimuli materials"></a>4.3 Acoustic stimuli materials</h3><p>声音信号是用电脑里的数模转换芯片生成的。</p>
-<h3 id="4-4-Stimulation-paradigm"><a href="#4-4-Stimulation-paradigm" class="headerlink" title="4.4 Stimulation paradigm"></a>4.4 Stimulation paradigm</h3><p>前90秒，没有声音信号，之后每30秒作为一个block测试不同的激励。测试者被要求减少头动，认真听信号。<br><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/gzmVaOLtQ7ACYCg5iZY4ud*aTAidaJ9QK*8ZGpRmm4U!/b/dB8BAAAAAAAA&amp;bo=4gFoAgAAAAADB6s!&amp;rf=viewer_4" alt=""></p>
-<h3 id="4-5-Data-analysis"><a href="#4-5-Data-analysis" class="headerlink" title="4.5 Data analysis"></a>4.5 Data analysis</h3><p>去除了前60s的图像，因为被试要适应机器的噪声环境。</p>
-<h3 id="4-6-Acoustic-measurements-and-calibration"><a href="#4-6-Acoustic-measurements-and-calibration" class="headerlink" title="4.6 Acoustic measurements and calibration"></a>4.6 Acoustic measurements and calibration</h3><p>为了记录所有的噪声和激励的频率，我们使用谱分析。</p>
-<h2 id="我的一些考虑："><a href="#我的一些考虑：" class="headerlink" title="我的一些考虑："></a>我的一些考虑：</h2><p>这篇文章是研究某种强度的次声波能否激活某些大脑皮层。工作完成于09年。我对于临床一窍不通，随便发表一下自己的看法，大家轻喷。基于现在的情况，要想研究次声对于情绪的调控，就需要通过大样本来研究次声对于整个声觉系统的影响。我们知道，长期暴露在次声环境中会使人产生一些情绪问题，而且前额叶等脑区与情绪的调控有关，所以如果能够印证次声对于这个环路的影响那是再好不过了。</p>
+        <a id="more"></a>
+<h2 id="功能磁共振"><a href="#功能磁共振" class="headerlink" title="功能磁共振"></a>功能磁共振</h2><!--more-->
+<h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><p>关于这部分，我会在之后慢慢补充。</p>
+<h3 id="功能连接"><a href="#功能连接" class="headerlink" title="功能连接"></a>功能连接</h3><h4 id="使用Brat"><a href="#使用Brat" class="headerlink" title="使用Brat"></a>使用Brat</h4><p><a href="http://pan.baidu.com/s/1qY1295M" target="_blank" rel="external">BRANT 操作指南</a><br><a href="http://pan.baidu.com/s/1kU72nsj" target="_blank" rel="external">BRABT 操作视频</a></p>
+<p><img src="..\pictures\1.jpg" width="400" height="400"><br>选择FC</p>
+<p><img src="..\pictures\2.jpg" width="400" height="400"><br>如果需要提取ROI，那么选择 Merge/Extract ROIs，否则，直接选择ROI_Calculation（默认的模板是脑网络组图谱，包含小脑）</p>
+<p><img src="..\pictures\3.jpg" width="300" height="600"></p>
+<p>选择预处理过后的磁共振数据，如果只需要计算脑区与脑区的功能连接，就把”roi to whole brain correlation” 前面的对勾去掉；</p>
+<p>点击“run”，就可以创建功能连接了。</p>
+<h3 id="独立成分分析"><a href="#独立成分分析" class="headerlink" title="独立成分分析"></a>独立成分分析</h3><h4 id="使用GIFT"><a href="#使用GIFT" class="headerlink" title="使用GIFT"></a>使用GIFT</h4><p><img src="..\pictures\4.jpg" width="400" height="400"></p>
+<p><img src="..\pictures\5.jpg" width="400" height="400"></p>
+<p><img src="..\pictures\6.jpg" width="400" height="400"></p>
+<p><img src="..\pictures\7.jpg" width="400" height="400"></p>
+<p><img src="..\pictures\8.jpg" width="400" height="400"></p>
 
       
     </div>
@@ -443,18 +448,14 @@ tpwidget("show");</script>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/17/paper_notes_6/" rel="next" title="论文笔记系列之六：Multi-Domain Transfer Learning for Early Diagnosis of Alzheimer’sDisease（Neuroinformatics，2016）">
-                <i class="fa fa-chevron-left"></i> 论文笔记系列之六：Multi-Domain Transfer Learning for Early Diagnosis of Alzheimer’sDisease（Neuroinformatics，2016）
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/17/paper_notes_9/" rel="prev" title="论文笔记系列之九：Classification of Schizophrenia Versus Normal Subjects Using Deep Learning（Proceedings of the Tenth Indian Conference on Computer Vision，2016）">
-                论文笔记系列之九：Classification of Schizophrenia Versus Normal Subjects Using Deep Learning（Proceedings of the Tenth Indian Conference on Computer Vision，2016） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/06/stay hungry stay foolish/" rel="prev" title="偶尔有感 —— 警惕成为科学上的顽固派">
+                偶尔有感 —— 警惕成为科学上的顽固派 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -481,8 +482,8 @@ tpwidget("show");</script>
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/07/17/paper_notes_7/"
-           data-title="论文笔记系列之七：Auditory cortex stimulation by low-frequency tones—An fMRI study（Brain Research，2009）" data-url="https://wizardyan.github.io/2017/07/17/paper_notes_7/">
+      <div class="ds-thread" data-thread-key="2017/03/31/MRI preprocessing/"
+           data-title="磁共振预处理技术" data-url="https://wizardyan.github.io/2017/03/31/MRI preprocessing/">
       </div>
     
   </div>
@@ -593,7 +594,7 @@ tpwidget("show");</script>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Introduction"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Results"><span class="nav-number">3.</span> <span class="nav-text">2. Results</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Brain-activation-by-tone-bursts"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 Brain activation by tone bursts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Spectral-analysis-of-acoustic-signals-and-scanner-noise"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 Spectral analysis of acoustic signals and scanner noise</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Discussion"><span class="nav-number">4.</span> <span class="nav-text">3. Discussion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Experimental-procedures"><span class="nav-number">5.</span> <span class="nav-text">4. Experimental procedures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Participants"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 Participants</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Data-acquisition"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 Data acquisition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-Acoustic-stimuli-materials"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 Acoustic stimuli materials</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-Stimulation-paradigm"><span class="nav-number">5.4.</span> <span class="nav-text">4.4 Stimulation paradigm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-Data-analysis"><span class="nav-number">5.5.</span> <span class="nav-text">4.5 Data analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-Acoustic-measurements-and-calibration"><span class="nav-number">5.6.</span> <span class="nav-text">4.6 Acoustic measurements and calibration</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的一些考虑："><span class="nav-number">6.</span> <span class="nav-text">我的一些考虑：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#功能磁共振"><span class="nav-number">1.</span> <span class="nav-text">功能磁共振</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据预处理"><span class="nav-number">1.1.</span> <span class="nav-text">数据预处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能连接"><span class="nav-number">1.2.</span> <span class="nav-text">功能连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Brat"><span class="nav-number">1.2.1.</span> <span class="nav-text">使用Brat</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独立成分分析"><span class="nav-number">1.3.</span> <span class="nav-text">独立成分分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用GIFT"><span class="nav-number">1.3.1.</span> <span class="nav-text">使用GIFT</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
