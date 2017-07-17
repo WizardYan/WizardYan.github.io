@@ -1,0 +1,826 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="原文链接 Abstract">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记系列之一：层次特征表示和多模态融合（深度学习）诊断阿尔茨海默症和轻度认知障碍（NeuroImage，2014）">
+<meta property="og:url" content="https://wizardyan.github.io/2017/07/17/paper_notes_1/index.html">
+<meta property="og:site_name" content="Wizard&#39;s blog">
+<meta property="og:description" content="原文链接 Abstract">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/qhyxCl.WfyrRRBMA7tRld0J.Lom6zRj.ZKDP79wD9Y4!/b/dB8BAAAAAAAA&bo=6AOlAAAAAAADB2w!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/Z6*.iXd7GAW3w7mEy1cvd.bEQMCpDR5suWzK8i2uDxE!/b/dB8BAAAAAAAA&bo=6gREAgAAAAADB4o!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V10faeBQ4OFBLZ/HaHhWsYxqPRBM5oIGsK9E5GznreHyS.C0Jphzj5BDtQ!/b/dLIAAAAAAAAA&bo=uAJEAQAAAAADB90!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/5Jc*GBKo8xVTgvXdwflnieLf6FW7WK8jKRq6BW*wvkU!/b/dB8BAAAAAAAA&bo=bQI9AQAAAAADB3E!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V10faeBQ4OFBLZ/qihbaaYguPr84rDCWU9zS4JQhGBGae3mnDLv1q8wlLI!/b/dLIAAAAAAAAA&bo=mgKAAgAAAAADBzg!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V10faeBQ4OFBLZ/Ve8tZ1dE*iAGlDrA.me.gsNKRzb7dSGg0Fu27Q.cTyg!/b/dKkAAAAAAAAA&bo=8gKAAgAAAAADB1A!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/fCB2imUP.Bea*AN3coNCC*hdZkwAFiVgTThYhBVtPZc!/b/dCABAAAAAAAA&bo=rwUcAgAAAAADB5Y!&rf=viewer_4">
+<meta property="og:updated_time" content="2017-07-17T07:01:05.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文笔记系列之一：层次特征表示和多模态融合（深度学习）诊断阿尔茨海默症和轻度认知障碍（NeuroImage，2014）">
+<meta name="twitter:description" content="原文链接 Abstract">
+<meta name="twitter:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/qhyxCl.WfyrRRBMA7tRld0J.Lom6zRj.ZKDP79wD9Y4!/b/dB8BAAAAAAAA&bo=6AOlAAAAAAADB2w!&rf=viewer_4">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wizardyan.github.io/2017/07/17/paper_notes_1/"/>
+
+
+
+
+
+
+
+
+  <title> 论文笔记系列之一：层次特征表示和多模态融合（深度学习）诊断阿尔茨海默症和轻度认知障碍（NeuroImage，2014） | Wizard's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wizard's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+ 
+
+ <script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=Tt6rcnE9JUuUJ30_0KCkENydggMcSLIlCT3S2pPdRnQ"></script>
+ 
+</nav>
+
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.thinkpage.cn/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WX4EQ2XJD7V2",
+    "geolocation": "enabled",
+    "position": "bottom-left",
+    "margin": "10px 10px",
+    "language": "en",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U06025FF08",
+    "hash": "76dcee1694904eac76275d6dbe6a764b"
+});
+tpwidget("show");</script>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/07/17/paper_notes_1/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Wizard">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Wizard's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Wizard's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                论文笔记系列之一：层次特征表示和多模态融合（深度学习）诊断阿尔茨海默症和轻度认知障碍（NeuroImage，2014）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T16:02:24+08:00">
+                2017-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/papers/" itemprop="url" rel="index">
+                    <span itemprop="name">papers</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/17/paper_notes_1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/17/paper_notes_1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://www.sciencedirect.com/science/article/pii/S1053811914005540" target="_blank" rel="external">原文链接</a></p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><a id="more"></a>
+<p>影像模态：MRI和PET</p>
+<p>传统方法：利用cortical thickness，gray matter densities（MRI） + voxel intensity（PET）手工设计特征</p>
+<p>本文：利用深度学习提出了一个高阶的潜在的多模态间的共享的特征表达</p>
+<p>方法：使用DBM（深度玻尔兹曼机）发现3D patch中潜在的特征表达，然后设计一个系统的方法（多模态DBM）来联合MRI和PET的patches所表达的特征。</p>
+<p>验证： 为了验证方法的有效性，使用了ADNI数据集，准确度达到了 AD/HC: 95.35%. MCI/HC：85.67%， MCI-converter/MCI-nonconverter 74.58%,超过了传统方法，通过可视化中间层结果，我们发现提出的模型可以层次化地发现MRI和PET内部潜在的复杂模式。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h5 id="传统的特征提取方法可以大致分为三类："><a href="#传统的特征提取方法可以大致分为三类：" class="headerlink" title="传统的特征提取方法可以大致分为三类："></a>传统的特征提取方法可以大致分为三类：</h5><table>
+<thead>
+<tr>
+<th>医学图像方法</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基于Voxel的方法</td>
+<td>简单直观易解释</td>
+<td>忽略了区域信息，难以发现致病相关的环路</td>
+</tr>
+<tr>
+<td>基于ROI的方法</td>
+<td>特征维度低</td>
+<td>脑区较粗糙，难以反映局部细微变化，难以发现致病相关的环路</td>
+</tr>
+<tr>
+<td>基于Patch的方法</td>
+<td>有效处理区域间通路信息</td>
+<td>模型复杂性高，计算难度大</td>
+</tr>
+</tbody>
+</table>
+<p>在多模态融合方法上，传统的方法是先提取每个模态的特征然后进行融合，这种做法会丢失不同模态间的相关信息；<br>我们的方法是：借助于DBM“推拉”的特殊构造，能够在特征表示阶段直接进行不同模态间的特征融合与共享。</p>
+<h2 id="Materials-and-Image-Processing"><a href="#Materials-and-Image-Processing" class="headerlink" title="Materials and Image Processing"></a>Materials and Image Processing</h2><p><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/qhyxCl.WfyrRRBMA7tRld0J.Lom6zRj.ZKDP79wD9Y4!/b/dB8BAAAAAAAA&amp;bo=6AOlAAAAAAADB2w!&amp;rf=viewer_4" alt="被试信息"></p>
+<p>MRI和PET数据的预处理遵循标准的数据预处理流程<br>通过对MRI数据的预处理，获取了Regional volumetric maps（RAVENS maps）</p>
+<pre><code>It is noteworthy that the values of RAVENS maps are proportional to the amount of original tissue volume for eachregion, giving a quantitative representation of the spatial distribution of tissue types.
+</code></pre><p>根据之前的研究，我们把研究的重点放在灰质组织密度上，为了减小计算量并尽可能减少分类信息损失，我们将原图像下采样GM和PET到64<em>64</em>64的维度。</p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/Z6*.iXd7GAW3w7mEy1cvd.bEQMCpDR5suWzK8i2uDxE!/b/dB8BAAAAAAAA&amp;bo=6gREAgAAAAADB4o!&amp;rf=viewer_4" alt="试验方法流程"></p>
+<h4 id="Patch-extraction"><a href="#Patch-extraction" class="headerlink" title="Patch extraction"></a>Patch extraction</h4><p>通过双样本t检验来研究不同类别间的P值。选择P值比较小的作为中心，计算以此中心周围的w×w×w区域的平均P值，进而挑选Patch。</p>
+<ol>
+<li>不同的Patch重合度应该低于50%</li>
+<li>选择平均P值最小的作为候选Patch</li>
+</ol>
+<h4 id="Patch-level-deep-feature-learning"><a href="#Patch-level-deep-feature-learning" class="headerlink" title="Patch-level deep feature learning"></a>Patch-level deep feature learning</h4><p>首先，通过类别间显著性检验来选择有判别性的Patch；我们建立一个Patch水平上的多模态特征学习模型（MultiModal DBM）。这个模型可以发现MRI和PET两个模态的patch之间共有的特征表示。</p>
+<h4 id="RBM-受限玻尔兹曼机"><a href="#RBM-受限玻尔兹曼机" class="headerlink" title="RBM 受限玻尔兹曼机"></a>RBM 受限玻尔兹曼机</h4><p>RBM是一个双层结构，可以看做是一个自编码器。可见层和隐含层的联合概率密度为：</p>
+<p><img src="http://a2.qpic.cn/psb?/V10faeBQ4OFBLZ/HaHhWsYxqPRBM5oIGsK9E5GznreHyS.C0Jphzj5BDtQ!/b/dLIAAAAAAAAA&amp;bo=uAJEAQAAAAADB90!&amp;rf=viewer_4" alt="RBM结构"></p>
+<p>RBM是深度学习的精髓算法之一，强烈建议小伙伴们阅读文档<a href="http://blog.csdn.net/itplus/article/details/19168937" target="_blank" rel="external">RBM学习笔记</a></p>
+<h4 id="DBM-深度玻尔兹曼机"><a href="#DBM-深度玻尔兹曼机" class="headerlink" title="DBM 深度玻尔兹曼机"></a>DBM 深度玻尔兹曼机</h4><p>DBM最重要的功能就是自动地捕获高阶信息，避免了手工设计特征的缺陷。借助于DBM的自学习特性，我们可以发现GM和PET的特征表达，浅层次表示低阶信息，深层次表示更高阶的信息。<br>在这个工作中，在最顶层又添加了一个二分类层。<br>由于DBM参数非常多，需要很大的样本量来训练。为了解决样本量不足的问题，Hinton提出一个贪婪算法成功应用到DBN中，称为“预训练”，在这个试验中也用了同样的方法来加快收敛速度。</p>
+<h4 id="Multimodal-deep-feature-fusion（MMDBM）"><a href="#Multimodal-deep-feature-fusion（MMDBM）" class="headerlink" title="Multimodal deep feature fusion（MMDBM）"></a>Multimodal deep feature fusion（MMDBM）</h4><p>我们认为多模态要比单模态数据更有区分性，所以设计了深度多模态融合模型</p>
+<p><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/5Jc*GBKo8xVTgvXdwflnieLf6FW7WK8jKRq6BW*wvkU!/b/dB8BAAAAAAAA&amp;bo=bQI9AQAAAAADB3E!&amp;rf=viewer_4" alt="多模态融合模型"></p>
+<h4 id="Image-level-hierachical-classifier-learning"><a href="#Image-level-hierachical-classifier-learning" class="headerlink" title="Image-level hierachical classifier learning"></a>Image-level hierachical classifier learning</h4><p>为了可以融合不同的Patch之间的信息，我们使用层次分类学习结构。具体地讲，这里我们设计三层：<br>首先，针对每一个Patch建立一个分类器，然后从低阶向高阶贪婪叠加。</p>
+<ol>
+<li>Patch-level<br>使用MMDBM选择的特征作为输入，训练SVM，SVM的输出（measured by the relative distance from decision hyperplane）通过softmax函数转换成概率分布，Patch-level分类器是用训练集训练模型，用测试集获取分类准确率；</li>
+<li>mega-patch-level<br>承接第一层的输出结果，对不同patch的分类准确率由高到低排序，从准确率最高的开始，我们融合其近邻的patch作为mega-patch。融合条件为：添加新的patch如果可以提高分类准确率，就加进来，否则，就跳过这个patch。重复此过程直至遍历所有的patch。<br>此外，还应该加入这样的限制：patch的重叠度不要超过50%</li>
+<li>image-level<br>最后，通过融合mega-patches，我们设计一个图像水平上的分类器。然而，因为Mega-patch选择是在训练集上进行的，不一定在测试集上达到好的效果。针对这个问题，设计了一个方案：将训练集随机打乱，生成不同规模的训练集，每个单独训练一个分类器，每个分类器可能包含不同的mega-patches，通过计算不同的mega-patches的频率得到不同的mega-patch的权重，最后设计一个weighted combination of themega-patch classifiers。（wizard简评：这个创意非常好，有adaboost的思想在里面）</li>
+</ol>
+<h2 id="实验结果和讨论"><a href="#实验结果和讨论" class="headerlink" title="实验结果和讨论"></a>实验结果和讨论</h2><p>使用10-fold交叉验证，测试模型在分类AD/MCI，AD/NC等的效果</p>
+<h4 id="Experimental-Setup"><a href="#Experimental-Setup" class="headerlink" title="Experimental Setup"></a>Experimental Setup</h4><p>patch_size：w<em>w</em>w=11<em>11</em>11<br>mega-patch：w*[1.2,1.4,1.6,1.8,2]<br>在训练MM-DBM模型时，用的可见层节点有11^3个，隐含层节点有500个。将GM和PET分别转成500维的binary向量。</p>
+<p>学习率：0.001<br>动量：0.5<br>epoches：500<br>SVM参数：根据netsted cross-validation调节</p>
+<h4 id="Extracted-patches-and-trained-DBMs"><a href="#Extracted-patches-and-trained-DBMs" class="headerlink" title="Extracted patches and trained DBMs"></a>Extracted patches and trained DBMs</h4><p><img src="http://a2.qpic.cn/psb?/V10faeBQ4OFBLZ/qihbaaYguPr84rDCWU9zS4JQhGBGae3mnDLv1q8wlLI!/b/dLIAAAAAAAAA&amp;bo=mgKAAgAAAAADBzg!&amp;rf=viewer_4" alt="P值分布"><br><img src="http://a2.qpic.cn/psb?/V10faeBQ4OFBLZ/Ve8tZ1dE*iAGlDrA.me.gsNKRzb7dSGg0Fu27Q.cTyg!/b/dKkAAAAAAAAA&amp;bo=8gKAAgAAAAADB1A!&amp;rf=viewer_4" alt="选出的patch"></p>
+<h4 id="Performance-Evaluation"><a href="#Performance-Evaluation" class="headerlink" title="Performance Evaluation"></a>Performance Evaluation</h4><p><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/fCB2imUP.Bea*AN3coNCC*hdZkwAFiVgTThYhBVtPZc!/b/dCABAAAAAAAA&amp;bo=rwUcAgAAAAADB5Y!&amp;rf=viewer_4" alt="分类结果"></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>在本文中，我们提出了一个MRI和PET共享潜在特征表达。具体地说，我们用了DBM从一个Volumetric Patch中寻找潜在特征表示并进一步设计了一个从多模态中抽取联合特征表达的方法。这个方法借助深度学习自动学习高阶特征，有效地互补MRI和PET信息。在ADNI数据集上的测试结果说明这是一个很好的算法。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/17/AUC/" rel="next" title="ROC：To evaluate classifier output quality">
+                <i class="fa fa-chevron-left"></i> ROC：To evaluate classifier output quality
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/07/17/paper_notes_1/"
+           data-title="论文笔记系列之一：层次特征表示和多模态融合（深度学习）诊断阿尔茨海默症和轻度认知障碍（NeuroImage，2014）" data-url="https://wizardyan.github.io/2017/07/17/paper_notes_1/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4"
+               alt="Wizard" />
+          <p class="site-author-name" itemprop="name">Wizard</p>
+          <p class="site-description motion-element" itemprop="description">May it be when darkness falls,    <br> Your heart will be true</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://bing.com/" title="Bing" target="_blank">Bing</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.sogou.com/" title="Sogou" target="_blank">Sogou</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#传统的特征提取方法可以大致分为三类："><span class="nav-number">2.0.0.1.</span> <span class="nav-text">传统的特征提取方法可以大致分为三类：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Materials-and-Image-Processing"><span class="nav-number">3.</span> <span class="nav-text">Materials and Image Processing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-number">4.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Patch-extraction"><span class="nav-number">4.0.1.</span> <span class="nav-text">Patch extraction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Patch-level-deep-feature-learning"><span class="nav-number">4.0.2.</span> <span class="nav-text">Patch-level deep feature learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RBM-受限玻尔兹曼机"><span class="nav-number">4.0.3.</span> <span class="nav-text">RBM 受限玻尔兹曼机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DBM-深度玻尔兹曼机"><span class="nav-number">4.0.4.</span> <span class="nav-text">DBM 深度玻尔兹曼机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multimodal-deep-feature-fusion（MMDBM）"><span class="nav-number">4.0.5.</span> <span class="nav-text">Multimodal deep feature fusion（MMDBM）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Image-level-hierachical-classifier-learning"><span class="nav-number">4.0.6.</span> <span class="nav-text">Image-level hierachical classifier learning</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验结果和讨论"><span class="nav-number">5.</span> <span class="nav-text">实验结果和讨论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Experimental-Setup"><span class="nav-number">5.0.1.</span> <span class="nav-text">Experimental Setup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Extracted-patches-and-trained-DBMs"><span class="nav-number">5.0.2.</span> <span class="nav-text">Extracted patches and trained DBMs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Performance-Evaluation"><span class="nav-number">5.0.3.</span> <span class="nav-text">Performance Evaluation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wizard</span>
+</div>
+
+
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wizardyan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
