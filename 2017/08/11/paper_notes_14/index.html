@@ -90,16 +90,18 @@
 
 
 
-<meta name="description" content="Hello, worldThis is my first blog. Today is January 03, 2017.I would    like to express my sincere thanks to Tieqiang. I would never build the webs so quickly without his help.I am a PhD student worki">
+<meta name="description" content="原文链接 大致总结一下当前的精神疾病分类方法的大致思路：  从单一模态到多模态融合； 从纯粹数据驱动到加入先验知识的机器学习方法； 从一般的功能连接到动态功能连接； 从基于图论的分类方法到深度学习； 从二分类问题发展到多分类问题；">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Introduce Myself">
-<meta property="og:url" content="https://wizardyan.github.io/2017/07/17/introduce my self/index.html">
+<meta property="og:title" content="论文笔记系列之十四：Classification of schizophrenia and bipolar patients using static and dynamic resting-state fMRI brain connectivity">
+<meta property="og:url" content="https://wizardyan.github.io/2017/08/11/paper_notes_14/index.html">
 <meta property="og:site_name" content="Wizard&#39;s blog">
-<meta property="og:description" content="Hello, worldThis is my first blog. Today is January 03, 2017.I would    like to express my sincere thanks to Tieqiang. I would never build the webs so quickly without his help.I am a PhD student worki">
-<meta property="og:updated_time" content="2017-07-17T07:01:05.037Z">
+<meta property="og:description" content="原文链接 大致总结一下当前的精神疾病分类方法的大致思路：  从单一模态到多模态融合； 从纯粹数据驱动到加入先验知识的机器学习方法； 从一般的功能连接到动态功能连接； 从基于图论的分类方法到深度学习； 从二分类问题发展到多分类问题；">
+<meta property="og:image" content="http://ars.els-cdn.com/content/image/1-s2.0-S105381191630091X-gr2.jpg">
+<meta property="og:updated_time" content="2017-08-24T13:39:53.842Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Introduce Myself">
-<meta name="twitter:description" content="Hello, worldThis is my first blog. Today is January 03, 2017.I would    like to express my sincere thanks to Tieqiang. I would never build the webs so quickly without his help.I am a PhD student worki">
+<meta name="twitter:title" content="论文笔记系列之十四：Classification of schizophrenia and bipolar patients using static and dynamic resting-state fMRI brain connectivity">
+<meta name="twitter:description" content="原文链接 大致总结一下当前的精神疾病分类方法的大致思路：  从单一模态到多模态融合； 从纯粹数据驱动到加入先验知识的机器学习方法； 从一般的功能连接到动态功能连接； 从基于图论的分类方法到深度学习； 从二分类问题发展到多分类问题；">
+<meta name="twitter:image" content="http://ars.els-cdn.com/content/image/1-s2.0-S105381191630091X-gr2.jpg">
 
 
 
@@ -127,7 +129,7 @@
 
 
 
-  <link rel="canonical" href="https://wizardyan.github.io/2017/07/17/introduce my self/"/>
+  <link rel="canonical" href="https://wizardyan.github.io/2017/08/11/paper_notes_14/"/>
 
 
 
@@ -136,7 +138,7 @@
 
 
 
-  <title> Introduce Myself | Wizard's blog </title>
+  <title> 论文笔记系列之十四：Classification of schizophrenia and bipolar patients using static and dynamic resting-state fMRI brain connectivity | Wizard's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -288,7 +290,7 @@ tpwidget("show");</script>
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/07/17/introduce my self/">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/08/11/paper_notes_14/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Wizard">
@@ -312,7 +314,7 @@ tpwidget("show");</script>
             
             
               
-                Introduce Myself
+                论文笔记系列之十四：Classification of schizophrenia and bipolar patients using static and dynamic resting-state fMRI brain connectivity
               
             
           </h1>
@@ -327,8 +329,8 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-17T16:08:02+08:00">
-                2017-07-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-11T21:30:00+08:00">
+                2017-08-11
               </time>
             
 
@@ -338,6 +340,28 @@ tpwidget("show");</script>
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/papers/" itemprop="url" rel="index">
+                    <span itemprop="name">papers</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -346,8 +370,8 @@ tpwidget("show");</script>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/17/introduce my self/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/17/introduce my self/" itemprop="commentCount"></span>
+                <a href="/2017/08/11/paper_notes_14/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/11/paper_notes_14/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -373,8 +397,19 @@ tpwidget("show");</script>
       
 
       
-        <p>Hello, world<br>This is my first blog. Today is January 03, 2017.<br>I would    like to express my sincere thanks to Tieqiang. I would never build the webs so quickly without his help.<br>I am a PhD student working in Institute of Automation Chinese Academy of Sciences（CASIA）.<br>I major in Machine Learing and Analysis of Medical Images.<br>I would like to share my ideas to those who are working hard to build a better world.</p>
-<p>I am inexperienced, but also invite more attention, Thank you!</p>
+        <p><a href="https://www.researchgate.net/publication/283752103_Classification_of_schizophrenia_and_bipolar_patients_using_static_and_time-varying_resting-state_FMRI_brain_connectivity" target="_blank" rel="external">原文链接</a></p>
+<p>大致总结一下当前的精神疾病分类方法的大致思路：</p>
+<ol>
+<li>从单一模态到多模态融合；</li>
+<li>从纯粹数据驱动到加入先验知识的机器学习方法；</li>
+<li>从一般的功能连接到动态功能连接；</li>
+<li>从基于图论的分类方法到深度学习；</li>
+<li><p>从二分类问题发展到多分类问题；</p>
+<a id="more"></a>
+<p>本文的主要方法流程图：</p>
+<p><img src="http://ars.els-cdn.com/content/image/1-s2.0-S105381191630091X-gr2.jpg" alt=""></p>
+</li>
+</ol>
 
       
     </div>
@@ -405,8 +440,8 @@ tpwidget("show");</script>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/17/tsne_notes/" rel="next" title="How to Use t-SNE Effectively">
-                <i class="fa fa-chevron-left"></i> How to Use t-SNE Effectively
+              <a href="/2017/07/17/hexo widgets/" rel="next" title="Widgets of Hexo">
+                <i class="fa fa-chevron-left"></i> Widgets of Hexo
               </a>
             
           </div>
@@ -414,10 +449,6 @@ tpwidget("show");</script>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/17/multi-task learning/" rel="prev" title="Multitask theory，algorithms and applications（2012， Jieping Ye）">
-                Multitask theory，algorithms and applications（2012， Jieping Ye） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -443,8 +474,8 @@ tpwidget("show");</script>
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/07/17/introduce my self/"
-           data-title="Introduce Myself" data-url="https://wizardyan.github.io/2017/07/17/introduce my self/">
+      <div class="ds-thread" data-thread-key="2017/08/11/paper_notes_14/"
+           data-title="论文笔记系列之十四：Classification of schizophrenia and bipolar patients using static and dynamic resting-state fMRI brain connectivity" data-url="https://wizardyan.github.io/2017/08/11/paper_notes_14/">
       </div>
     
   </div>
