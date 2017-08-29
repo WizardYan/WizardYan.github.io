@@ -1,0 +1,788 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Abstracttips:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文笔记系列之九：Classification of Schizophrenia Versus Normal Subjects Using Deep Learning（Proceedings of the Tenth Indian Conference on Computer Vision，2016）">
+<meta property="og:url" content="https://wizardyan.github.io/2017/08/29/paper_notes_9/index.html">
+<meta property="og:site_name" content="Wizard&#39;s blog">
+<meta property="og:description" content="Abstracttips:">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V10faeBQ4OFBLZ/AQ.EmPfWmp1l80fDro73By7cYGamMbm3Jaej19HYN7M!/b/dLIAAAAAAAAA&bo=*wFdAQAAAAADB4A!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/ZdRC9RGPW.ZXE*PX1LxneUFNauRBrPsqg3ruFgdyMC8!/b/dB8BAAAAAAAA&bo=EQTsAQAAAAADB9o!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/bPVKhzdxir9jLxyxNb7deAKACW2GzNT0*vRzMqOM*DU!/b/dCABAAAAAAAA&bo=LQIhAgAAAAADBy4!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/cjfWv7FyT0LTVrbDezAfngZ07BG4GqL2X2okEjkWlnY!/b/dPgAAAAAAAAA&bo=CgKZAQAAAAADB7I!&rf=viewer_4">
+<meta property="og:updated_time" content="2017-08-29T03:09:50.929Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="论文笔记系列之九：Classification of Schizophrenia Versus Normal Subjects Using Deep Learning（Proceedings of the Tenth Indian Conference on Computer Vision，2016）">
+<meta name="twitter:description" content="Abstracttips:">
+<meta name="twitter:image" content="http://a2.qpic.cn/psb?/V10faeBQ4OFBLZ/AQ.EmPfWmp1l80fDro73By7cYGamMbm3Jaej19HYN7M!/b/dLIAAAAAAAAA&bo=*wFdAQAAAAADB4A!&rf=viewer_4">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wizardyan.github.io/2017/08/29/paper_notes_9/"/>
+
+
+
+
+
+
+
+
+  <title> 论文笔记系列之九：Classification of Schizophrenia Versus Normal Subjects Using Deep Learning（Proceedings of the Tenth Indian Conference on Computer Vision，2016） | Wizard's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wizard's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+ 
+
+ <script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=Tt6rcnE9JUuUJ30_0KCkENydggMcSLIlCT3S2pPdRnQ"></script>
+ 
+</nav>
+
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.thinkpage.cn/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WX4EQ2XJD7V2",
+    "geolocation": "enabled",
+    "position": "bottom-left",
+    "margin": "10px 10px",
+    "language": "en",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U06025FF08",
+    "hash": "76dcee1694904eac76275d6dbe6a764b"
+});
+tpwidget("show");</script>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/08/29/paper_notes_9/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Wizard">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Wizard's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Wizard's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                论文笔记系列之九：Classification of Schizophrenia Versus Normal Subjects Using Deep Learning（Proceedings of the Tenth Indian Conference on Computer Vision，2016）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-29T11:09:50+08:00">
+                2017-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/papers/" itemprop="url" rel="index">
+                    <span itemprop="name">papers</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/29/paper_notes_9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/29/paper_notes_9/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>tips:<br><a id="more"></a></p>
+<ul>
+<li>fMRI  stacked autoencoder(SAD)</li>
+<li>Basic Method:A separate 4-hidden layer autoencoder is trained in an <strong>unsupervised</strong> manner for feature extraction corresponding to every brain region. Then, <strong>SVM classifier </strong></li>
+<li>In order to design a robust classifier, used <strong>covariance based approach</strong></li>
+<li>Dataset: 1000</li>
+<li>Method: 10 fold CV</li>
+<li>Result: accuracy:92%, better than existing methods</li>
+</ul>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>There is no standard automated fMRI tool in hospitals that can be used for disease diagnosis.<br><strong> Cobre dataset</strong> Schizophrenia and normal subjects</p>
+<p>In <a href="http://www.sciencedirect.com/science/article/pii/S1053811915003985" target="_blank" rel="external">12</a> , DNN with mutiple hidden layers along with sparsity constraint is used to classify subjects.<br>limitition: Mean time series (all voxels in a whole region may not be active at any time), Pearson Correlation (neglect the effect of other regions).</p>
+<p>In <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3759000/" target="_blank" rel="external">1</a>, ICA +various graph theoretic measures. 65% accuracy</p>
+<p>In this paper,</p>
+<ol>
+<li>propose covariance based approach to filter out inactive GM form the fMRI dataset before the data is fed to the first stage of the classifier</li>
+<li>2-stage classifier: first stage, autoencoder(4 hidden layers) trained on every brain region(116 regions), output is 8-length feature vectors for each region. Second stage, SVM classifier.</li>
+<li>Instead of using the mean time series of all voxels, we have used  complete time series of all active voxels as input to SAEs.</li>
+</ol>
+<h1 id="2-Background"><a href="#2-Background" class="headerlink" title="2. Background"></a>2. Background</h1><p>Autoencoder: The goal of <strong>autoencoder</strong> is to find representative features from the input data such that the data can be reconstructed from this feature vector.<br>SVM:</p>
+<h1 id="3-Data-description-and-pre-processing"><a href="#3-Data-description-and-pre-processing" class="headerlink" title="3. Data description and pre-processing"></a>3. Data description and pre-processing</h1><p><a href="http://cobre.mrn.org/" target="_blank" rel="external">COBRE dataset</a><br>74 HC + 72 SZ<br>voxel size : 3<em>3</em>4</p>
+<p>proprocess: SPM8 , discard first 5 volumes ….<br>Result in 53<em>63&amp;52(3mm isotropic voxels)<br>Further, smooth: FWHM=8mm<br><em>* only use GM, masked out WM and CSF</em></em></p>
+<h1 id="4-Proposed-work"><a href="#4-Proposed-work" class="headerlink" title="4. Proposed work"></a>4. Proposed work</h1><p>Pre-state: filter out inactive or noisy GM voxels<br>Stage1: auto encoder for every region<br>Stage2: SVM</p>
+<p><img src="http://a2.qpic.cn/psb?/V10faeBQ4OFBLZ/AQ.EmPfWmp1l80fDro73By7cYGamMbm3Jaej19HYN7M!/b/dLIAAAAAAAAA&amp;bo=*wFdAQAAAAADB4A!&amp;rf=viewer_4" alt="捕获26"></p>
+<p><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/ZdRC9RGPW.ZXE*PX1LxneUFNauRBrPsqg3ruFgdyMC8!/b/dB8BAAAAAAAA&amp;bo=EQTsAQAAAAADB9o!&amp;rf=viewer_4" alt="捕获29"></p>
+<h2 id="4-1-Pre-stage"><a href="#4-1-Pre-stage" class="headerlink" title="4.1 Pre-stage"></a>4.1 Pre-stage</h2><p>$$<br>K_y[l]= \dfrac{E[(y[n]-\mu[n])(y[n-l]-\mu[n-l])]}{\sigma_y^2}<br>$$</p>
+<p><img src="http://a1.qpic.cn/psb?/V10faeBQ4OFBLZ/bPVKhzdxir9jLxyxNb7deAKACW2GzNT0*vRzMqOM*DU!/b/dCABAAAAAAAA&amp;bo=LQIhAgAAAAADBy4!&amp;rf=viewer_4" alt="捕获27"></p>
+<p>Compute the area under the curve wxhibited by $ K_y[l] $ , $l= [-35,35] $. If the area over 2, the voxel is noisy.</p>
+<h2 id="4-2-Stage-1-Learning-features-via-autoencoder"><a href="#4-2-Stage-1-Learning-features-via-autoencoder" class="headerlink" title="4.2 Stage-1: Learning features via autoencoder"></a>4.2 Stage-1: Learning features via autoencoder</h2><p><img src="http://a3.qpic.cn/psb?/V10faeBQ4OFBLZ/cjfWv7FyT0LTVrbDezAfngZ07BG4GqL2X2okEjkWlnY!/b/dPgAAAAAAAAA&amp;bo=CgKZAQAAAAADB7I!&amp;rf=viewer_4" alt="捕获28"></p>
+<p>Train: 10 HC + 10 SZ<br>Test: 30HC + 30 SZ</p>
+<p>Augment the train dataset:Random choose 50% ,30 times —&gt; 300 HC + 300 SZ</p>
+<h2 id="4-3-Stage-2-SVM-Classifier"><a href="#4-3-Stage-2-SVM-Classifier" class="headerlink" title="4.3 Stage-2: SVM Classifier"></a>4.3 Stage-2: SVM Classifier</h2><p>i-th region: N active voxels, output 8 length feature vector.</p>
+<p>$ M<em>{Voxels <em> samples}</em> M</em>{samples <em> features}=M_{Voxels </em> features} $</p>
+<p>Calculate <strong> Mean </strong> and  <strong> Std</strong> of every feature</p>
+<h1 id="6-Conclusion"><a href="#6-Conclusion" class="headerlink" title="6. Conclusion"></a>6. Conclusion</h1><p>92%， Better than the exsisting methods</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/29/paper_notes_8/" rel="next" title="论文笔记系列之八：Single subject prediction of brain disorders in neuroimaging__Promises and pitfalls（NeuroImage，2017）">
+                <i class="fa fa-chevron-left"></i> 论文笔记系列之八：Single subject prediction of brain disorders in neuroimaging__Promises and pitfalls（NeuroImage，2017）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/29/paper_notes_10/" rel="prev" title="论文笔记系列之十：Dermatologist-level classification of skin cancer with deep neural networks（Nature，2017）">
+                论文笔记系列之十：Dermatologist-level classification of skin cancer with deep neural networks（Nature，2017） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/29/paper_notes_9/"
+           data-title="论文笔记系列之九：Classification of Schizophrenia Versus Normal Subjects Using Deep Learning（Proceedings of the Tenth Indian Conference on Computer Vision，2016）" data-url="https://wizardyan.github.io/2017/08/29/paper_notes_9/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4"
+               alt="Wizard" />
+          <p class="site-author-name" itemprop="name">Wizard</p>
+          <p class="site-description motion-element" itemprop="description">May it be when darkness falls,    <br> Your heart will be true</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://bing.com/" title="Bing" target="_blank">Bing</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.sogou.com/" title="Sogou" target="_blank">Sogou</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction"><span class="nav-number">2.</span> <span class="nav-text">1. Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Background"><span class="nav-number">3.</span> <span class="nav-text">2. Background</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Data-description-and-pre-processing"><span class="nav-number">4.</span> <span class="nav-text">3. Data description and pre-processing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Proposed-work"><span class="nav-number">5.</span> <span class="nav-text">4. Proposed work</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-Pre-stage"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 Pre-stage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-Stage-1-Learning-features-via-autoencoder"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 Stage-1: Learning features via autoencoder</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-Stage-2-SVM-Classifier"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 Stage-2: SVM Classifier</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-Conclusion"><span class="nav-number">6.</span> <span class="nav-text">6. Conclusion</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wizard</span>
+</div>
+
+
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wizardyan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

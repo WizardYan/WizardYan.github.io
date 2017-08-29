@@ -1,0 +1,795 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="查询安装的Python包的版本及升级（在shell中操作）pip list  # 查看pip安装的包 pip install --upgrade 安装包名        # 更新安装包 conda update conda  # 更新anaconda 循环命令from scipy.misc import imread import matplotlib.pyplot as plt  from ni">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python commands（to be continued）">
+<meta property="og:url" content="https://wizardyan.github.io/2017/08/29/python commands/index.html">
+<meta property="og:site_name" content="Wizard&#39;s blog">
+<meta property="og:description" content="查询安装的Python包的版本及升级（在shell中操作）pip list  # 查看pip安装的包 pip install --upgrade 安装包名        # 更新安装包 conda update conda  # 更新anaconda 循环命令from scipy.misc import imread import matplotlib.pyplot as plt  from ni">
+<meta property="og:updated_time" content="2017-08-29T03:09:51.013Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python commands（to be continued）">
+<meta name="twitter:description" content="查询安装的Python包的版本及升级（在shell中操作）pip list  # 查看pip安装的包 pip install --upgrade 安装包名        # 更新安装包 conda update conda  # 更新anaconda 循环命令from scipy.misc import imread import matplotlib.pyplot as plt  from ni">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wizardyan.github.io/2017/08/29/python commands/"/>
+
+
+
+
+
+
+
+
+  <title> Python commands（to be continued） | Wizard's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wizard's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+ 
+
+ <script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=Tt6rcnE9JUuUJ30_0KCkENydggMcSLIlCT3S2pPdRnQ"></script>
+ 
+</nav>
+
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.thinkpage.cn/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WX4EQ2XJD7V2",
+    "geolocation": "enabled",
+    "position": "bottom-left",
+    "margin": "10px 10px",
+    "language": "en",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U06025FF08",
+    "hash": "76dcee1694904eac76275d6dbe6a764b"
+});
+tpwidget("show");</script>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/08/29/python commands/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Wizard">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Wizard's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Wizard's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python commands（to be continued）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-29T11:09:51+08:00">
+                2017-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">skills</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/29/python commands/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/29/python commands/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="查询安装的Python包的版本及升级（在shell中操作）"><a href="#查询安装的Python包的版本及升级（在shell中操作）" class="headerlink" title="查询安装的Python包的版本及升级（在shell中操作）"></a>查询安装的Python包的版本及升级（在shell中操作）</h2><pre><code>pip list  # 查看pip安装的包
+pip install --upgrade 安装包名        # 更新安装包
+conda update conda  # 更新anaconda
+</code></pre><h2 id="循环命令"><a href="#循环命令" class="headerlink" title="循环命令"></a>循环命令</h2><pre><code>from scipy.misc import imread
+import matplotlib.pyplot as plt
+
+from nilearn import datasets
+
+haxby_dataset = datasets.fetch_haxby(subjects=[], fetch_stimuli=True)
+stimulus_information = haxby_dataset.stimuli # 获取实验中用到的图片（人脸，椅子等）
+
+for stim_type in sorted(stimulus_information.keys()):
+    if stim_type == b&apos;controls&apos;:  # 跳过 ‘control images’
+        continue
+    file_names = stimulus_information[stim_type]
+    plt.figure()
+    for i in range(48):
+        plt.subplot(6, 8, i + 1)
+        try:   # 注意try的用法
+            plt.imshow(imread(file_names[i]), cmap=plt.cm.gray)
+        except:
+            # just go to the next one if the file is not present
+            pass
+        plt.axis(&quot;off&quot;)
+    plt.suptitle(stim_type)
+</code></pre><h2 id="数组扩展"><a href="#数组扩展" class="headerlink" title="数组扩展"></a>数组扩展</h2><pre><code>a.append(b)
+</code></pre><h2 id="查看函数是否有某个选项"><a href="#查看函数是否有某个选项" class="headerlink" title="查看函数是否有某个选项"></a>查看函数是否有某个选项</h2><pre><code>if hasattr(clf, &quot;predict_proba&quot;):
+    prob_pos = clf.predict_proba(X_test)[:, 1]
+</code></pre><h2 id="Set-的使用"><a href="#Set-的使用" class="headerlink" title="Set 的使用"></a>Set 的使用</h2><pre><code>site = []
+site_num = set(origin_excel[&apos;Site&apos;])
+for j in site_num: # site number
+    site_temp = []
+    for i in range(len(origin_excel[&apos;Site&apos;])):
+        if origin_excel[&apos;Site&apos;][i] == j:
+            site_temp.append(i)
+    site.append(site_temp)
+</code></pre><h2 id="定义class"><a href="#定义class" class="headerlink" title="定义class"></a>定义class</h2><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">class Calculator:       #首字母要大写，冒号不能缺</div><div class="line">    name=&apos;good calculator&apos;</div><div class="line">    price=18</div><div class="line">    def __init__(self,name,price,height,width,weight):   # 注意，这里的下划线是双下划线</div><div class="line">        self.name=name</div><div class="line">        self.price=price</div><div class="line">        self.h=height</div><div class="line">        self.wi=width</div><div class="line">        self.we=weight</div><div class="line">    def add(self,x,y):</div><div class="line">        print(self.name)</div><div class="line">        result = x + y</div><div class="line">        print(result)</div><div class="line">    def minus(self,x,y):</div><div class="line">        result=x-y</div><div class="line">        print(result)</div><div class="line">    def times(self,x,y):</div><div class="line">        print(x*y)</div><div class="line">    def divide(self,x,y):</div><div class="line">        print(x/y)</div><div class="line"></div><div class="line">&gt;&gt;&gt; cal=Calculator(&apos;bad calculator&apos;,18,17,16,15)  #注意这里运行class的时候要加&quot;()&quot;,否则调用下面函数的时候会出现错误,导致无法调用.</div><div class="line">&gt;&gt;&gt; cal.name</div><div class="line">&apos;bad Calculator&apos;</div><div class="line">&gt;&gt;&gt; cal.price</div><div class="line">18</div><div class="line">&gt;&gt;&gt; cal.add(10,20)</div><div class="line">Good Calculator</div><div class="line">30</div><div class="line">&gt;&gt;&gt; cal.minus(10,20)</div><div class="line">-10</div><div class="line">&gt;&gt;&gt; cal.times(10,20)</div><div class="line">200</div><div class="line">&gt;&gt;&gt; cal.divide(10,20)</div><div class="line">0.5</div><div class="line">&gt;&gt;&gt; cal.h</div><div class="line">17</div></pre></td></tr></table></figure>
+<h2 id="统计列表中某个元素出现的次数"><a href="#统计列表中某个元素出现的次数" class="headerlink" title="统计列表中某个元素出现的次数"></a>统计列表中某个元素出现的次数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = [4,1,2,3,4,1,1,-1]</div><div class="line">print(a.count(-1))</div></pre></td></tr></table></figure>
+<h2 id="对列表进行排序"><a href="#对列表进行排序" class="headerlink" title="对列表进行排序"></a>对列表进行排序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">a = [4,1,2,3,4,1,1,-1]</div><div class="line">a.sort() # 默认从小到大排序</div><div class="line">print(a)</div><div class="line">[-1, 1, 1, 1, 2, 3, 4, 4]</div><div class="line">a.sort(reverse=True) # 从大到小排序</div><div class="line">print(a)</div><div class="line">[4, 4, 3, 2, 1, 1, 1, -1]</div></pre></td></tr></table></figure>
+<h2 id="Try-错误处理"><a href="#Try-错误处理" class="headerlink" title="Try 错误处理"></a>Try 错误处理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">try:</div><div class="line">    file=open(&apos;eeee.txt&apos;,&apos;r+&apos;)</div><div class="line">except Exception as e:</div><div class="line">    print(e)</div><div class="line">    response = input(&apos;do you want to create a new file:&apos;)</div><div class="line">    if response==&apos;y&apos;:</div><div class="line">        file=open(&apos;eeee.txt&apos;,&apos;w&apos;)</div><div class="line">    else:</div><div class="line">        pass</div><div class="line">else:</div><div class="line">    file.write(&apos;ssss&apos;)</div><div class="line">    file.close()</div></pre></td></tr></table></figure>
+<h2 id="zip-lambda-map"><a href="#zip-lambda-map" class="headerlink" title="zip lambda map"></a>zip lambda map</h2><h4 id="zip-合并序列，返回列表"><a href="#zip-合并序列，返回列表" class="headerlink" title="zip  合并序列，返回列表"></a>zip  合并序列，返回列表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">a=[1,2,3]</div><div class="line">b=[4,5,6]</div><div class="line">ab=zip(a,b)</div><div class="line">print(list(ab))  #需要加list来可视化这个功能</div><div class="line">&quot;&quot;&quot;</div><div class="line">[(1, 4), (2, 5), (3, 6)]</div><div class="line">&quot;&quot;&quot;</div></pre></td></tr></table></figure>
+<h4 id="lambda-定义简单函数"><a href="#lambda-定义简单函数" class="headerlink" title="lambda 定义简单函数"></a>lambda 定义简单函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">fun= lambda x,y:x+y</div><div class="line">x=int(input(&apos;x=&apos;))    #这里要定义int整数，否则会默认为字符串</div><div class="line">y=int(input(&apos;y=&apos;))</div><div class="line">print(fun(x,y))</div><div class="line"></div><div class="line">&quot;&quot;&quot;</div><div class="line">x=6</div><div class="line">y=6</div><div class="line">12</div><div class="line">&quot;&quot;&quot;</div></pre></td></tr></table></figure>
+<h4 id="map-将函数和参数绑定在一起"><a href="#map-将函数和参数绑定在一起" class="headerlink" title="map 将函数和参数绑定在一起"></a>map 将函数和参数绑定在一起</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; def fun(x,y):</div><div class="line">	return (x+y)</div><div class="line">&gt;&gt;&gt; list(map(fun,[1],[2]))</div><div class="line">&quot;&quot;&quot;</div><div class="line">[3]</div><div class="line">&quot;&quot;&quot;</div><div class="line">&gt;&gt;&gt; list(map(fun,[1,2],[3,4]))</div><div class="line">&quot;&quot;&quot;</div><div class="line">[4,6]</div><div class="line">&quot;&quot;&quot;</div></pre></td></tr></table></figure>
+<h4 id="显示倒数几个数"><a href="#显示倒数几个数" class="headerlink" title="显示倒数几个数"></a>显示倒数几个数</h4><pre><code>print(a[-3:]) # 显示列表a的倒数第3位及以后的所有项的值
+# [1, 1, -1]
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/29/paper_notes_15/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/29/template/" rel="prev" title="This is a Template for Writing">
+                This is a Template for Writing <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/29/python commands/"
+           data-title="Python commands（to be continued）" data-url="https://wizardyan.github.io/2017/08/29/python commands/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4"
+               alt="Wizard" />
+          <p class="site-author-name" itemprop="name">Wizard</p>
+          <p class="site-description motion-element" itemprop="description">May it be when darkness falls,    <br> Your heart will be true</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://bing.com/" title="Bing" target="_blank">Bing</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.sogou.com/" title="Sogou" target="_blank">Sogou</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查询安装的Python包的版本及升级（在shell中操作）"><span class="nav-number">1.</span> <span class="nav-text">查询安装的Python包的版本及升级（在shell中操作）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环命令"><span class="nav-number">2.</span> <span class="nav-text">循环命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组扩展"><span class="nav-number">3.</span> <span class="nav-text">数组扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看函数是否有某个选项"><span class="nav-number">4.</span> <span class="nav-text">查看函数是否有某个选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-的使用"><span class="nav-number">5.</span> <span class="nav-text">Set 的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义class"><span class="nav-number">6.</span> <span class="nav-text">定义class</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计列表中某个元素出现的次数"><span class="nav-number">7.</span> <span class="nav-text">统计列表中某个元素出现的次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对列表进行排序"><span class="nav-number">8.</span> <span class="nav-text">对列表进行排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Try-错误处理"><span class="nav-number">9.</span> <span class="nav-text">Try 错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zip-lambda-map"><span class="nav-number">10.</span> <span class="nav-text">zip lambda map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#zip-合并序列，返回列表"><span class="nav-number">10.0.1.</span> <span class="nav-text">zip  合并序列，返回列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lambda-定义简单函数"><span class="nav-number">10.0.2.</span> <span class="nav-text">lambda 定义简单函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map-将函数和参数绑定在一起"><span class="nav-number">10.0.3.</span> <span class="nav-text">map 将函数和参数绑定在一起</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示倒数几个数"><span class="nav-number">10.0.4.</span> <span class="nav-text">显示倒数几个数</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wizard</span>
+</div>
+
+
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wizardyan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

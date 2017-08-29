@@ -1,0 +1,1757 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="8.1. General examples8.1.2. Basic nilearn example: manipulating and looking at data# -*- coding: utf-8 -*-  from nilearn.datasets import MNI152_FILE_PATH  #  nilearn 的dataset 数据集 print(&amp;apos;Path to M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nilearn Toolbox (to be continued)">
+<meta property="og:url" content="https://wizardyan.github.io/2017/08/29/nilearn_toolbox/index.html">
+<meta property="og:site_name" content="Wizard&#39;s blog">
+<meta property="og:description" content="8.1. General examples8.1.2. Basic nilearn example: manipulating and looking at data# -*- coding: utf-8 -*-  from nilearn.datasets import MNI152_FILE_PATH  #  nilearn 的dataset 数据集 print(&amp;apos;Path to M">
+<meta property="og:updated_time" content="2017-08-29T03:09:50.797Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nilearn Toolbox (to be continued)">
+<meta name="twitter:description" content="8.1. General examples8.1.2. Basic nilearn example: manipulating and looking at data# -*- coding: utf-8 -*-  from nilearn.datasets import MNI152_FILE_PATH  #  nilearn 的dataset 数据集 print(&amp;apos;Path to M">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wizardyan.github.io/2017/08/29/nilearn_toolbox/"/>
+
+
+
+
+
+
+
+
+  <title> Nilearn Toolbox (to be continued) | Wizard's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Wizard's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+ 
+
+ <script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=Tt6rcnE9JUuUJ30_0KCkENydggMcSLIlCT3S2pPdRnQ"></script>
+ 
+</nav>
+
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.thinkpage.cn/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WX4EQ2XJD7V2",
+    "geolocation": "enabled",
+    "position": "bottom-left",
+    "margin": "10px 10px",
+    "language": "en",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U06025FF08",
+    "hash": "76dcee1694904eac76275d6dbe6a764b"
+});
+tpwidget("show");</script>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/08/29/nilearn_toolbox/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Wizard">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Wizard's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Wizard's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Nilearn Toolbox (to be continued)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-29T11:09:50+08:00">
+                2017-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">skills</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/29/nilearn_toolbox/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/29/nilearn_toolbox/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="8-1-General-examples"><a href="#8-1-General-examples" class="headerlink" title="8.1. General examples"></a>8.1. General examples</h1><h2 id="8-1-2-Basic-nilearn-example-manipulating-and-looking-at-data"><a href="#8-1-2-Basic-nilearn-example-manipulating-and-looking-at-data" class="headerlink" title="8.1.2. Basic nilearn example: manipulating and looking at data"></a>8.1.2. Basic nilearn example: manipulating and looking at data</h2><pre><code># -*- coding: utf-8 -*-
+
+from nilearn.datasets import MNI152_FILE_PATH  #  nilearn 的dataset 数据集
+print(&apos;Path to MNI152 template: %r&apos; % MNI152_FILE_PATH) # MNI模板的路径
+</code></pre><a id="more"></a>
+<h3 id="8-1-2-1-A-first-step-looking-at-our-data"><a href="#8-1-2-1-A-first-step-looking-at-our-data" class="headerlink" title="8.1.2.1. A first step: looking at our data"></a>8.1.2.1. A first step: looking at our data</h3><pre><code>from nilearn import plotting  # 绘图工具
+plotting.plot_img(MNI152_FILE_PATH)
+</code></pre><h3 id="8-1-2-2-Simple-image-manipulation-smoothing"><a href="#8-1-2-2-Simple-image-manipulation-smoothing" class="headerlink" title="8.1.2.2. Simple image manipulation: smoothing"></a>8.1.2.2. Simple image manipulation: smoothing</h3><pre><code>from nilearn import image # 图像操作工具
+smooth_anat_img = image.smooth_img(MNI152_FILE_PATH, fwhm=3) # 平滑操作
+print(smooth_anat_img) # 输出图像的参数
+plotting.plot_img(smooth_anat_img) # 绘制图像
+
+more_smooth_anat_img = image.smooth_img(smooth_anat_img, fwhm=3) # 再次平滑操作
+plotting.plot_img(more_smooth_anat_img) # 再次绘制图形
+</code></pre><h3 id="8-1-2-3-Saving-results-to-a-file"><a href="#8-1-2-3-Saving-results-to-a-file" class="headerlink" title="8.1.2.3. Saving results to a file"></a>8.1.2.3. Saving results to a file</h3><pre><code>more_smooth_anat_img.to_filename(&apos;more_smooth_anat_img.nii.gz&apos;) # 保存图形
+plotting.show() # 显示图形
+</code></pre><h2 id="8-1-3-3D-and-4D-niimgs-handling-and-visualizing"><a href="#8-1-3-3D-and-4D-niimgs-handling-and-visualizing" class="headerlink" title="8.1.3. 3D and 4D niimgs: handling and visualizing"></a>8.1.3. 3D and 4D niimgs: handling and visualizing</h2><h3 id="8-1-3-1-Downloading-tutorial-datasets-from-Internet"><a href="#8-1-3-1-Downloading-tutorial-datasets-from-Internet" class="headerlink" title="8.1.3.1. Downloading tutorial datasets from Internet"></a>8.1.3.1. Downloading tutorial datasets from Internet</h3><pre><code>from nilearn import datasets  # nilearn数据集
+print(&apos;Datasets are stored in: %r&apos; % datasets.get_data_dirs()) 
+tmap_filenames = datasets.fetch_localizer_button_task()[&apos;tmaps&apos;] # 获取一套任务态的数据
+print(tmap_filenames)
+tmap_filename = tmap_filenames[0] # 选取第一个数据
+</code></pre><h3 id="8-1-3-2-Visualizing-a-3D-file"><a href="#8-1-3-2-Visualizing-a-3D-file" class="headerlink" title="8.1.3.2. Visualizing a 3D file"></a>8.1.3.2. Visualizing a 3D file</h3><pre><code>from nilearn import plotting
+plotting.plot_stat_map(tmap_filename) # 绘制统计图
+plotting.plot_stat_map(tmap_filename, threshold=3) # 绘制带阈值的统计图
+</code></pre><h3 id="8-1-3-3-Visualizing-one-volume-in-a-4D-file"><a href="#8-1-3-3-Visualizing-one-volume-in-a-4D-file" class="headerlink" title="8.1.3.3. Visualizing one volume in a 4D file"></a>8.1.3.3. Visualizing one volume in a 4D file</h3><pre><code>rsn = datasets.fetch_atlas_smith_2009()[&apos;rsn10&apos;] # 获取一个任务态的fMRI图
+print(rsn)
+from nilearn import image
+print(image.load_img(rsn).shape) # 输出fMRI的维度
+
+first_rsn = image.index_img(rsn, 0) # 获取fMRI数据的第一个时间点的数据
+print(first_rsn.shape)
+plotting.plot_stat_map(first_rsn) # 绘制第一个时间点的图像
+</code></pre><h3 id="8-1-3-4-Looping-on-all-volumes-in-a-4D-file"><a href="#8-1-3-4-Looping-on-all-volumes-in-a-4D-file" class="headerlink" title="8.1.3.4. Looping on all volumes in a 4D file"></a>8.1.3.4. Looping on all volumes in a 4D file</h3><pre><code>for img in image.iter_img(rsn):
+    # img is now an in-memory 3D img
+    plotting.plot_stat_map(img, threshold=3, display_mode=&quot;z&quot;, cut_coords=1,
+                           colorbar=False)   # 循环输出fMRI的图像
+plotting.show()
+</code></pre><h2 id="8-1-4-A-introduction-tutorial-to-fMRI-decoding"><a href="#8-1-4-A-introduction-tutorial-to-fMRI-decoding" class="headerlink" title="8.1.4. A introduction tutorial to fMRI decoding"></a>8.1.4. A introduction tutorial to fMRI decoding</h2><h3 id="8-1-4-1-Retrieve-and-load-the-fMRI-data-from-the-Haxby-study"><a href="#8-1-4-1-Retrieve-and-load-the-fMRI-data-from-the-Haxby-study" class="headerlink" title="8.1.4.1. Retrieve and load the fMRI data from the Haxby study"></a>8.1.4.1. Retrieve and load the fMRI data from the Haxby study</h3><pre><code>from nilearn import datasets
+# By default 2nd subject will be fetched
+haxby_dataset = datasets.fetch_haxby()
+fmri_filename = haxby_dataset.func[0] # 获取第一个fMRI样本
+
+# print basic information on the dataset
+print(&apos;First subject functional nifti images (4D) are at: %s&apos; %
+  fmri_filename)  # 4D data
+</code></pre><h4 id="8-1-4-1-1-First-download-the-data"><a href="#8-1-4-1-1-First-download-the-data" class="headerlink" title="8.1.4.1.1. First download the data"></a>8.1.4.1.1. First download the data</h4><pre><code>from nilearn import datasets
+haxby_dataset = datasets.fetch_haxby() # 默认会选择两个fMRI样本
+fmri_filename = haxby_dataset.func[0] # 选择第一个fMRI样本
+print(&apos;First subject functional nifti images (4D) are at: %s&apos; %
+      fmri_filename)  # 4D data 的路径
+</code></pre><h4 id="8-1-4-1-2-Convert-the-fMRI-volume’s-to-a-data-matrix"><a href="#8-1-4-1-2-Convert-the-fMRI-volume’s-to-a-data-matrix" class="headerlink" title="8.1.4.1.2. Convert the fMRI volume’s to a data matrix"></a>8.1.4.1.2. Convert the fMRI volume’s to a data matrix</h4><pre><code>mask_filename = haxby_dataset.mask_vt[0] # mask 的某一个区域
+from nilearn import plotting
+plotting.plot_roi(mask_filename, bg_img=haxby_dataset.anat[0],
+                 cmap=&apos;Paired&apos;) # 绘制出这一个脑区
+from nilearn.input_data import NiftiMasker # 导入fMRI mask工具
+masker = NiftiMasker(mask_img=mask_filename, standardize=True) 
+fmri_masked = masker.fit_transform(fmri_filename) # 将mask套用到新的fMRI数据中来
+print(fmri_masked) # 输出 mask 后的结果
+print(fmri_masked.shape) # mask后的结果 (1452, 464)
+</code></pre><h4 id="8-1-4-1-3-Load-the-behavioral-labels"><a href="#8-1-4-1-3-Load-the-behavioral-labels" class="headerlink" title="8.1.4.1.3. Load the behavioral labels"></a>8.1.4.1.3. Load the behavioral labels</h4><pre><code>import numpy as np
+# Load target information as string and give a numerical identifier to each
+labels = np.recfromcsv(haxby_dataset.session_target[0], delimiter=&quot; &quot;)
+print(labels) # 导入标签
+target = labels[&apos;labels&apos;]
+print(target)           
+</code></pre><h4 id="8-1-4-1-4-Restrict-the-analysis-to-cats-and-faces"><a href="#8-1-4-1-4-Restrict-the-analysis-to-cats-and-faces" class="headerlink" title="8.1.4.1.4. Restrict the analysis to cats and faces"></a>8.1.4.1.4. Restrict the analysis to cats and faces</h4><pre><code>condition_mask = np.logical_or(target == b&apos;face&apos;, target == b&apos;cat&apos;)
+
+# We apply this mask in the sampe direction to restrict the
+# classification to the face vs cat discrimination
+fmri_masked = fmri_masked[condition_mask]
+print(fmri_masked.shape)
+</code></pre><h1 id="8-2-Visualization-of-brain-images"><a href="#8-2-Visualization-of-brain-images" class="headerlink" title="8.2. Visualization of brain images"></a>8.2. Visualization of brain images</h1><h2 id="8-2-1-Basic-Atlas-plotting"><a href="#8-2-1-Basic-Atlas-plotting" class="headerlink" title="8.2.1. Basic Atlas plotting"></a>8.2.1. Basic Atlas plotting</h2><pre><code>from nilearn import datasets
+from nilearn import plotting
+
+dataset = datasets.fetch_atlas_harvard_oxford(&apos;cort-maxprob-thr25-2mm&apos;) # 获取图谱
+atlas_filename = dataset.maps
+
+print(&apos;Atlas ROIs are located at: %s&apos; % atlas_filename) # 图谱的地址
+plotting.plot_roi(atlas_filename, title=&quot;Harvard Oxford atlas&quot;) # 绘制图谱
+plotting.show()
+</code></pre><h2 id="8-2-2-Glass-brain-plotting-in-nilearn-透明脑"><a href="#8-2-2-Glass-brain-plotting-in-nilearn-透明脑" class="headerlink" title="8.2.2. Glass brain plotting in nilearn # 透明脑"></a>8.2.2. Glass brain plotting in nilearn # 透明脑</h2><pre><code>from nilearn import datasets
+localizer_dataset = datasets.fetch_localizer_button_task()
+localizer_tmap_filename = localizer_dataset.tmaps[0]
+
+from nilearn import plotting
+plotting.plot_glass_brain(localizer_tmap_filename, threshold=3) # 绘制透明脑
+plotting.plot_glass_brain(localizer_tmap_filename, title=&apos;plot_glass_brain&apos;,black_bg=True,                                     display_mode=&apos;xz&apos;, threshold=3) # 背景是黑色的
+plotting.plot_glass_brain(localizer_tmap_filename, title=&apos;plot_glass_brain with display_mode=&quot;lyrz&quot;&apos;, display_mode=&apos;lyrz&apos;, threshold=3)  # &apos;lyrz显示模式&apos;  
+</code></pre><h2 id="8-2-3-Visualizing-Megatrawls-Network-Matrices-from-Human-Connectome-Project"><a href="#8-2-3-Visualizing-Megatrawls-Network-Matrices-from-Human-Connectome-Project" class="headerlink" title="8.2.3. Visualizing Megatrawls Network Matrices from Human Connectome Project"></a>8.2.3. Visualizing Megatrawls Network Matrices from Human Connectome Project</h2><pre><code>from nilearn import datasets
+netmats = datasets.fetch_megatrawls_netmats(dimensionality=300,
+                                            timeseries=&apos;eigen_regression&apos;,
+                                            matrices=&apos;partial_correlation&apos;) # 从HCP数据中提取相关矩阵                                            
+partial_correlation = netmats.correlation_matrices
+</code></pre><h2 id="8-2-4-Visualizing-multiscale-functional-brain-parcellations-可视化多尺度功能脑分割"><a href="#8-2-4-Visualizing-multiscale-functional-brain-parcellations-可视化多尺度功能脑分割" class="headerlink" title="8.2.4. Visualizing multiscale functional brain parcellations #可视化多尺度功能脑分割"></a>8.2.4. Visualizing multiscale functional brain parcellations #可视化多尺度功能脑分割</h2><pre><code>from nilearn import datasets
+parcellations = datasets.fetch_atlas_basc_multiscale_2015(version=&apos;sym&apos;)
+networks_64 = parcellations[&apos;scale064&apos;] # 三种不同尺度的分割 64/197/444
+networks_197 = parcellations[&apos;scale197&apos;]
+networks_444 = parcellations[&apos;scale444&apos;]
+
+plotting.plot_roi(networks_64, cmap=plotting.cm.bwr,
+                  title=&apos;64 regions of brain clusters&apos;) # 绘制不同尺度的脑图谱
+
+plotting.plot_roi(networks_197, cmap=plotting.cm.bwr,
+                  title=&apos;197 regions of brain clusters&apos;)
+
+plotting.plot_roi(networks_444, cmap=plotting.cm.bwr_r,
+                  title=&apos;444 regions of brain clusters&apos;)
+
+plotting.show()
+</code></pre><h2 id="8-2-5-Visualizing-a-probablistic-atlas-the-default-mode-in-the-MSDL-atlas-可视化概率图谱"><a href="#8-2-5-Visualizing-a-probablistic-atlas-the-default-mode-in-the-MSDL-atlas-可视化概率图谱" class="headerlink" title="8.2.5 Visualizing a probablistic atlas: the default mode in the MSDL atlas # 可视化概率图谱"></a>8.2.5 Visualizing a probablistic atlas: the default mode in the MSDL atlas # 可视化概率图谱</h2><pre><code>from nilearn import datasets, plotting, image
+atlas_data = datasets.fetch_atlas_msdl() # 获取msdl脑图谱
+atlas_filename = atlas_data.maps
+
+display = plotting.plot_stat_map(image.index_img(atlas_filename, 4),
+                                 colorbar=False,
+                                 title=&quot;DMN nodes in MSDL atlas&quot;) # 加入PCC，绘制统计图
+
+# Now add as an overlay the maps for the ACC and the left and right
+# parietal nodes
+display.add_overlay(image.index_img(atlas_filename, 5),
+                    cmap=plotting.cm.black_blue)  # 加入ACC
+display.add_overlay(image.index_img(atlas_filename, 6),
+                    cmap=plotting.cm.black_green) # 加入 left parietal nodes
+display.add_overlay(image.index_img(atlas_filename, 3),
+                    cmap=plotting.cm.black_pink) # 加入 right parietal nodes
+plotting.show()
+</code></pre><h2 id="8-2-6-Visualizing-a-probablistic-atlas-with-plot-prob-atlas-使用plot-prob-atlas命令可视化概率图谱"><a href="#8-2-6-Visualizing-a-probablistic-atlas-with-plot-prob-atlas-使用plot-prob-atlas命令可视化概率图谱" class="headerlink" title="8.2.6 Visualizing a probablistic atlas with plot_prob_atlas # 使用plot_prob_atlas命令可视化概率图谱"></a>8.2.6 Visualizing a probablistic atlas with plot_prob_atlas # 使用plot_prob_atlas命令可视化概率图谱</h2><pre><code>dmn_nodes = image.index_img(atlas_filename, [3, 4, 5, 6])
+print(dmn_nodes.shape) # 此时dmn_node是一个4D图像 (40, 48, 35, 4)
+display = plotting.plot_prob_atlas(dmn_nodes,
+                                   cut_coords=(0, -55, 29),
+                                   title=&quot;DMN nodes in MSDL atlas&quot;)
+plotting.show()
+</code></pre><h2 id="8-2-7-Visualizing-4D-probabilistic-atlas-maps-可视化4D概率图谱"><a href="#8-2-7-Visualizing-4D-probabilistic-atlas-maps-可视化4D概率图谱" class="headerlink" title="8.2.7. Visualizing 4D probabilistic atlas maps 可视化4D概率图谱"></a>8.2.7. Visualizing 4D probabilistic atlas maps 可视化4D概率图谱</h2><pre><code>from nilearn import datasets # 导入4D概率图谱
+
+# Harvard Oxford Atlasf
+harvard_oxford = datasets.fetch_atlas_harvard_oxford(&apos;cort-prob-2mm&apos;) # 哈弗牛津图谱
+harvard_oxford_sub = datasets.fetch_atlas_harvard_oxford(&apos;sub-prob-2mm&apos;)  #哈弗牛津_sub图谱
+msdl = datasets.fetch_atlas_msdl() # Multi Subject Dictionary Learning Atlas 多样本字典学习图谱
+smith = datasets.fetch_atlas_smith_2009() # Smith ICA 图谱
+icbm = datasets.fetch_icbm152_2009() #  ICBM 组织概率图谱
+
+# Visualization   # 可视化概率图谱
+from nilearn import plotting
+atlas_types = {&apos;Harvard_Oxford&apos;: harvard_oxford.maps,
+               &apos;Harvard_Oxford sub&apos;: harvard_oxford_sub.maps,
+               &apos;MSDL&apos;: msdl.maps, &apos;Smith 2009 10 RSNs&apos;: smith.rsn10,
+               &apos;Smith2009 20 RSNs&apos;: smith.rsn20,
+               &apos;Smith2009 70 RSNs&apos;: smith.rsn70,
+               &apos;Smith2009 20 Brainmap&apos;: smith.bm20,
+               &apos;Smith2009 70 Brainmap&apos;: smith.bm70,
+               &apos;ICBM tissues&apos;: (icbm[&apos;wm&apos;], icbm[&apos;gm&apos;], icbm[&apos;csf&apos;])}
+for name, atlas in sorted(atlas_types.items()):
+    plotting.plot_prob_atlas(atlas, title=name)
+plotting.plot_prob_atlas(smith.bm10, title=&apos;Smith2009 10 Brainmap (with&apos;
+                                           &apos; colorbar)&apos;,colorbar=True) #带有colorbar的图谱
+plotting.show()
+</code></pre><h2 id="8-2-8-NeuroImaging-volumes-visualization"><a href="#8-2-8-NeuroImaging-volumes-visualization" class="headerlink" title="8.2.8. NeuroImaging volumes visualization"></a>8.2.8. NeuroImaging volumes visualization</h2><pre><code>from nilearn import datasets
+haxby_dataset = datasets.fetch_haxby() # 默认抓取2个fMRI被试
+print(&apos;First anatomical nifti image (3D) located is at: %s&apos; %
+      haxby_dataset.anat[0]) # 结构项信息
+print(&apos;First functional nifti image (4D) is located at: %s&apos; %
+      haxby_dataset.func[0]) # 功能项信息
+
+from nilearn.image.image import mean_img 
+# Compute the mean EPI: we do the mean along the axis 3, which is time
+func_filename = haxby_dataset.func[0] 
+mean_haxby = mean_img(func_filename)# 计算平均EPI，计算三个轴向的
+
+from nilearn.plotting import plot_epi, show
+plot_epi(mean_haxby) # 绘制出平均的EPI
+
+from nilearn.masking import compute_epi_mask
+mask_img = compute_epi_mask(func_filename) # 从fMRI中计算EPI模板
+
+from nilearn.plotting import plot_roi 
+plot_roi(mask_img, mean_haxby) # 作为ROI来显示平均的EPI
+
+from nilearn.masking import apply_mask
+masked_data = apply_mask(func_filename, mask_img) # 将模板用于fMRI图像中得到mask后的数据，mask后的数据是 (timepoints,voxels),这样就可以绘制一些点的时间序列
+
+import matplotlib.pyplot as plt
+plt.figure(figsize=(7, 5))
+plt.plot(masked_data[:150, :2]) # 前150个时间点，2 个像素。
+plt.xlabel(&apos;Time [TRs]&apos;, fontsize=16) # 横轴是时间
+plt.ylabel(&apos;Intensity&apos;, fontsize=16) # 纵轴是点的强度
+plt.xlim(0, 150) 
+plt.subplots_adjust(bottom=.12, top=.95, right=.95, left=.12)
+</code></pre><h2 id="8-2-9-Controling-the-contrast-of-the-background-when-plotting-绘图时控制对比度"><a href="#8-2-9-Controling-the-contrast-of-the-background-when-plotting-绘图时控制对比度" class="headerlink" title="8.2.9. Controling the contrast of the background when plotting 绘图时控制对比度"></a>8.2.9. Controling the contrast of the background when plotting 绘图时控制对比度</h2><pre><code>from nilearn import datasets
+localizer_dataset = datasets.fetch_localizer_button_task(get_anats=True)
+localizer_anat_filename = localizer_dataset.anats[0] # 这是背景，是一个解剖结构图
+localizer_tmap_filename = localizer_dataset.tmaps[0] # 这是前景，是一个脑区
+
+from nilearn import plotting
+plotting.plot_stat_map(localizer_tmap_filename,
+                       bg_img=localizer_anat_filename,
+                       cut_coords=(36, -27, 66),
+                       threshold=3, title=&quot;dim=-.5&quot;,
+                       dim=-.5)     # 设置dim 是-0.5                      
+
+plotting.plot_stat_map(localizer_tmap_filename,
+                       bg_img=localizer_anat_filename,
+                       cut_coords=(36, -27, 66),
+                       threshold=3, title=&quot;dim=0&quot;,
+                       dim=0)    # 设置dim 是 0     
+
+plotting.plot_stat_map(localizer_tmap_filename,
+                       bg_img=localizer_anat_filename,
+                       cut_coords=(36, -27, 66),
+                       threshold=3, title=&quot;dim=.5&quot;,
+                       dim=.5)     # 设置dim 是 0.5   
+
+plotting.plot_stat_map(localizer_tmap_filename,
+                       bg_img=localizer_anat_filename,
+                       cut_coords=(36, -27, 66),
+                       threshold=3, title=&quot;dim=1&quot;,
+                       dim=1)      # 设置dim 是 1        
+
+plotting.show()
+</code></pre><h2 id="8-2-10-Plotting-tools-in-nilearn"><a href="#8-2-10-Plotting-tools-in-nilearn" class="headerlink" title="8.2.10. Plotting tools in nilearn"></a>8.2.10. Plotting tools in nilearn</h2><pre><code>from nilearn import datasets
+haxby_dataset = datasets.fetch_haxby()
+print(&apos;First subject anatomical nifti image (3D) is at: %s&apos; %
+      haxby_dataset.anat[0])  # sMRI数据
+print(&apos;First subject functional nifti image (4D) is at: %s&apos; %
+      haxby_dataset.func[0])  # fMRI数据
+
+haxby_anat_filename = haxby_dataset.anat[0] # fMRI
+haxby_mask_filename = haxby_dataset.mask_vt[0]  # 某一个ROI
+haxby_func_filename = haxby_dataset.func[0] # sMRI
+
+# localizer dataset to have contrast maps
+localizer_dataset = datasets.fetch_localizer_button_task(get_anats=True)
+localizer_anat_filename = localizer_dataset.anats[0] 
+localizer_tmap_filename = localizer_dataset.tmaps[0] # 一个解剖位置
+</code></pre><h3 id="8-2-10-1-Plotting-statistical-maps-with-function-plot-stat-map-绘制统计图"><a href="#8-2-10-1-Plotting-statistical-maps-with-function-plot-stat-map-绘制统计图" class="headerlink" title="8.2.10.1. Plotting statistical maps with function plot_stat_map # 绘制统计图"></a>8.2.10.1. Plotting statistical maps with function plot_stat_map # 绘制统计图</h3><pre><code>from nilearn import plotting
+plotting.plot_stat_map(localizer_tmap_filename, bg_img=localizer_anat_filename,
+                       threshold=3, title=&quot;plot_stat_map&quot;,
+                       cut_coords=[36, -27, 66]) # 前景是脑区，背景是解剖结构
+</code></pre><h3 id="8-2-10-2-Plotting-statistical-maps-in-a-glass-brain-with-function-plot-glass-brain"><a href="#8-2-10-2-Plotting-statistical-maps-in-a-glass-brain-with-function-plot-glass-brain" class="headerlink" title="8.2.10.2. Plotting statistical maps in a glass brain with function plot_glass_brain"></a>8.2.10.2. Plotting statistical maps in a glass brain with function plot_glass_brain</h3><pre><code>plotting.plot_glass_brain(localizer_tmap_filename, title=&apos;plot_glass_brain&apos;,
+                          threshold=3) # 绘制具有功能结构的透明脑。
+</code></pre><h3 id="8-2-10-3-Plotting-anatomical-images-with-function-plot-anat"><a href="#8-2-10-3-Plotting-anatomical-images-with-function-plot-anat" class="headerlink" title="8.2.10.3. Plotting anatomical images with function plot_anat"></a>8.2.10.3. Plotting anatomical images with function plot_anat</h3><pre><code>plotting.plot_anat(haxby_anat_filename, title=&quot;plot_anat&quot;) # 绘制结构结构
+</code></pre><h3 id="8-2-10-4-Plotting-ROIs-here-the-mask-with-function-plot-roi"><a href="#8-2-10-4-Plotting-ROIs-here-the-mask-with-function-plot-roi" class="headerlink" title="8.2.10.4. Plotting ROIs (here the mask) with function plot_roi"></a>8.2.10.4. Plotting ROIs (here the mask) with function plot_roi</h3><pre><code>plotting.plot_roi(haxby_mask_filename, bg_img=haxby_anat_filename,
+              title=&quot;plot_roi&quot;) # 绘制一个ROI
+</code></pre><h3 id="8-2-10-5-Plotting-EPI-image-with-function-plot-epi"><a href="#8-2-10-5-Plotting-EPI-image-with-function-plot-epi" class="headerlink" title="8.2.10.5. Plotting EPI image with function plot_epi"></a>8.2.10.5. Plotting EPI image with function plot_epi</h3><pre><code>from nilearn import image
+mean_haxby_img = image.mean_img(haxby_func_filename) # 绘制fMRI的平均，从4D到3D
+plotting.plot_epi(mean_haxby_img, title=&quot;plot_epi&quot;) # 绘制EPI
+</code></pre><h2 id="8-2-11-Plot-Haxby-masks-划线"><a href="#8-2-11-Plot-Haxby-masks-划线" class="headerlink" title="8.2.11. Plot Haxby masks  # 划线"></a>8.2.11. Plot Haxby masks  # 划线</h2><pre><code>import numpy as np
+from scipy import linalg
+import matplotlib.pyplot as plt
+
+from nilearn import datasets
+haxby_dataset = datasets.fetch_haxby()
+
+print(&apos;First subject anatomical nifti image (3D) is at: %s&apos; %
+      haxby_dataset.anat[0])  # sMRI的位置
+print(&apos;First subject functional nifti image (4D) is at: %s&apos; %
+      haxby_dataset.func[0])  # fMRI的位置
+
+from nilearn import image
+func_filename = haxby_dataset.func[0]
+mean_img = image.mean_img(func_filename)  # 在没有结构项的时候使用fMRI的平均作为结构项
+
+z_slice = -14   # 选取某一个切片
+from nilearn.image.resampling import coord_transform
+affine = mean_img.affine # 矫正
+_, _, k_slice = coord_transform(0, 0, z_slice,
+                                linalg.inv(affine))
+k_slice = np.round(k_slice)
+
+fig = plt.figure(figsize=(4, 5.4), facecolor=&apos;k&apos;)
+
+from nilearn.plotting import plot_anat, show
+display = plot_anat(mean_img, display_mode=&apos;z&apos;, cut_coords=[z_slice],
+                    figure=fig)
+mask_vt_filename = haxby_dataset.mask_vt[0] # 绘制与vt有关的脑区
+mask_house_filename = haxby_dataset.mask_house[0] # 绘制与 house 有关的脑区
+mask_face_filename = haxby_dataset.mask_face[0]  # 绘制与 face 有关的脑区
+display.add_contours(mask_vt_filename, contours=1, antialiased=False, 
+                     linewidths=4., levels=[0], colors=[&apos;red&apos;])
+display.add_contours(mask_house_filename, contours=1, antialiased=False,
+                     linewidths=4., levels=[0], colors=[&apos;blue&apos;])
+display.add_contours(mask_face_filename, contours=1, antialiased=False,
+                     linewidths=4., levels=[0], colors=[&apos;limegreen&apos;])
+
+# We generate a legend using the trick described on
+# http://matplotlib.sourceforge.net/users/legend_guide.httpml#using-proxy-artist
+from matplotlib.patches import Rectangle
+p_v = Rectangle((0, 0), 1, 1, fc=&quot;red&quot;)
+p_h = Rectangle((0, 0), 1, 1, fc=&quot;blue&quot;)
+p_f = Rectangle((0, 0), 1, 1, fc=&quot;limegreen&quot;)
+plt.legend([p_v, p_h, p_f], [&quot;vt&quot;, &quot;house&quot;, &quot;face&quot;])
+show()
+</code></pre><h2 id="8-2-12-Glass-brain-plotting-in-nilearn-all-options-透明脑的绘制"><a href="#8-2-12-Glass-brain-plotting-in-nilearn-all-options-透明脑的绘制" class="headerlink" title="8.2.12. Glass brain plotting in nilearn (all options) # 透明脑的绘制"></a>8.2.12. Glass brain plotting in nilearn (all options) # 透明脑的绘制</h2><h3 id="8-2-12-1-Retrieve-the-data"><a href="#8-2-12-1-Retrieve-the-data" class="headerlink" title="8.2.12.1. Retrieve the data"></a>8.2.12.1. Retrieve the data</h3><pre><code>from nilearn import datasets
+print(&apos;Datasets shipped with nilearn are stored in: %r&apos; % datasets.get_data_dirs())
+tmap_filenames = datasets.fetch_localizer_button_task()[&apos;tmaps&apos;]
+print(tmap_filenames) #  [&apos;/home/parietal/gvaroqua/nilearn_data/brainomics_localizer/brainomics_data/S02/t_map_left_auditory_&amp;_visual_click_vs_right_auditory&amp;visual_click.nii.gz&apos;]
+tmap_filename = tmap_filenames[0] # 选取第一个fMRI数据
+</code></pre><h3 id="8-2-12-2-Demo-glass-brain-plotting"><a href="#8-2-12-2-Demo-glass-brain-plotting" class="headerlink" title="8.2.12.2. Demo glass brain plotting"></a>8.2.12.2. Demo glass brain plotting</h3><pre><code>from nilearn import plotting
+# Whole brain sagittal cuts and map is thresholded at 3
+plotting.plot_glass_brain(tmap_filename, threshold=3) # 绘制透明脑
+plotting.plot_glass_brain(tmap_filename, threshold=3, colorbar=True) # 带有colorbar
+plotting.plot_glass_brain(tmap_filename, title=&apos;plot_glass_brain&apos;,
+                      black_bg=True, display_mode=&apos;xz&apos;, threshold=3)# 黑色背景
+plotting.plot_glass_brain(tmap_filename, threshold=0, colorbar=True,plot_abs=False) # 不带阈值
+</code></pre><h3 id="8-2-12-3-Different-projections-for-the-left-and-right-hemispheres"><a href="#8-2-12-3-Different-projections-for-the-left-and-right-hemispheres" class="headerlink" title="8.2.12.3. Different projections for the left and right hemispheres"></a>8.2.12.3. Different projections for the left and right hemispheres</h3><pre><code>plotting.plot_glass_brain(tmap_filename,
+                          title=&apos;plot_glass_brain with display_mode=&quot;lzr&quot;&apos;,
+                          black_bg=True, display_mode=&apos;lzr&apos;, threshold=3) # 三个视角
+plotting.plot_glass_brain(tmap_filename, threshold=0, colorbar=True,
+                      title=&apos;plot_glass_brain with display_mode=&quot;lyrz&quot;&apos;,
+                      plot_abs=False, display_mode=&apos;lyrz&apos;) # 四个视角   
+</code></pre><h3 id="8-2-12-4-Demo-glass-brain-plotting-with-contours"><a href="#8-2-12-4-Demo-glass-brain-plotting-with-contours" class="headerlink" title="8.2.12.4. Demo glass brain plotting with contours"></a>8.2.12.4. Demo glass brain plotting with contours</h3><p>display = plotting.plot_glass_brain(None)<br>display.add_contours(tmap_filename) # 加入轮廓<br>display.title(‘“tmap_filename” on glass brain without threshold’)                          </p>
+<p>display = plotting.plot_glass_brain(None, black_bg=True) # 绘制图形，设置黑色背景<br>display.add_contours(tmap_filename, levels=[3.], colors=’g’) # 添加绿色轮廓<br>display.title(‘“tmap_filename” on glass brain with black background’)</p>
+<h3 id="8-2-12-5-Display-contour-projections-in-both-hemispheres"><a href="#8-2-12-5-Display-contour-projections-in-both-hemispheres" class="headerlink" title="8.2.12.5. Display contour projections in both hemispheres"></a>8.2.12.5. Display contour projections in both hemispheres</h3><pre><code>display = plotting.plot_glass_brain(None, display_mode=&apos;lr&apos;)
+display.add_contours(tmap_filename, levels=[3.], colors=&apos;r&apos;)
+display.title(&apos;&quot;tmap_filename&quot; on glass brain only &quot;l&quot; &quot;r&quot; hemispheres&apos;) # 绘制两个半球
+
+
+display = plotting.plot_glass_brain(None, plot_abs=False, display_mode=&apos;lzry&apos;) # 不使用绝对值绘图
+display.add_contours(tmap_filename)
+display.title(&quot;Contours with both sign of activations without threshold&quot;)
+
+
+display = plotting.plot_glass_brain(None, plot_abs=False, display_mode=&apos;lzry&apos;)
+display.add_contours(tmap_filename, levels=[-2.8, 3.], colors=[&apos;b&apos;, &apos;r&apos;],
+                     linewidths=4.) # 根据正负绘制不同的轮廓
+display.title(&apos;Contours with both sign of activations with threshold&apos;)
+plotting.show()
+</code></pre><h2 id="8-2-13-More-plotting-tools-from-nilearn-Nilearn-的更多绘图工具"><a href="#8-2-13-More-plotting-tools-from-nilearn-Nilearn-的更多绘图工具" class="headerlink" title="8.2.13. More plotting tools from nilearn # Nilearn 的更多绘图工具"></a>8.2.13. More plotting tools from nilearn # Nilearn 的更多绘图工具</h2><pre><code>from nilearn import datasets
+haxby_dataset = datasets.fetch_haxby() # haxby数据集包含fMRI，sMRI，mask
+haxby_anat_filename = haxby_dataset.anat[0]
+haxby_mask_filename = haxby_dataset.mask_vt[0]
+haxby_func_filename = haxby_dataset.func[0]
+localizer_dataset = datasets.fetch_localizer_button_task(get_anats=True) # 仅仅使用button任务
+localizer_anat_filename = localizer_dataset.anats[0]
+localizer_tmap_filename = localizer_dataset.tmaps[0]
+
+from nilearn import plotting
+
+plotting.plot_stat_map(localizer_tmap_filename, display_mode=&apos;ortho&apos;,
+                       cut_coords=[36, -27, 60],
+                       title=&quot;display_mode=&apos;ortho&apos;, cut_coords=[36, -27, 60]&quot;) # 绘制一般的图形
+
+plotting.plot_stat_map(localizer_tmap_filename, display_mode=&apos;z&apos;, cut_coords=5,
+                       title=&quot;display_mode=&apos;z&apos;, cut_coords=5&quot;) # 使用俯视角度，均匀绘制5个切片 
+
+
+plotting.plot_stat_map(localizer_tmap_filename, display_mode=&apos;x&apos;,
+                       cut_coords=[-36, 36],
+                       title=&quot;display_mode=&apos;x&apos;, cut_coords=[-36, 36]&quot;)    # 侧视图，使用两个切片
+
+plotting.plot_stat_map(localizer_tmap_filename, display_mode=&apos;y&apos;, cut_coords=1,
+                       title=&quot;display_mode=&apos;y&apos;, cut_coords=1&quot;)   # 正视图，一个切片   
+
+plotting.plot_stat_map(localizer_tmap_filename, display_mode=&apos;yx&apos;,
+                       cut_coords=[-27, 36],
+                       title=&quot;display_mode=&apos;yx&apos;, cut_coords=[-27, 36]&quot;)  # 两个方向的两张图                         
+
+from nilearn import image
+mean_haxby_img = image.mean_img(haxby_func_filename)
+display = plotting.plot_anat(mean_haxby_img, title=&quot;add_edges&quot;)
+display.add_edges(haxby_anat_filename) # 添加脑区的边际线
+
+coords = [(-34, -39, -9)]
+display.add_markers(coords, marker_color=&apos;y&apos;, marker_size=100)    # 添加marker
+</code></pre><h1 id="8-3-Decoding-and-predicting-from-brain-images"><a href="#8-3-Decoding-and-predicting-from-brain-images" class="headerlink" title="8.3. Decoding and predicting from brain images"></a>8.3. Decoding and predicting from brain images</h1><h2 id="8-3-1-Show-stimuli-of-Haxby-et-al-dataset"><a href="#8-3-1-Show-stimuli-of-Haxby-et-al-dataset" class="headerlink" title="8.3.1. Show stimuli of Haxby et al. dataset"></a>8.3.1. Show stimuli of Haxby et al. dataset</h2><pre><code>from scipy.misc import imread
+import matplotlib.pyplot as plt
+
+from nilearn import datasets
+
+haxby_dataset = datasets.fetch_haxby(subjects=[], fetch_stimuli=True)
+stimulus_information = haxby_dataset.stimuli # 获取实验中用到的图片（人脸，椅子等）
+
+for stim_type in sorted(stimulus_information.keys()):
+    if stim_type == b&apos;controls&apos;:  # 跳过 ‘control images’
+        continue
+    file_names = stimulus_information[stim_type]
+    plt.figure()
+    for i in range(48):
+        plt.subplot(6, 8, i + 1)
+        try:
+            plt.imshow(imread(file_names[i]), cmap=plt.cm.gray)
+        except:
+            # just go to the next one if the file is not present
+            pass
+        plt.axis(&quot;off&quot;)
+    plt.suptitle(stim_type)
+
+plt.show()
+</code></pre><h2 id="8-3-2-SpaceNet-on-Jimura-et-al-“mixed-gambles”-dataset-SpaceNet回归分析"><a href="#8-3-2-SpaceNet-on-Jimura-et-al-“mixed-gambles”-dataset-SpaceNet回归分析" class="headerlink" title="8.3.2. SpaceNet on Jimura et al “mixed gambles” dataset. # SpaceNet回归分析"></a>8.3.2. SpaceNet on Jimura et al “mixed gambles” dataset. # SpaceNet回归分析</h2><pre><code>from nilearn.datasets import fetch_mixed_gambles
+data = fetch_mixed_gambles(n_subjects=16)
+
+zmap_filenames = data.zmaps
+behavioral_target = data.gain
+mask_filename = data.mask_img
+
+from nilearn.decoding import SpaceNetRegressor
+decoder = SpaceNetRegressor(mask=mask_filename, penalty=&quot;tv-l1&quot;, # tv-ll实验
+                            eps=1e-1,  # prefer large alphas
+                            memory=&quot;nilearn_cache&quot;)
+
+decoder.fit(zmap_filenames, behavioral_target)
+
+from nilearn.plotting import plot_stat_map, show
+plot_stat_map(decoder.coef_img_, title=&quot;tv-l1&quot;, display_mode=&quot;yz&quot;,
+              cut_coords=[20, -2])  # 可视化 Tv-l1 权重
+
+decoder = SpaceNetRegressor(mask=mask_filename, penalty=&quot;graph-net&quot;, # graph-net实验
+                            eps=1e-1,  # prefer large alphas
+                            memory=&quot;nilearn_cache&quot;)
+decoder.fit(zmap_filenames, behavioral_target)
+
+plot_stat_map(decoder.coef_img_, title=&quot;graph-net&quot;, display_mode=&quot;yz&quot;,
+              cut_coords=[20, -2]) # 可视化 graph-Net 权重
+
+show()
+</code></pre><h2 id="8-3-3-Decoding-with-SpaceNet-face-vs-house-object-recognition-解码，face和house"><a href="#8-3-3-Decoding-with-SpaceNet-face-vs-house-object-recognition-解码，face和house" class="headerlink" title="8.3.3. Decoding with SpaceNet: face vs house object recognition # 解码，face和house"></a>8.3.3. Decoding with SpaceNet: face vs house object recognition # 解码，face和house</h2><pre><code>from nilearn.datasets import fetch_haxby
+data_files = fetch_haxby()
+import numpy as np
+labels = np.recfromcsv(data_files.session_target[0], delimiter=&quot; &quot;) # 导入数据标签
+target = labels[&apos;labels&apos;]
+condition_mask = np.logical_or(target == b&quot;face&quot;, target == b&quot;house&quot;)# 仅使用 face 和 house
+
+condition_mask_train = np.logical_and(condition_mask, labels[&apos;chunks&apos;] &lt;= 6) # 选取训练集
+condition_mask_test = np.logical_and(condition_mask, labels[&apos;chunks&apos;] &gt; 6) # 选取测试集
+
+# Apply this sample mask to X (fMRI data) and y (behavioral labels)
+# Because the data is in one single large 4D image, we need to use
+# index_img to do the split easily
+from nilearn.image import index_img # index_img用来处理4D数据
+func_filenames = data_files.func[0] # 选取第一个样本
+X_train = index_img(func_filenames, condition_mask_train) # 选取训练集样本
+X_test = index_img(func_filenames, condition_mask_test) # 测试集样本
+y_train = target[condition_mask_train] # 训练集标签
+y_test = target[condition_mask_test] #测试集标签
+
+from nilearn.image import mean_img
+background_img = mean_img(func_filenames) # fMRI的平均epi
+from nilearn.decoding import SpaceNetClassifier
+# Fit model on train data and predict on test data
+decoder = SpaceNetClassifier(memory=&quot;nilearn_cache&quot;, penalty=&apos;graph-net&apos;) # 设定分类器
+decoder.fit(X_train, y_train) # 将分类器用于训练数据
+y_pred = decoder.predict(X_test) # 预测分类效果
+accuracy = (y_pred == y_test).mean() * 100.
+print(&quot;Graph-net classification accuracy : %g%%&quot; % accuracy) # 输出准确率
+
+from nilearn.plotting import plot_stat_map, show
+coef_img = decoder.coef_img_      # 可视化 惩罚因子为 graph-net 的结果
+plot_stat_map(coef_img, background_img,
+              title=&quot;graph-net: accuracy %g%%&quot; % accuracy,
+              cut_coords=(-52, -5), display_mode=&quot;yz&quot;)
+
+# Save the coefficients to a nifti file
+coef_img.to_filename(&apos;haxby_graph-net_weights.nii&apos;)
+
+decoder = SpaceNetClassifier(memory=&quot;nilearn_cache&quot;, penalty=&apos;tv-l1&apos;)
+decoder.fit(X_train, y_train)
+y_pred = decoder.predict(X_test)
+accuracy = (y_pred == y_test).mean() * 100.
+print(&quot;TV-l1 classification accuracy : %g%%&quot; % accuracy)
+
+# Visualization
+coef_img = decoder.coef_img_
+plot_stat_map(coef_img, background_img,
+              title=&quot;tv-l1: accuracy %g%%&quot; % accuracy,
+              cut_coords=(-52, -5), display_mode=&quot;yz&quot;) # 可视化 惩罚因子为 tv-11 的结果
+
+# Save the coefficients to a nifti file
+coef_img.to_filename(&apos;haxby_tv-l1_weights.nii&apos;) # 保存结果
+show()
+</code></pre><h2 id="8-3-4-Voxel-Based-Morphometry-on-Oasis-dataset-with-Space-Net-prior-VBM-分析（预测年龄）"><a href="#8-3-4-Voxel-Based-Morphometry-on-Oasis-dataset-with-Space-Net-prior-VBM-分析（预测年龄）" class="headerlink" title="8.3.4. Voxel-Based Morphometry on Oasis dataset with Space-Net prior # VBM 分析（预测年龄）"></a>8.3.4. Voxel-Based Morphometry on Oasis dataset with Space-Net prior # VBM 分析（预测年龄）</h2><pre><code>import numpy as np
+from nilearn import datasets
+n_subjects = 200  # increase this number if you have more RAM on your box
+dataset_files = datasets.fetch_oasis_vbm(n_subjects=n_subjects)# 读取oasis_vbm数据
+age = dataset_files.ext_vars[&apos;age&apos;].astype(float)
+age = np.array(age)
+gm_imgs = np.array(dataset_files.gray_matter_maps)
+
+from sklearn.utils import check_random_state
+from sklearn.cross_validation import train_test_split
+rng = check_random_state(42)
+gm_imgs_train, gm_imgs_test, age_train, age_test = train_test_split(
+    gm_imgs, age, train_size=.6, random_state=rng) # 分割训练集和测试集
+
+perm = np.argsort(age_test)[::-1] # 对测试数据进行排序，以便更好地显示
+age_test = age_test[perm]
+gm_imgs_test = gm_imgs_test[perm]
+
+from nilearn.decoding import SpaceNetRegressor
+
+decoder = SpaceNetRegressor(memory=&quot;nilearn_cache&quot;, penalty=&quot;graph-net&quot;,
+                            screening_percentile=5., memory_level=2)
+decoder.fit(gm_imgs_train, age_train)  # 使用绘制数据进行训练
+coef_img = decoder.coef_img_
+y_pred = decoder.predict(gm_imgs_test).ravel()  # 预测测试集结果
+mse = np.mean(np.abs(age_test - y_pred)) # 均方差
+print(&apos;Mean square error (MSE) on the predicted age: %.2f&apos; % mse)
+
+from nilearn.plotting import plot_stat_map
+background_img = gm_imgs[0]
+plot_stat_map(coef_img, background_img, title=&quot;graph-net weights&quot;,
+              display_mode=&quot;z&quot;, cut_coords=1)  #  在map上绘制参数的权重
+
+import matplotlib.pyplot as plt
+plt.figure()
+plt.suptitle(&quot;graph-net: Mean Absolute Error %.2f years&quot; % mse)
+linewidth = 3
+ax1 = plt.subplot(&apos;211&apos;)
+ax1.plot(age_test, label=&quot;True age&quot;, linewidth=linewidth)
+ax1.plot(y_pred, &apos;--&apos;, c=&quot;g&quot;, label=&quot;Predicted age&quot;, linewidth=linewidth)
+ax1.set_ylabel(&quot;age&quot;)
+plt.legend(loc=&quot;best&quot;)
+ax2 = plt.subplot(&quot;212&quot;)
+ax2.plot(age_test - y_pred, label=&quot;True age - predicted age&quot;,
+         linewidth=linewidth)
+ax2.set_xlabel(&quot;subject&quot;)
+plt.legend(loc=&quot;best&quot;)
+
+plt.show()
+</code></pre><h2 id="8-3-5-The-haxby-dataset-different-multi-class-strategies-多分类问题"><a href="#8-3-5-The-haxby-dataset-different-multi-class-strategies-多分类问题" class="headerlink" title="8.3.5. The haxby dataset: different multi-class strategies # 多分类问题"></a>8.3.5. The haxby dataset: different multi-class strategies # 多分类问题</h2><pre><code>from nilearn import datasets
+import numpy as np
+haxby_dataset = datasets.fetch_haxby() # 默认下载两个fMRI样本
+
+# Print basic information on the dataset
+print(&apos;Mask nifti images are located at: %s&apos; % haxby_dataset.mask)
+print(&apos;Functional nifti images are located at: %s&apos; % haxby_dataset.func[0])
+
+func_filename = haxby_dataset.func[0]
+mask_filename = haxby_dataset.mask
+
+# Load the behavioral data that we will predict
+labels = np.recfromcsv(haxby_dataset.session_target[0], delimiter=&quot; &quot;)
+y = labels[&apos;labels&apos;]
+session = labels[&apos;chunks&apos;]
+
+non_rest = y != b&apos;rest&apos;  # 去除掉无关的无任务态的数据
+y = y[non_rest]
+
+# Get the labels of the numerical conditions represented by the vector y
+unique_conditions, order = np.unique(y, return_index=True)
+# Sort the conditions by the order of appearance
+unique_conditions = unique_conditions[np.argsort(order)]
+
+from nilearn.input_data import NiftiMasker
+# For decoding, standardizing is often very important
+nifti_masker = NiftiMasker(mask_img=mask_filename, standardize=True,
+                           sessions=session, smoothing_fwhm=4,
+                           memory=&quot;nilearn_cache&quot;, memory_level=1)
+X = nifti_masker.fit_transform(func_filename)
+
+# Remove the &quot;rest&quot; condition
+X = X[non_rest]
+session = session[non_rest]
+
+from sklearn.svm import SVC
+from sklearn.feature_selection import SelectKBest, f_classif
+from sklearn.multiclass import OneVsOneClassifier, OneVsRestClassifier
+from sklearn.pipeline import Pipeline
+
+svc_ovo = OneVsOneClassifier(Pipeline([
+    (&apos;anova&apos;, SelectKBest(f_classif, k=500)),
+    (&apos;svc&apos;, SVC(kernel=&apos;linear&apos;))    
+]))  # 使用多类支持向量机 一对一
+
+svc_ova = OneVsRestClassifier(Pipeline([
+    (&apos;anova&apos;, SelectKBest(f_classif, k=500)),
+    (&apos;svc&apos;, SVC(kernel=&apos;linear&apos;)) 
+]))    # 使用多类支持向量机 一对多
+
+from sklearn.cross_validation import cross_val_score
+
+cv_scores_ovo = cross_val_score(svc_ovo, X, y, cv=5, verbose=1) # 交叉验证
+
+cv_scores_ova = cross_val_score(svc_ova, X, y, cv=5, verbose=1)
+
+print(&apos;OvO:&apos;, cv_scores_ovo.mean()) # 输出交叉验证结果
+print(&apos;OvA:&apos;, cv_scores_ova.mean())
+
+from matplotlib import pyplot as plt
+plt.figure(figsize=(4, 3))
+plt.boxplot([cv_scores_ova, cv_scores_ovo]) 绘制准确率的箱线图
+plt.xticks([1, 2], [&apos;One vs All&apos;, &apos;One vs One&apos;])
+plt.title(&apos;Prediction: accuracy score&apos;)    
+
+from sklearn.metrics import confusion_matrix
+svc_ovo.fit(X[session &lt; 10], y[session &lt; 10])
+y_pred_ovo = svc_ovo.predict(X[session &gt;= 10])
+
+plt.matshow(confusion_matrix(y_pred_ovo, y[session &gt;= 10])) # 混淆矩阵
+plt.title(&apos;Confusion matrix: One vs One&apos;)
+plt.xticks(np.arange(len(unique_conditions)), unique_conditions)
+plt.yticks(np.arange(len(unique_conditions)), unique_conditions)
+
+svc_ova.fit(X[session &lt; 10], y[session &lt; 10])
+y_pred_ova = svc_ova.predict(X[session &gt;= 10])
+
+plt.matshow(confusion_matrix(y_pred_ova, y[session &gt;= 10]))
+plt.title(&apos;Confusion matrix: One vs All&apos;)
+plt.xticks(np.arange(len(unique_conditions)), unique_conditions)
+plt.yticks(np.arange(len(unique_conditions)), unique_conditions)
+
+plt.show()
+</code></pre><h2 id="8-3-6-Searchlight-analysis（探照灯分析？）-of-face-vs-house-recognition"><a href="#8-3-6-Searchlight-analysis（探照灯分析？）-of-face-vs-house-recognition" class="headerlink" title="8.3.6. Searchlight analysis（探照灯分析？） of face vs house recognition"></a>8.3.6. Searchlight analysis（探照灯分析？） of face vs house recognition</h2><pre><code>import numpy as np
+from nilearn import datasets
+from nilearn.image import new_img_like, load_img
+
+haxby_dataset = datasets.fetch_haxby() # 获取两个样本
+
+# print basic information on the dataset
+print(&apos;Anatomical nifti image (3D) is located at: %s&apos; % haxby_dataset.mask) # sMRI
+print(&apos;Functional nifti image (4D) is located at: %s&apos; % haxby_dataset.func[0]) # fMRI
+
+fmri_filename = haxby_dataset.func[0] # 选取第一个样本
+labels = np.recfromcsv(haxby_dataset.session_target[0], delimiter=&quot; &quot;) # 记录标签
+y = labels[&apos;labels&apos;]
+session = labels[&apos;chunks&apos;]
+
+from nilearn.image import index_img
+condition_mask = np.logical_or(y == b&apos;face&apos;, y == b&apos;house&apos;) # 提取人脸和房子识别两个任务
+fmri_img = index_img(fmri_filename, condition_mask) # index_img是对fMRI数据的处理
+y, session = y[condition_mask], session[condition_mask]
+
+mask_img = load_img(haxby_dataset.mask)
+process_mask = mask_img.get_data().astype(np.int) # .astype() 生成一个新的int型
+picked_slice = 29
+process_mask[..., (picked_slice + 1):] = 0 # process_mask 是一个mask_img的集合，我们仅仅选取了第29个切片来加快计算效率。
+process_mask[..., :picked_slice] = 0
+process_mask[:, 30:] = 0
+process_mask_img = new_img_like(mask_img, process_mask)
+
+n_jobs = 1
+from sklearn.cross_validation import KFold
+cv = KFold(y.size, n_folds=4)
+
+import nilearn.decoding
+searchlight = nilearn.decoding.SearchLight(
+    mask_img,
+    process_mask_img=process_mask_img,
+    radius=5.6, n_jobs=n_jobs,
+    verbose=1, cv=cv)
+searchlight.fit(fmri_img, y)
+
+from nilearn.input_data import NiftiMasker
+
+nifti_masker = NiftiMasker(mask_img=mask_img, sessions=session,
+                           standardize=True, memory=&apos;nilearn_cache&apos;,
+                           memory_level=1)  # 数据的标准化很重要。
+fmri_masked = nifti_masker.fit_transform(fmri_img)
+from sklearn.feature_selection import f_classif
+f_values, p_values = f_classif(fmri_masked, y) # 计算F值
+p_values = -np.log10(p_values)
+p_values[p_values &gt; 10] = 10
+p_unmasked = nifti_masker.inverse_transform(p_values).get_data()
+
+from nilearn import image
+mean_fmri = image.mean_img(fmri_img) # 计算fMRI的平均值作为平均EPI
+
+from nilearn.plotting import plot_stat_map, plot_img, show
+searchlight_img = new_img_like(mean_fmri, searchlight.scores_)
+
+# Because scores are not a zero-center test statistics, we cannot use
+# plot_stat_map
+plot_img(searchlight_img, bg_img=mean_fmri,
+         title=&quot;Searchlight&quot;, display_mode=&quot;z&quot;, cut_coords=[-9],
+         vmin=.42, cmap=&apos;hot&apos;, threshold=.2, black_bg=True) # 绘制 searchlight
+
+# F_score results
+p_ma = np.ma.array(p_unmasked, mask=np.logical_not(process_mask))
+f_score_img = new_img_like(mean_fmri, p_ma)
+plot_stat_map(f_score_img, mean_fmri,
+              title=&quot;F-scores&quot;, display_mode=&quot;z&quot;,
+              cut_coords=[-9],
+              colorbar=False) # 绘制F值
+show()
+</code></pre><h2 id="8-3-7-Decoding-with-ANOVA-SVM-face-vs-house-in-the-Haxby-dataset"><a href="#8-3-7-Decoding-with-ANOVA-SVM-face-vs-house-in-the-Haxby-dataset" class="headerlink" title="8.3.7. Decoding with ANOVA + SVM: face vs house in the Haxby dataset"></a>8.3.7. Decoding with ANOVA + SVM: face vs house in the Haxby dataset</h2><pre><code>from nilearn import datasets
+haxby_dataset = datasets.fetch_haxby()
+
+import numpy as np
+labels = np.recfromcsv(haxby_dataset.session_target[0], delimiter=&quot; &quot;)
+y = labels[&apos;labels&apos;]
+session = labels[&apos;chunks&apos;]
+
+# Restrict to faces and houses
+condition_mask = np.logical_or(y == b&apos;face&apos;, y == b&apos;house&apos;)
+y = y[condition_mask]
+
+# We have 2 conditions
+n_conditions = np.size(np.unique(y)) # 标签种类
+
+from nilearn.input_data import NiftiMasker
+mask_filename = haxby_dataset.mask
+# For decoding, standardizing is often very important
+nifti_masker = NiftiMasker(mask_img=mask_filename, sessions=session,
+                           smoothing_fwhm=4, standardize=True,
+                           memory=&quot;nilearn_cache&quot;, memory_level=1)
+func_filename = haxby_dataset.func[0]
+X = nifti_masker.fit_transform(func_filename)
+# Apply our condition_mask
+X = X[condition_mask]
+session = session[condition_mask]
+
+from sklearn.svm import SVC
+svc = SVC(kernel=&apos;linear&apos;)
+
+from sklearn.feature_selection import SelectKBest, f_classif
+feature_selection = SelectKBest(f_classif, k=500) # 使用anova选取500个特征
+from sklearn.pipeline import Pipeline
+anova_svc = Pipeline([(&apos;anova&apos;, feature_selection), (&apos;svc&apos;, svc)])
+anova_svc.fit(X, y) # 用训练数据训练模型
+y_pred = anova_svc.predict(X) ＃　用训练好的模型做预测
+
+coef = svc.coef_　　　＃　ｓｖｍ的参数
+coef = feature_selection.inverse_transform(coef)　# 反转到特征选择
+weight_img = nifti_masker.inverse_transform(coef)　    # 反转到模板
+
+from nilearn import image
+from nilearn.plotting import plot_stat_map, show
+mean_img = image.mean_img(func_filename)
+plot_stat_map(weight_img, mean_img, title=&apos;SVM weights&apos;)　＃　可视化ＳＶＭ权重
+weight_img.to_filename(&apos;haxby_face_vs_house.nii&apos;)　＃　保存结果
+
+from sklearn.cross_validation import LeaveOneLabelOut
+cv = LeaveOneLabelOut(session // 2)　＃　交叉验证
+cv_scores = []
+for train, test in cv:
+    anova_svc.fit(X[train], y[train])
+    y_pred = anova_svc.predict(X[test])
+    cv_scores.append(np.sum(y_pred == y[test]) / float(np.size(y[test])))　＃　准确度
+classification_accuracy = np.mean(cv_scores)　＃　交叉验证平均准确度
+print(&quot;Classification accuracy: %.4f / Chance level: %f&quot; %
+      (classification_accuracy, 1. / n_conditions))　＃　打印结果
+show()
+</code></pre><p>8.3.8. Setting a parameter by cross-validation # 通过交叉验证选择最优参数<br>    from nilearn import datasets<br>    import numpy as np<br>    haxby_dataset = datasets.fetch_haxby()</p>
+<pre><code># Load the behavioral data
+labels = np.recfromcsv(haxby_dataset.session_target[0], delimiter=&quot; &quot;)
+y = labels[&apos;labels&apos;]
+session = labels[&apos;chunks&apos;]
+# Keep only data corresponding to shoes or bottles
+condition_mask = np.logical_or(y == b&apos;shoe&apos;, y == b&apos;bottle&apos;)
+y = y[condition_mask]
+
+from nilearn.input_data import NiftiMasker
+
+mask_filename = haxby_dataset.mask
+# For decoding, standardizing is often very important
+nifti_masker = NiftiMasker(mask_img=mask_filename, sessions=session,
+                           smoothing_fwhm=4, standardize=True,
+                           memory=&quot;nilearn_cache&quot;, memory_level=1)
+func_filename = haxby_dataset.func[0]
+X = nifti_masker.fit_transform(func_filename)
+# Restrict to non rest data
+X = X[condition_mask]
+session = session[condition_mask]
+
+
+from sklearn.svm import SVC
+svc = SVC(kernel=&apos;linear&apos;)
+
+from sklearn.feature_selection import SelectKBest, f_classif
+feature_selection = SelectKBest(f_classif, k=500)
+
+from sklearn.pipeline import Pipeline
+anova_svc = Pipeline([(&apos;anova&apos;, feature_selection), (&apos;svc&apos;, svc)]) # 设计好模型
+
+anova_svc.fit(X, y) # 模型训练
+y_pred = anova_svc.predict(X) # 模型预测
+
+from sklearn.cross_validation import LeaveOneLabelOut, cross_val_score
+cv = LeaveOneLabelOut(session[session &lt; 10]) # 交叉验证
+
+k_range = [10, 15, 30, 50, 150, 300, 500, 1000, 1500, 3000, 5000]
+cv_scores = []
+scores_validation = []
+
+for k in k_range:
+    feature_selection.k = k
+    cv_scores.append(np.mean(
+        cross_val_score(anova_svc, X[session &lt; 10], y[session &lt; 10])))
+    print(&quot;CV score: %.4f&quot; % cv_scores[-1])
+
+    anova_svc.fit(X[session &lt; 10], y[session &lt; 10])
+    y_pred = anova_svc.predict(X[session == 10])
+    scores_validation.append(np.mean(y_pred == y[session == 10]))
+    print(&quot;score validation: %.4f&quot; % scores_validation[-1])
+
+from matplotlib import pyplot as plt # 绘制不同参数的影响
+plt.figure(figsize=(6, 4))
+plt.plot(cv_scores, label=&apos;Cross validation scores&apos;)
+plt.plot(scores_validation, label=&apos;Left-out validation data scores&apos;)
+plt.xticks(np.arange(len(k_range)), k_range)
+plt.axis(&apos;tight&apos;)
+plt.xlabel(&apos;k&apos;)
+
+plt.axhline(np.mean(nested_cv_scores),
+            label=&apos;Nested cross-validation&apos;,
+            color=&apos;r&apos;)
+
+plt.legend(loc=&apos;best&apos;, frameon=False)
+plt.show()
+</code></pre><h2 id="8-3-9-ROI-based-decoding-analysis-in-Haxby-et-al-dataset"><a href="#8-3-9-ROI-based-decoding-analysis-in-Haxby-et-al-dataset" class="headerlink" title="8.3.9. ROI-based decoding analysis in Haxby et al. dataset"></a>8.3.9. ROI-based decoding analysis in Haxby et al. dataset</h2><pre><code>from nilearn import datasets
+haxby_dataset = datasets.fetch_haxby() # 默认选择两个数据
+func_filename = haxby_dataset.func[0]
+# Print basic information on the dataset
+print(&apos;First subject anatomical nifti image (3D) located is at: %s&apos; %
+      haxby_dataset.anat[0])
+print(&apos;First subject functional nifti image (4D) is located at: %s&apos; %
+      func_filename)
+
+from nilearn.input_data import NiftiMasker # 这是个对fMRI数据进行mask的好工具
+
+import numpy as np
+labels = np.recfromcsv(haxby_dataset.session_target[0], delimiter=&quot; &quot;)
+stimuli = labels[&apos;labels&apos;]
+resting_state = stimuli == b&quot;rest&quot;
+
+categories = np.unique(stimuli[np.logical_not(resting_state)])
+session_labels = labels[&quot;chunks&quot;][np.logical_not(resting_state)] # 去除掉无任务态的数据
+
+from sklearn.svm import SVC
+classifier = SVC(C=1., kernel=&quot;linear&quot;)
+from sklearn.dummy import DummyClassifier
+dummy_classifier = DummyClassifier()
+from sklearn.cross_validation import LeaveOneLabelOut, cross_val_score
+cv = LeaveOneLabelOut(session_labels)
+
+mask_names = [&apos;mask_vt&apos;, &apos;mask_face&apos;, &apos;mask_house&apos;]
+
+mask_scores = {}
+mask_chance_scores = {}
+
+for mask_name in mask_names:
+    print(&quot;Working on mask %s&quot; % mask_name)
+    # For decoding, standardizing is often very important
+    mask_filename = haxby_dataset[mask_name][0]
+    masker = NiftiMasker(mask_img=mask_filename, standardize=True)
+    masked_timecourses = masker.fit_transform( # mask后的时间序列
+        func_filename)[np.logical_not(resting_state)]
+
+    mask_scores[mask_name] = {} 
+    mask_chance_scores[mask_name] = {}
+
+    for category in categories:
+        print(&quot;Processing %s %s&quot; % (mask_name, category))
+        task_mask = np.logical_not(resting_state)
+        classification_target = (stimuli[task_mask] == category)
+        mask_scores[mask_name][category] = cross_val_score(
+            classifier,
+            masked_timecourses,
+            classification_target,
+            cv=cv, scoring=&quot;f1&quot;)
+
+        mask_chance_scores[mask_name][category] = cross_val_score(
+            dummy_classifier,
+            masked_timecourses,
+            classification_target,
+            cv=cv, scoring=&quot;f1&quot;)
+
+        print(&quot;Scores: %1.2f +- %1.2f&quot; % (
+            mask_scores[mask_name][category].mean(),
+            mask_scores[mask_name][category].std()))
+
+import matplotlib.pyplot as plt  # 绘制分类准确率的柱状图
+plt.figure()
+tick_position = np.arange(len(categories))
+plt.xticks(tick_position, categories, rotation=45)
+for color, mask_name in zip(&apos;rgb&apos;, mask_names):
+    score_means = [mask_scores[mask_name][category].mean()
+                   for category in categories]
+    plt.bar(tick_position, score_means, label=mask_name, # 绘制柱状图
+            width=.25, color=color)
+
+    score_chance = [mask_chance_scores[mask_name][category].mean()
+                    for category in categories]
+    plt.bar(tick_position, score_chance,
+            width=.25, edgecolor=&apos;k&apos;, facecolor=&apos;none&apos;)
+
+    tick_position = tick_position + .2
+
+plt.ylabel(&apos;Classification accurancy (f1 score)&apos;)
+plt.xlabel(&apos;Visual stimuli category&apos;)
+plt.legend(loc=&apos;best&apos;)
+plt.title(&apos;Category-specific classification accuracy for different masks&apos;)
+plt.tight_layout()
+</code></pre><h1 id="8-4-Functional-connectivity"><a href="#8-4-Functional-connectivity" class="headerlink" title="8.4. Functional connectivity"></a>8.4. Functional connectivity</h1><h2 id="8-4-1-Group-analysis-of-resting-state-fMRI-with-ICA-CanICA-独立成分组分析GroupICA"><a href="#8-4-1-Group-analysis-of-resting-state-fMRI-with-ICA-CanICA-独立成分组分析GroupICA" class="headerlink" title="8.4.1. Group analysis of resting-state fMRI with ICA: CanICA # 独立成分组分析GroupICA"></a>8.4.1. Group analysis of resting-state fMRI with ICA: CanICA # 独立成分组分析GroupICA</h2><pre><code>from nilearn import datasets
+adhd_dataset = datasets.fetch_adhd(n_subjects=30) # 选择ADHD数据 30个样本
+func_filenames = adhd_dataset.func  # 每个被试的fMRI数据列表
+print(&apos;First functional nifti image (4D) is at: %s&apos; %
+      func_filenames[0])  # 第一个样本的fMRI数据位置
+
+from nilearn.decomposition import CanICA
+canica = CanICA(n_components=20, smoothing_fwhm=6.,
+                memory=&quot;nilearn_cache&quot;, memory_level=2,
+                threshold=3., verbose=10, random_state=0)
+canica.fit(func_filenames)  # 使用group ICA对数据进行分析，提取20个独立成分
+
+components_img = canica.masker_.inverse_transform(canica.components_) #提取独立成分
+components_img.to_filename(&apos;canica_resting_state.nii.gz&apos;) # 将独立成分保存下来
+from nilearn.plotting import plot_prob_atlas
+plot_prob_atlas(components_img, title=&apos;All ICA components&apos;) # 在一个volume中绘制所有的独立成分
+
+from nilearn.image import iter_img
+from nilearn.plotting import plot_stat_map, show
+for i, cur_img in enumerate(iter_img(components_img)):
+    plot_stat_map(cur_img, display_mode=&quot;z&quot;, title=&quot;IC %d&quot; % i,
+                  cut_coords=1, colorbar=False)  # 循环打印所有的独立成分
+show()
+</code></pre><h2 id="8-4-2-Extracting-signals-of-a-probabilistic-atlas-of-rest-functional-regions"><a href="#8-4-2-Extracting-signals-of-a-probabilistic-atlas-of-rest-functional-regions" class="headerlink" title="8.4.2. Extracting signals of a probabilistic atlas of rest functional regions"></a>8.4.2. Extracting signals of a probabilistic atlas of rest functional regions</h2><pre><code>from nilearn import datasets
+atlas = datasets.fetch_atlas_msdl()
+atlas_filename = atlas[&apos;maps&apos;]
+# Loading atlas data stored in &apos;labels&apos;
+labels = atlas[&apos;labels&apos;]
+
+# Load the functional datasets
+data = datasets.fetch_adhd(n_subjects=1)
+
+print(&apos;First subject resting-state nifti image (4D) is located at: %s&apos; %
+      data.func[0]) # 打印数据存储的位置
+
+from nilearn.input_data import NiftiMapsMasker
+masker = NiftiMapsMasker(maps_img=atlas_filename, standardize=True,
+                         memory=&apos;nilearn_cache&apos;, verbose=5) 
+
+time_series = masker.fit_transform(data.func[0],
+                                   confounds=data.confounds)
+print(time_series.shape) # 时间序列是个2D图形， time points * number of regions
+
+from nilearn.connectome import ConnectivityMeasure
+correlation_measure = ConnectivityMeasure(kind=&apos;correlation&apos;)
+correlation_matrix = correlation_measure.fit_transform([time_series])[0]
+import numpy as np
+from matplotlib import pyplot as plt
+plt.figure(figsize=(10, 10))
+# Mask out the major diagonal
+np.fill_diagonal(correlation_matrix, 0)
+plt.imshow(correlation_matrix, interpolation=&quot;nearest&quot;, cmap=&quot;RdBu_r&quot;,
+           vmax=0.8, vmin=-0.8) # 绘制FNC
+plt.colorbar()
+# And display the labels
+x_ticks = plt.xticks(range(len(labels)), labels, rotation=90)
+y_ticks = plt.yticks(range(len(labels)), labels)
+
+from nilearn import plotting
+coords = atlas.region_coords
+
+# We threshold to keep only the 20% of edges with the highest value
+# because the graph is very dense
+plotting.plot_connectome(correlation_matrix, coords,
+                         edge_threshold=&quot;80%&quot;, colorbar=True) # 在图谱中展示功能连接
+
+plotting.show()
+</code></pre><h2 id="8-4-3-Connectivity-structure-estimation-on-simulated-data-连接结构估计"><a href="#8-4-3-Connectivity-structure-estimation-on-simulated-data-连接结构估计" class="headerlink" title="8.4.3. Connectivity structure estimation on simulated data # 连接结构估计"></a>8.4.3. Connectivity structure estimation on simulated data # 连接结构估计</h2><pre><code>import matplotlib.pyplot as plt
+def plot_matrix(m, ylabel=&quot;&quot;):  # 绘制功能连接矩阵
+    abs_max = abs(m).max()
+    plt.imshow(m, cmap=plt.cm.RdBu_r, interpolation=&quot;nearest&quot;,
+               vmin=-abs_max, vmax=abs_max)
+
+# Generate synthetic data
+from nilearn._utils.testing import generate_group_sparse_gaussian_graphs
+
+n_subjects = 20  # 样本数量
+n_displayed = 3  # 要展示的样本数量
+subjects, precisions, topology = generate_group_sparse_gaussian_graphs(
+    n_subjects=n_subjects, n_features=10, min_n_samples=30, max_n_samples=50,
+    density=0.1) # 生成组离散高斯图
+
+fig = plt.figure(figsize=(10, 7))
+plt.subplots_adjust(hspace=0.4)
+for n in range(n_displayed):
+    plt.subplot(n_displayed, 4, 4 * n + 1)
+    plot_matrix(precisions[n])
+    if n == 0:
+        plt.title(&quot;ground truth&quot;)
+    plt.ylabel(&quot;subject %d&quot; % n)
+
+# Run group-sparse covariance on all subjects
+from nilearn.connectome import GroupSparseCovarianceCV
+gsc = GroupSparseCovarianceCV(max_iter=50, verbose=1)
+gsc.fit(subjects)
+
+for n in range(n_displayed):
+    plt.subplot(n_displayed, 4, 4 * n + 2)
+    plot_matrix(gsc.precisions_[..., n])
+    if n == 0:
+        plt.title(&quot;group-sparse\n$\\alpha=%.2f$&quot; % gsc.alpha_)
+
+
+# Fit one graph lasso per subject
+
+from sklearn.covariance import GraphLassoCV
+gl = GraphLassoCV(verbose=1) # lasso
+
+for n, subject in enumerate(subjects[:n_displayed]):
+    gl.fit(subject)
+
+    plt.subplot(n_displayed, 4, 4 * n + 3)
+    plot_matrix(gl.precision_)
+    if n == 0:
+        plt.title(&quot;graph lasso&quot;)
+    plt.ylabel(&quot;$\\alpha=%.2f$&quot; % gl.alpha_)
+
+
+# Fit one graph lasso for all subjects at once
+import numpy as np
+gl.fit(np.concatenate(subjects))
+
+plt.subplot(n_displayed, 4, 4)
+plot_matrix(gl.precision_)
+plt.title(&quot;graph lasso, all subjects\n$\\alpha=%.2f$&quot; % gl.alpha_)
+
+plt.show()
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/29/pandas commands/" rel="next" title="Pandas commands">
+                <i class="fa fa-chevron-left"></i> Pandas commands
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/29/paper_notes_2/" rel="prev" title="论文笔记系列之二： Deep Learning Based Imaging Data Completion for Improved Brain Disease Diagnosis（MICCAI，2014）">
+                论文笔记系列之二： Deep Learning Based Imaging Data Completion for Improved Brain Disease Diagnosis（MICCAI，2014） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/08/29/nilearn_toolbox/"
+           data-title="Nilearn Toolbox (to be continued)" data-url="https://wizardyan.github.io/2017/08/29/nilearn_toolbox/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4"
+               alt="Wizard" />
+          <p class="site-author-name" itemprop="name">Wizard</p>
+          <p class="site-description motion-element" itemprop="description">May it be when darkness falls,    <br> Your heart will be true</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://bing.com/" title="Bing" target="_blank">Bing</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.sogou.com/" title="Sogou" target="_blank">Sogou</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#8-1-General-examples"><span class="nav-number">1.</span> <span class="nav-text">8.1. General examples</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-2-Basic-nilearn-example-manipulating-and-looking-at-data"><span class="nav-number">1.1.</span> <span class="nav-text">8.1.2. Basic nilearn example: manipulating and looking at data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-2-1-A-first-step-looking-at-our-data"><span class="nav-number">1.1.1.</span> <span class="nav-text">8.1.2.1. A first step: looking at our data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-2-2-Simple-image-manipulation-smoothing"><span class="nav-number">1.1.2.</span> <span class="nav-text">8.1.2.2. Simple image manipulation: smoothing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-2-3-Saving-results-to-a-file"><span class="nav-number">1.1.3.</span> <span class="nav-text">8.1.2.3. Saving results to a file</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-3-3D-and-4D-niimgs-handling-and-visualizing"><span class="nav-number">1.2.</span> <span class="nav-text">8.1.3. 3D and 4D niimgs: handling and visualizing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-3-1-Downloading-tutorial-datasets-from-Internet"><span class="nav-number">1.2.1.</span> <span class="nav-text">8.1.3.1. Downloading tutorial datasets from Internet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-3-2-Visualizing-a-3D-file"><span class="nav-number">1.2.2.</span> <span class="nav-text">8.1.3.2. Visualizing a 3D file</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-3-3-Visualizing-one-volume-in-a-4D-file"><span class="nav-number">1.2.3.</span> <span class="nav-text">8.1.3.3. Visualizing one volume in a 4D file</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-3-4-Looping-on-all-volumes-in-a-4D-file"><span class="nav-number">1.2.4.</span> <span class="nav-text">8.1.3.4. Looping on all volumes in a 4D file</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-4-A-introduction-tutorial-to-fMRI-decoding"><span class="nav-number">1.3.</span> <span class="nav-text">8.1.4. A introduction tutorial to fMRI decoding</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-4-1-Retrieve-and-load-the-fMRI-data-from-the-Haxby-study"><span class="nav-number">1.3.1.</span> <span class="nav-text">8.1.4.1. Retrieve and load the fMRI data from the Haxby study</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-4-1-1-First-download-the-data"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">8.1.4.1.1. First download the data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-4-1-2-Convert-the-fMRI-volume’s-to-a-data-matrix"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">8.1.4.1.2. Convert the fMRI volume’s to a data matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-4-1-3-Load-the-behavioral-labels"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">8.1.4.1.3. Load the behavioral labels</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-4-1-4-Restrict-the-analysis-to-cats-and-faces"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">8.1.4.1.4. Restrict the analysis to cats and faces</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-2-Visualization-of-brain-images"><span class="nav-number">2.</span> <span class="nav-text">8.2. Visualization of brain images</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-1-Basic-Atlas-plotting"><span class="nav-number">2.1.</span> <span class="nav-text">8.2.1. Basic Atlas plotting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-2-Glass-brain-plotting-in-nilearn-透明脑"><span class="nav-number">2.2.</span> <span class="nav-text">8.2.2. Glass brain plotting in nilearn # 透明脑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-3-Visualizing-Megatrawls-Network-Matrices-from-Human-Connectome-Project"><span class="nav-number">2.3.</span> <span class="nav-text">8.2.3. Visualizing Megatrawls Network Matrices from Human Connectome Project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-4-Visualizing-multiscale-functional-brain-parcellations-可视化多尺度功能脑分割"><span class="nav-number">2.4.</span> <span class="nav-text">8.2.4. Visualizing multiscale functional brain parcellations #可视化多尺度功能脑分割</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-5-Visualizing-a-probablistic-atlas-the-default-mode-in-the-MSDL-atlas-可视化概率图谱"><span class="nav-number">2.5.</span> <span class="nav-text">8.2.5 Visualizing a probablistic atlas: the default mode in the MSDL atlas # 可视化概率图谱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-6-Visualizing-a-probablistic-atlas-with-plot-prob-atlas-使用plot-prob-atlas命令可视化概率图谱"><span class="nav-number">2.6.</span> <span class="nav-text">8.2.6 Visualizing a probablistic atlas with plot_prob_atlas # 使用plot_prob_atlas命令可视化概率图谱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-7-Visualizing-4D-probabilistic-atlas-maps-可视化4D概率图谱"><span class="nav-number">2.7.</span> <span class="nav-text">8.2.7. Visualizing 4D probabilistic atlas maps 可视化4D概率图谱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-8-NeuroImaging-volumes-visualization"><span class="nav-number">2.8.</span> <span class="nav-text">8.2.8. NeuroImaging volumes visualization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-9-Controling-the-contrast-of-the-background-when-plotting-绘图时控制对比度"><span class="nav-number">2.9.</span> <span class="nav-text">8.2.9. Controling the contrast of the background when plotting 绘图时控制对比度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-10-Plotting-tools-in-nilearn"><span class="nav-number">2.10.</span> <span class="nav-text">8.2.10. Plotting tools in nilearn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-10-1-Plotting-statistical-maps-with-function-plot-stat-map-绘制统计图"><span class="nav-number">2.10.1.</span> <span class="nav-text">8.2.10.1. Plotting statistical maps with function plot_stat_map # 绘制统计图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-10-2-Plotting-statistical-maps-in-a-glass-brain-with-function-plot-glass-brain"><span class="nav-number">2.10.2.</span> <span class="nav-text">8.2.10.2. Plotting statistical maps in a glass brain with function plot_glass_brain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-10-3-Plotting-anatomical-images-with-function-plot-anat"><span class="nav-number">2.10.3.</span> <span class="nav-text">8.2.10.3. Plotting anatomical images with function plot_anat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-10-4-Plotting-ROIs-here-the-mask-with-function-plot-roi"><span class="nav-number">2.10.4.</span> <span class="nav-text">8.2.10.4. Plotting ROIs (here the mask) with function plot_roi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-10-5-Plotting-EPI-image-with-function-plot-epi"><span class="nav-number">2.10.5.</span> <span class="nav-text">8.2.10.5. Plotting EPI image with function plot_epi</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-11-Plot-Haxby-masks-划线"><span class="nav-number">2.11.</span> <span class="nav-text">8.2.11. Plot Haxby masks  # 划线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-12-Glass-brain-plotting-in-nilearn-all-options-透明脑的绘制"><span class="nav-number">2.12.</span> <span class="nav-text">8.2.12. Glass brain plotting in nilearn (all options) # 透明脑的绘制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-12-1-Retrieve-the-data"><span class="nav-number">2.12.1.</span> <span class="nav-text">8.2.12.1. Retrieve the data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-12-2-Demo-glass-brain-plotting"><span class="nav-number">2.12.2.</span> <span class="nav-text">8.2.12.2. Demo glass brain plotting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-12-3-Different-projections-for-the-left-and-right-hemispheres"><span class="nav-number">2.12.3.</span> <span class="nav-text">8.2.12.3. Different projections for the left and right hemispheres</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-12-4-Demo-glass-brain-plotting-with-contours"><span class="nav-number">2.12.4.</span> <span class="nav-text">8.2.12.4. Demo glass brain plotting with contours</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-12-5-Display-contour-projections-in-both-hemispheres"><span class="nav-number">2.12.5.</span> <span class="nav-text">8.2.12.5. Display contour projections in both hemispheres</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-13-More-plotting-tools-from-nilearn-Nilearn-的更多绘图工具"><span class="nav-number">2.13.</span> <span class="nav-text">8.2.13. More plotting tools from nilearn # Nilearn 的更多绘图工具</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-3-Decoding-and-predicting-from-brain-images"><span class="nav-number">3.</span> <span class="nav-text">8.3. Decoding and predicting from brain images</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-1-Show-stimuli-of-Haxby-et-al-dataset"><span class="nav-number">3.1.</span> <span class="nav-text">8.3.1. Show stimuli of Haxby et al. dataset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-2-SpaceNet-on-Jimura-et-al-“mixed-gambles”-dataset-SpaceNet回归分析"><span class="nav-number">3.2.</span> <span class="nav-text">8.3.2. SpaceNet on Jimura et al “mixed gambles” dataset. # SpaceNet回归分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-3-Decoding-with-SpaceNet-face-vs-house-object-recognition-解码，face和house"><span class="nav-number">3.3.</span> <span class="nav-text">8.3.3. Decoding with SpaceNet: face vs house object recognition # 解码，face和house</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-4-Voxel-Based-Morphometry-on-Oasis-dataset-with-Space-Net-prior-VBM-分析（预测年龄）"><span class="nav-number">3.4.</span> <span class="nav-text">8.3.4. Voxel-Based Morphometry on Oasis dataset with Space-Net prior # VBM 分析（预测年龄）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-5-The-haxby-dataset-different-multi-class-strategies-多分类问题"><span class="nav-number">3.5.</span> <span class="nav-text">8.3.5. The haxby dataset: different multi-class strategies # 多分类问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-6-Searchlight-analysis（探照灯分析？）-of-face-vs-house-recognition"><span class="nav-number">3.6.</span> <span class="nav-text">8.3.6. Searchlight analysis（探照灯分析？） of face vs house recognition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-7-Decoding-with-ANOVA-SVM-face-vs-house-in-the-Haxby-dataset"><span class="nav-number">3.7.</span> <span class="nav-text">8.3.7. Decoding with ANOVA + SVM: face vs house in the Haxby dataset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-9-ROI-based-decoding-analysis-in-Haxby-et-al-dataset"><span class="nav-number">3.8.</span> <span class="nav-text">8.3.9. ROI-based decoding analysis in Haxby et al. dataset</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-4-Functional-connectivity"><span class="nav-number">4.</span> <span class="nav-text">8.4. Functional connectivity</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-4-1-Group-analysis-of-resting-state-fMRI-with-ICA-CanICA-独立成分组分析GroupICA"><span class="nav-number">4.1.</span> <span class="nav-text">8.4.1. Group analysis of resting-state fMRI with ICA: CanICA # 独立成分组分析GroupICA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-4-2-Extracting-signals-of-a-probabilistic-atlas-of-rest-functional-regions"><span class="nav-number">4.2.</span> <span class="nav-text">8.4.2. Extracting signals of a probabilistic atlas of rest functional regions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-4-3-Connectivity-structure-estimation-on-simulated-data-连接结构估计"><span class="nav-number">4.3.</span> <span class="nav-text">8.4.3. Connectivity structure estimation on simulated data # 连接结构估计</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wizard</span>
+</div>
+
+
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wizardyan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
