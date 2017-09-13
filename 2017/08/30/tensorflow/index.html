@@ -90,25 +90,16 @@
 
 
 
-<meta name="description" content="功能磁共振 数据预处理关于这部分，我会在之后慢慢补充。 功能连接使用BratBRANT 操作指南BRABT 操作视频 选择FC 如果需要提取ROI，那么选择 Merge/Extract ROIs，否则，直接选择ROI_Calculation（默认的模板是脑网络组图谱，包含小脑）  选择预处理过后的磁共振数据，如果只需要计算脑区与脑区的功能连接，就把”roi to whole brain corr">
+<meta name="description" content="tf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="磁共振预处理技术">
-<meta property="og:url" content="https://wizardyan.github.io/2017/03/31/MRI preprocessing/index.html">
+<meta property="og:title" content="Tensorflow Notes（to be continued）">
+<meta property="og:url" content="https://wizardyan.github.io/2017/08/30/tensorflow/index.html">
 <meta property="og:site_name" content="Wizard&#39;s blog">
-<meta property="og:description" content="功能磁共振 数据预处理关于这部分，我会在之后慢慢补充。 功能连接使用BratBRANT 操作指南BRABT 操作视频 选择FC 如果需要提取ROI，那么选择 Merge/Extract ROIs，否则，直接选择ROI_Calculation（默认的模板是脑网络组图谱，包含小脑）  选择预处理过后的磁共振数据，如果只需要计算脑区与脑区的功能连接，就把”roi to whole brain corr">
-<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/1.jpg">
-<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/2.jpg">
-<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/3.jpg">
-<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/4.jpg">
-<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/5.jpg">
-<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/6.jpg">
-<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/7.jpg">
-<meta property="og:image" content="https://wizardyan.github.io/2017/03/31/pictures/8.jpg">
-<meta property="og:updated_time" content="2017-08-29T03:09:50.761Z">
+<meta property="og:description" content="tf">
+<meta property="og:updated_time" content="2017-08-30T03:36:52.713Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="磁共振预处理技术">
-<meta name="twitter:description" content="功能磁共振 数据预处理关于这部分，我会在之后慢慢补充。 功能连接使用BratBRANT 操作指南BRABT 操作视频 选择FC 如果需要提取ROI，那么选择 Merge/Extract ROIs，否则，直接选择ROI_Calculation（默认的模板是脑网络组图谱，包含小脑）  选择预处理过后的磁共振数据，如果只需要计算脑区与脑区的功能连接，就把”roi to whole brain corr">
-<meta name="twitter:image" content="https://wizardyan.github.io/2017/03/31/pictures/1.jpg">
+<meta name="twitter:title" content="Tensorflow Notes（to be continued）">
+<meta name="twitter:description" content="tf">
 
 
 
@@ -136,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="https://wizardyan.github.io/2017/03/31/MRI preprocessing/"/>
+  <link rel="canonical" href="https://wizardyan.github.io/2017/08/30/tensorflow/"/>
 
 
 
@@ -145,7 +136,7 @@
 
 
 
-  <title> 磁共振预处理技术 | Wizard's blog </title>
+  <title> Tensorflow Notes（to be continued） | Wizard's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -287,7 +278,7 @@ tpwidget("show");</script>
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/03/31/MRI preprocessing/">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/08/30/tensorflow/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Wizard">
@@ -311,7 +302,7 @@ tpwidget("show");</script>
             
             
               
-                磁共振预处理技术
+                Tensorflow Notes（to be continued）
               
             
           </h1>
@@ -326,8 +317,8 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-31T10:55:00+08:00">
-                2017-03-31
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-30T11:36:52+08:00">
+                2017-08-30
               </time>
             
 
@@ -367,8 +358,8 @@ tpwidget("show");</script>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/31/MRI preprocessing/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/31/MRI preprocessing/" itemprop="commentCount"></span>
+                <a href="/2017/08/30/tensorflow/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/30/tensorflow/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -394,21 +385,9 @@ tpwidget("show");</script>
       
 
       
-        <a id="more"></a>
-<h2 id="功能磁共振"><a href="#功能磁共振" class="headerlink" title="功能磁共振"></a>功能磁共振</h2><!--more-->
-<h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><p>关于这部分，我会在之后慢慢补充。</p>
-<h3 id="功能连接"><a href="#功能连接" class="headerlink" title="功能连接"></a>功能连接</h3><h4 id="使用Brat"><a href="#使用Brat" class="headerlink" title="使用Brat"></a>使用Brat</h4><p><a href="http://pan.baidu.com/s/1qY1295M" target="_blank" rel="external">BRANT 操作指南</a><br><a href="http://pan.baidu.com/s/1kU72nsj" target="_blank" rel="external">BRABT 操作视频</a></p>
-<p><img src="..\pictures\1.jpg" width="400" height="400"><br>选择FC</p>
-<p><img src="..\pictures\2.jpg" width="400" height="400"><br>如果需要提取ROI，那么选择 Merge/Extract ROIs，否则，直接选择ROI_Calculation（默认的模板是脑网络组图谱，包含小脑）</p>
-<p><img src="..\pictures\3.jpg" width="300" height="600"></p>
-<p>选择预处理过后的磁共振数据，如果只需要计算脑区与脑区的功能连接，就把”roi to whole brain correlation” 前面的对勾去掉；</p>
-<p>点击“run”，就可以创建功能连接了。</p>
-<h3 id="独立成分分析"><a href="#独立成分分析" class="headerlink" title="独立成分分析"></a>独立成分分析</h3><h4 id="使用GIFT"><a href="#使用GIFT" class="headerlink" title="使用GIFT"></a>使用GIFT</h4><p><img src="..\pictures\4.jpg" width="400" height="400"></p>
-<p><img src="..\pictures\5.jpg" width="400" height="400"></p>
-<p><img src="..\pictures\6.jpg" width="400" height="400"></p>
-<p><img src="..\pictures\7.jpg" width="400" height="400"></p>
-<p><img src="..\pictures\8.jpg" width="400" height="400"></p>
-
+        <h2 id="tf"><a href="#tf" class="headerlink" title="tf"></a><a href="https://www.tensorflow.org/api_docs/python/" target="_blank" rel="external">tf</a></h2><a id="more"></a>
+<h3 id="tf-image"><a href="#tf-image" class="headerlink" title="tf.image"></a><a href="https://www.tensorflow.org/api_docs/python/tf/image" target="_blank" rel="external">tf.image</a></h3><h4 id="tf-image-resize-images"><a href="#tf-image-resize-images" class="headerlink" title="tf.image.resize_images"></a><a href="https://www.tensorflow.org/api_docs/python/tf/image/resize_images" target="_blank" rel="external">tf.image.resize_images</a></h4><p>重设图片的尺寸</p>
+<h3 id="tf-ones-like"><a href="#tf-ones-like" class="headerlink" title="tf.ones_like"></a><a href="https://www.tensorflow.org/api_docs/python/tf/ones_like" target="_blank" rel="external">tf.ones_like</a></h3><h3 id="tf-zeros-like"><a href="#tf-zeros-like" class="headerlink" title="tf.zeros_like"></a><a href="https://www.tensorflow.org/api_docs/python/tf/zeros_like" target="_blank" rel="external">tf.zeros_like</a></h3><h3 id="tf-train"><a href="#tf-train" class="headerlink" title="tf.train"></a><a href="https://www.tensorflow.org/api_docs/python/tf/train" target="_blank" rel="external">tf.train</a></h3>
       
     </div>
 
@@ -438,14 +417,18 @@ tpwidget("show");</script>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/08/30/python_commands/" rel="next" title="Python commands（to be continued）">
+                <i class="fa fa-chevron-left"></i> Python commands（to be continued）
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/06/stay hungry stay foolish/" rel="prev" title="偶尔有感 —— 警惕成为科学上的顽固派">
-                偶尔有感 —— 警惕成为科学上的顽固派 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/13/paper_notes_16/" rel="prev" title="论文笔记系列之十六：Efficient multi-scale 3D CNN with fully connected CRF for accurate brain lesion segmentation">
+                论文笔记系列之十六：Efficient multi-scale 3D CNN with fully connected CRF for accurate brain lesion segmentation <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -472,8 +455,8 @@ tpwidget("show");</script>
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/31/MRI preprocessing/"
-           data-title="磁共振预处理技术" data-url="https://wizardyan.github.io/2017/03/31/MRI preprocessing/">
+      <div class="ds-thread" data-thread-key="2017/08/30/tensorflow/"
+           data-title="Tensorflow Notes（to be continued）" data-url="https://wizardyan.github.io/2017/08/30/tensorflow/">
       </div>
     
   </div>
@@ -584,7 +567,7 @@ tpwidget("show");</script>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#功能磁共振"><span class="nav-number">1.</span> <span class="nav-text">功能磁共振</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据预处理"><span class="nav-number">1.1.</span> <span class="nav-text">数据预处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#功能连接"><span class="nav-number">1.2.</span> <span class="nav-text">功能连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Brat"><span class="nav-number">1.2.1.</span> <span class="nav-text">使用Brat</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独立成分分析"><span class="nav-number">1.3.</span> <span class="nav-text">独立成分分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用GIFT"><span class="nav-number">1.3.1.</span> <span class="nav-text">使用GIFT</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tf"><span class="nav-number">1.</span> <span class="nav-text">tf</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-image"><span class="nav-number">1.1.</span> <span class="nav-text">tf.image</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tf-image-resize-images"><span class="nav-number">1.1.1.</span> <span class="nav-text">tf.image.resize_images</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-ones-like"><span class="nav-number">1.2.</span> <span class="nav-text">tf.ones_like</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-zeros-like"><span class="nav-number">1.3.</span> <span class="nav-text">tf.zeros_like</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tf-train"><span class="nav-number">1.4.</span> <span class="nav-text">tf.train</span></a></li></ol></li></ol></div>
             
 
           </div>

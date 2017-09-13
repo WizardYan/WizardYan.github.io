@@ -279,6 +279,342 @@ tpwidget("show");</script>
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/09/13/paper_notes_16/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Wizard">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Wizard's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Wizard's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/13/paper_notes_16/" itemprop="url">
+                  论文笔记系列之十六：Efficient multi-scale 3D CNN with fully connected CRF for accurate brain lesion segmentation
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T16:30:00+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/papers/" itemprop="url" rel="index">
+                    <span itemprop="name">papers</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/13/paper_notes_16/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/13/paper_notes_16/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.sciencedirect.com/science/article/pii/S1361841516301839" target="_blank" rel="external">原文链接</a></p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li>dual pathway, 11-layer deep, 3D CNN for lesion segmentation.</li>
+<li>Use image patches to adapte class imbalance.</li>
+<li>Analyze the development of deeper cnn</li>
+<li>For post processing, used a 3D fully connected conditional random field which effectively removes false positives.</li>
+</ul>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><p>脑损伤的量化和是个挑战，损伤区域和正常区域很难去区分，如下图</p>
+<p><img src="https://ibb.co/nKJMWv" alt="2"></p>
+<h3 id="1-1-Related-work"><a href="#1-1-Related-work" class="headerlink" title="1.1 Related work"></a>1.1 Related work</h3><p>CNN 模型的效果与样本的选取有直接的关系。</p>
+<h3 id="1-2-Contributions"><a href="#1-2-Contributions" class="headerlink" title="1.2 Contributions"></a>1.2 Contributions</h3><ul>
+<li>an efficient hybrid training scheme.</li>
+<li>analyze the depth of CNNs</li>
+<li>parallel convolutional pathways for multi-scale processing.</li>
+<li>模型的泛化性能</li>
+</ul>
+<h2 id="2-Method"><a href="#2-Method" class="headerlink" title="2. Method"></a>2. Method</h2><p>分割任务包含两个：<br>第一，3D CNN 提供一个高精度的segmentation map；<br>第二，CNN输出层的 fully connected 3D CRF（附加正则项）提供最终的分割标签。</p>
+<p>模型的主要流程如下图：<br><img src="https://ibb.co/b6WmEF" alt="3"></p>
+<h3 id="2-1-3D-CNN-for-dense-segmentation-–-setting-the-baseline"><a href="#2-1-3D-CNN-for-dense-segmentation-–-setting-the-baseline" class="headerlink" title="2.1 3D CNN for dense segmentation – setting the baseline"></a>2.1 3D CNN for dense segmentation – setting the baseline</h3><p>dense interface technique for training.<br><img src="https://ibb.co/cphF8a" alt="4"><br>这张图显示了对于不同尺寸的损伤需要用不同尺度的卷积来处理才能减少误判的可能性。</p>
+<h3 id="2-2-Dense-training-on-image-segments-and-class-balance"><a href="#2-2-Dense-training-on-image-segments-and-class-balance" class="headerlink" title="2.2 Dense training on image segments and class balance."></a>2.2 Dense training on image segments and class balance.</h3><p>batch_size 的大小应该尽可能大一些，因为这样可以更加接近数据集的真实分布。</p>
+<h3 id="2-3-Building-deep-networks"><a href="#2-3-Building-deep-networks" class="headerlink" title="2.3 Building deep networks"></a>2.3 Building deep networks</h3><h3 id="2-4-Multi-scale-processing-via-parallel-convolutional-pathways"><a href="#2-4-Multi-scale-processing-via-parallel-convolutional-pathways" class="headerlink" title="2.4 Multi-scale processing via parallel convolutional pathways"></a>2.4 Multi-scale processing via parallel convolutional pathways</h3><h3 id="2-5-3D-Fully-connected-CRF-for-structured-prediction"><a href="#2-5-3D-Fully-connected-CRF-for-structured-prediction" class="headerlink" title="2.5 3D Fully connected CRF for structured prediction"></a>2.5 3D Fully connected CRF for structured prediction</h3><h2 id="3-Analysis-of-network-architecture"><a href="#3-Analysis-of-network-architecture" class="headerlink" title="3. Analysis of network architecture"></a>3. Analysis of network architecture</h2><p>在这部分中进行了一系列试验分析怎样做成了这样一个11层的3D多尺度神经网络。<br>讨论了dense training scheme的益处，然后探讨了更深的模型的使用。<br>最后，我们讨论了我们的3D模型和2D模型</p>
+<h3 id="3-1-Experimental-setting"><a href="#3-1-Experimental-setting" class="headerlink" title="3.1 Experimental setting"></a>3.1 Experimental setting</h3><p>61 multi-channel MRIs，将样本进行随机分开成validation and training dataset. with 15 and 46 images.</p>
+<h3 id="3-2-Effect-of-dense-training-on-image-segments"><a href="#3-2-Effect-of-dense-training-on-image-segments" class="headerlink" title="3.2 Effect of dense training on image segments"></a>3.2 Effect of dense training on image segments</h3><p>有两种方案：<br>第一种从brain region 中均匀的提取patch。<br>第二种从lesion和background中等量提取。<br>结果显示，第二种方案不好，因为存在过分割问题。</p>
+<h3 id="3-3-Effect-of-deeper-networks"><a href="#3-3-Effect-of-deeper-networks" class="headerlink" title="3.3 Effect of deeper networks"></a>3.3 Effect of deeper networks</h3><h3 id="3-4-Effect-of-multi-scale-dual-pathway"><a href="#3-4-Effect-of-multi-scale-dual-pathway" class="headerlink" title="3.4 Effect of multi-scale dual pathway"></a>3.4 Effect of multi-scale dual pathway</h3><p>The final version of the proposed network architechture, is build by extending the DEEP+ model with a second convolutional pathway. <strong>Two</strong> hidden layers are added for combining the multi-scale feature before the classification layer. 11 layers.</p>
+<h3 id="3-5-Processing-3D-in-comparison-to-2D-context"><a href="#3-5-Processing-3D-in-comparison-to-2D-context" class="headerlink" title="3.5 Processing 3D in comparison to 2D context"></a>3.5 Processing 3D in comparison to 2D context</h3><h2 id="4-Evaluation-on-clinical-data"><a href="#4-Evaluation-on-clinical-data" class="headerlink" title="4. Evaluation on clinical data"></a>4. Evaluation on clinical data</h2><h3 id="4-1-Traumatic-brain-injuries"><a href="#4-1-Traumatic-brain-injuries" class="headerlink" title="4.1 Traumatic brain injuries"></a>4.1 Traumatic brain injuries</h3><h4 id="4-1-1-Material-and-pre-processing"><a href="#4-1-1-Material-and-pre-processing" class="headerlink" title="4.1.1 Material and pre-processing"></a>4.1.1 Material and pre-processing</h4><p>66 patients</p>
+<h3 id="4-1-2-Experimental-setting"><a href="#4-1-2-Experimental-setting" class="headerlink" title="4.1.2 Experimental setting"></a>4.1.2 Experimental setting</h3><h3 id="4-1-3-Results"><a href="#4-1-3-Results" class="headerlink" title="4.1.3 Results"></a>4.1.3 Results</h3><h3 id="4-4-Implementation-details"><a href="#4-4-Implementation-details" class="headerlink" title="4.4 Implementation details"></a>4.4 Implementation details</h3><h2 id="5-Discussion-and-conclusion"><a href="#5-Discussion-and-conclusion" class="headerlink" title="5. Discussion and conclusion"></a>5. Discussion and conclusion</h2><p>The proposed 3D CNN model not only computationally efficient but also offers an adaptive way of partically alleviating the inherent class-imbalance of 分割任务。</p>
+<p>Our system achieved the highest reported accuracy on a cohort of patients with severe TBI.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/08/30/tensorflow/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Wizard">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Wizard's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Wizard's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/30/tensorflow/" itemprop="url">
+                  Tensorflow Notes（to be continued）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-30T11:36:52+08:00">
+                2017-08-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skills/" itemprop="url" rel="index">
+                    <span itemprop="name">skills</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/30/tensorflow/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/30/tensorflow/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="tf"><a href="#tf" class="headerlink" title="tf"></a><a href="https://www.tensorflow.org/api_docs/python/" target="_blank" rel="external">tf</a></h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/30/tensorflow/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/08/30/python_commands/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -321,7 +657,7 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-30T10:10:49+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-30T11:18:03+08:00">
                 2017-08-30
               </time>
             
@@ -1513,322 +1849,6 @@ conda update conda  # 更新anaconda
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/08/29/paper_notes_10/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Wizard">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Wizard's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Wizard's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/29/paper_notes_10/" itemprop="url">
-                  论文笔记系列之十：Dermatologist-level classification of skin cancer with deep neural networks（Nature，2017）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-29T11:09:50+08:00">
-                2017-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/papers/" itemprop="url" rel="index">
-                    <span itemprop="name">papers</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/08/29/paper_notes_10/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/29/paper_notes_10/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="https://www.ncbi.nlm.nih.gov/pubmed/28117445" target="_blank" rel="external">原文链接</a></p>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Background: skin cancer is primarily diagnosed visually.<br>Idea: classification of skin lesions using a single CNN, end-to-end<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/29/paper_notes_10/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/08/29/paper_notes_8/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Wizard">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Wizard's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Wizard's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/29/paper_notes_8/" itemprop="url">
-                  论文笔记系列之八：Single subject prediction of brain disorders in neuroimaging__Promises and pitfalls（NeuroImage，2017）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-29T11:09:50+08:00">
-                2017-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/papers/" itemprop="url" rel="index">
-                    <span itemprop="name">papers</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/08/29/paper_notes_8/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/29/paper_notes_8/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>推荐这篇文章给那些想将机器学习方法应用到神经影像数据的朋友。文章涵盖面很广，是一篇很好的文章。</p>
-<p><a href="https://www.ncbi.nlm.nih.gov/pubmed/27012503" target="_blank" rel="external">原文地址</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/29/paper_notes_8/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1876,7 +1896,7 @@ conda update conda  # 更新anaconda
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
