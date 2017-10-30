@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="为什么想到要用git呢？我们经常会遇到这样的问题：在1月1号写了一批程序，1月2号出于某种原因修改了其中一部分并保存，到了3号的时候我突然又想测试一下1号写的程序的性能，这时候我可能找不到1号写的程序了。Git就是解决了这个版本管理的问题。下面是我常用到的git命令，作为参考。">
+<meta name="description" content="Q：tensorflow 不能用 tensorboard 报出 “address is in use” 怎么解决？A：using ps aux | grep tensorboard and kill are the ways I would do it">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git basic commands">
-<meta property="og:url" content="https://wizardyan.github.io/2017/08/29/Git commands/index.html">
+<meta property="og:title" content="工作中的代码总结">
+<meta property="og:url" content="https://wizardyan.github.io/2017/09/15/linux_commands/index.html">
 <meta property="og:site_name" content="Wizard&#39;s blog">
-<meta property="og:description" content="为什么想到要用git呢？我们经常会遇到这样的问题：在1月1号写了一批程序，1月2号出于某种原因修改了其中一部分并保存，到了3号的时候我突然又想测试一下1号写的程序的性能，这时候我可能找不到1号写的程序了。Git就是解决了这个版本管理的问题。下面是我常用到的git命令，作为参考。">
-<meta property="og:updated_time" content="2017-08-29T03:09:50.677Z">
+<meta property="og:description" content="Q：tensorflow 不能用 tensorboard 报出 “address is in use” 怎么解决？A：using ps aux | grep tensorboard and kill are the ways I would do it">
+<meta property="og:updated_time" content="2017-09-15T14:12:31.213Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git basic commands">
-<meta name="twitter:description" content="为什么想到要用git呢？我们经常会遇到这样的问题：在1月1号写了一批程序，1月2号出于某种原因修改了其中一部分并保存，到了3号的时候我突然又想测试一下1号写的程序的性能，这时候我可能找不到1号写的程序了。Git就是解决了这个版本管理的问题。下面是我常用到的git命令，作为参考。">
+<meta name="twitter:title" content="工作中的代码总结">
+<meta name="twitter:description" content="Q：tensorflow 不能用 tensorboard 报出 “address is in use” 怎么解决？A：using ps aux | grep tensorboard and kill are the ways I would do it">
 
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="https://wizardyan.github.io/2017/08/29/Git commands/"/>
+  <link rel="canonical" href="https://wizardyan.github.io/2017/09/15/linux_commands/"/>
 
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <title> Git basic commands | Wizard's blog </title>
+  <title> 工作中的代码总结 | Wizard's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -278,7 +278,7 @@ tpwidget("show");</script>
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/08/29/Git commands/">
+  <link itemprop="mainEntityOfPage" href="https://wizardyan.github.io/2017/09/15/linux_commands/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Wizard">
@@ -302,7 +302,7 @@ tpwidget("show");</script>
             
             
               
-                Git basic commands
+                工作中的代码总结
               
             
           </h1>
@@ -317,8 +317,8 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-29T11:09:50+08:00">
-                2017-08-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-15T22:12:31+08:00">
+                2017-09-15
               </time>
             
 
@@ -358,8 +358,8 @@ tpwidget("show");</script>
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/08/29/Git commands/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/29/Git commands/" itemprop="commentCount"></span>
+                <a href="/2017/09/15/linux_commands/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/15/linux_commands/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -385,35 +385,12 @@ tpwidget("show");</script>
       
 
       
-        <p>为什么想到要用git呢？<br>我们经常会遇到这样的问题：在1月1号写了一批程序，1月2号出于某种原因修改了其中一部分并保存，到了3号的时候我突然又想测试一下1号写的程序的性能，这时候我可能找不到1号写的程序了。Git就是解决了这个版本管理的问题。<br>下面是我常用到的git命令，作为参考。<br><a id="more"></a></p>
-<h2 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h2><pre><code>touch 1.py
-</code></pre><h2 id="添加到库"><a href="#添加到库" class="headerlink" title="添加到库"></a>添加到库</h2><pre><code>git add 1.py  此命令只添加 1.py到库
-git add .  此命令添加该文件夹下所有的文件入库
-</code></pre><h2 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h2><pre><code>git status
-git status -s  缩略版
-</code></pre><h2 id="添加-commit-并保存"><a href="#添加-commit-并保存" class="headerlink" title="添加 commit 并保存"></a>添加 commit 并保存</h2><pre><code>git commit -m &quot;create 1.py&quot;  为本次修改添加 commit
-</code></pre><h2 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h2><pre><code>git log
-git log --oneline 用一行显示 log
-</code></pre><h2 id="查看修改（不常用）"><a href="#查看修改（不常用）" class="headerlink" title="查看修改（不常用）"></a>查看修改（不常用）</h2><pre><code>git diff
-git diff --cached
-</code></pre><h2 id="恢复版本"><a href="#恢复版本" class="headerlink" title="恢复版本"></a>恢复版本</h2><pre><code>git reset --hard HEAD
-git reset --hard HEAD^
-git reset --hard HEAD^^
-git reset --hard HEAD~100 恢复之前100版本
-git reset --hard  ID号
-git reflog
-git reset -- b8cf20c
-git reset --HEAD@{2}
-</code></pre><h2 id="检查分支"><a href="#检查分支" class="headerlink" title="检查分支"></a>检查分支</h2><pre><code>git checkout
-</code></pre><h2 id="新建分支"><a href="#新建分支" class="headerlink" title="新建分支"></a>新建分支</h2><pre><code>git branch dev  新建分支
-git checkout -b dev 新建并移动到分支上
-git branch
-</code></pre><p>git checkout dev<br>git checkout master<br>git branch -d dev 删除分支</p>
-<h2 id="merge分支（注意：要在master上才能merge）"><a href="#merge分支（注意：要在master上才能merge）" class="headerlink" title="merge分支（注意：要在master上才能merge）"></a>merge分支（注意：要在master上才能merge）</h2><pre><code>git merge --no-ff -m &quot;keep merge info&quot; dev
-</code></pre><h2 id="github-版本管理"><a href="#github-版本管理" class="headerlink" title="github 版本管理"></a>github 版本管理</h2><pre><code>git push -u origin master
-</code></pre><h2 id="删除敏感文件"><a href="#删除敏感文件" class="headerlink" title="删除敏感文件"></a>删除敏感文件</h2><p>如果不小心把密码什么的传到github上了，就需要用到删除命令</p>
-<pre><code>git filter-branch --force --index-filter &apos;git rm --cached --ignore-unmatch path-of-remove-file&apos; --prune-empty --tag-name-filter cat -- --all
-</code></pre><p>我用git时间也不长，所以只是列出了一些常用的命令，随着体会的加深会再完善这个文档。git的功能还是博大精深的，小伙伴们可以参考<a href="https://morvanzhou.github.io/tutorials/others/git/" target="_blank" rel="external">莫凡的git视频教程</a><br><!--more--></p>
+        <p>Q：tensorflow 不能用 tensorboard 报出 “address is in use” 怎么解决？<br>A：using <code>ps aux | grep tensorboard</code> and <code>kill</code> are the ways I would do it<br><a id="more"></a></p>
+<p>Q: Linux环境下怎么运行cuda程序？<br>A:<br>获取硬件平台设备属性 <code>CPU properties：cat /proc/cpuinfo</code><br>Memory properties: <code>cat /proc/meminfo</code><br>GPUproperties: <code>nvcc devicepro.cu</code>   <code>./a.out</code></p>
+<p>Q: Linux下编译cuda程序<br>A: 可以编译有图形界面的程序<br><code>nvcc julia_gpu.cu -lglut -lGLU -lGL</code></p>
+<p>Q：如何显示文件夹的大小？<br>    du -h 目录名    #显示该目录的大小<br>    如 [root@localhost ~]# du -h /tmp<br>    1.6M    /tmp<br>Q: 在不知道搜哪个手册的情况下如何使用man命令？<br>A:<br>    $ man -k password #这个就是查找关于password的命令</p>
+<p>Q: How to clone codes from github respository?<br>A: git clone <a href="https://github.com/your-username/your-repository" target="_blank" rel="external">https://github.com/your-username/your-repository</a></p>
+<p>Q: How to list trees in Linux?<br>A: ls -R</p>
 
       
     </div>
@@ -444,8 +421,8 @@ git branch
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/29/AI_Brain_continue_learning/" rel="next" title="人工智能模拟大脑实现连续学习">
-                <i class="fa fa-chevron-left"></i> 人工智能模拟大脑实现连续学习
+              <a href="/2017/09/13/paper_notes_16/" rel="next" title="论文笔记系列之十六：Efficient multi-scale 3D CNN with fully connected CRF for accurate brain lesion segmentation">
+                <i class="fa fa-chevron-left"></i> 论文笔记系列之十六：Efficient multi-scale 3D CNN with fully connected CRF for accurate brain lesion segmentation
               </a>
             
           </div>
@@ -454,8 +431,8 @@ git branch
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/29/Deep learning tutorial/" rel="prev" title="Deep learning （最近更新2017-08-29）">
-                Deep learning （最近更新2017-08-29） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/31/blog_changed_notice/" rel="prev" title="博客搬家通告">
+                博客搬家通告 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -482,8 +459,8 @@ git branch
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/08/29/Git commands/"
-           data-title="Git basic commands" data-url="https://wizardyan.github.io/2017/08/29/Git commands/">
+      <div class="ds-thread" data-thread-key="2017/09/15/linux_commands/"
+           data-title="工作中的代码总结" data-url="https://wizardyan.github.io/2017/09/15/linux_commands/">
       </div>
     
   </div>
@@ -507,17 +484,8 @@ git branch
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://a3.qpic.cn/psb?/V10faeBQ4J6Ri8/pjTLtX2ZmnmTVCUn0.R.Gw1ikBt6vuRmW.a.ieeMD6Y!/b/dB8BAAAAAAAA&bo=VAOAAgAAAAAFB*E!&rf=viewer_4"
@@ -584,22 +552,6 @@ git branch
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建文件"><span class="nav-number">1.</span> <span class="nav-text">创建文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加到库"><span class="nav-number">2.</span> <span class="nav-text">添加到库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看状态"><span class="nav-number">3.</span> <span class="nav-text">查看状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-commit-并保存"><span class="nav-number">4.</span> <span class="nav-text">添加 commit 并保存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看日志"><span class="nav-number">5.</span> <span class="nav-text">查看日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看修改（不常用）"><span class="nav-number">6.</span> <span class="nav-text">查看修改（不常用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恢复版本"><span class="nav-number">7.</span> <span class="nav-text">恢复版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查分支"><span class="nav-number">8.</span> <span class="nav-text">检查分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建分支"><span class="nav-number">9.</span> <span class="nav-text">新建分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#merge分支（注意：要在master上才能merge）"><span class="nav-number">10.</span> <span class="nav-text">merge分支（注意：要在master上才能merge）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github-版本管理"><span class="nav-number">11.</span> <span class="nav-text">github 版本管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除敏感文件"><span class="nav-number">12.</span> <span class="nav-text">删除敏感文件</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
